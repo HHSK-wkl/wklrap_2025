@@ -54,3 +54,29 @@ typography:
     weight: 900
   link:
     color: oranje
+
+defaults:
+  bootstrap:
+    # uses: <string>
+    # functions: <string>
+    # mixins: <string>
+    rules: |
+      .oranje{
+      color: $brand-oranje;
+      }
+      
+      .grijs{
+      color: $brand-grijs;
+      }
+      
+      .blauw{
+      color: $brand-blauw;
+      }
+      
+      .donkerblauw{
+      color: $brand-donkerblauw;
+      }
+      
+      .footnotes{
+      font-size: 0.8em;
+      }
