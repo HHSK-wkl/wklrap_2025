@@ -1,0 +1,25 @@
+/*-- scss:defaults --*/
+
+$donkerblauw: #293173;
+$blauw: #0067C6;
+$oranje: #F9651F;
+$lichterblauw: #D2EBEE;
+$lichtergroen: #E7F0C0;
+
+$body-bg: $lichtergroen;
+$body-color: $blauw;
+$link-color: $oranje;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap');
+
+$font-family-sans-serif: 'Ruda', sans-serif;
+$presentation-heading-font: 'Ruda', serif;
+$presentation-heading-font-weight: 800;
+$presentation-heading-color: $donkerblauw;
+
+/*-- scss:rules --*/
+
+.reveal .slide-logo {
+  max-height: 7% !important;
+}
