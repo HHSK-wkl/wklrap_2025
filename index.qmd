@@ -1,0 +1,62 @@
+---
+params: 
+  rap_jaar: 2025
+lightbox: false
+# abstract-title: "Introductie"
+# abstract: "TESt"
+---
+
+![](images/vier_watergangen_jdr.jpg){fig-alt="Vier typen gebieden met een watergang"}
+
+[**Document nog bijwerken en nalopen**]{.oranje}
+
+# Inleiding {.unnumbered}
+
+*"Wat is de waterkwaliteit in het gebied van het waterschap?"* Dat is een vraag met veel mogelijke antwoorden. Deze waterkwaliteitsrapportage geeft een inkijkje in hoe de waterkwaliteit ervoor staat.
+
+De waterkwaliteit heeft te maken met de planten en dieren die in het water leven. Een goede waterkwaliteit betekent dat er allerlei verschillende planten en dieren voorkomen die hier van nature thuis horen. 
+Waterkwaliteit heeft ook te maken met de chemische stoffen in het water. Sommige van die stoffen komen van nature voor in het water en andere juist niet. Een goede waterkwaliteit betekent zo min mogelijk onnatuurlijke stoffen in het water; en de hoeveelheid natuurlijke stoffen moet passen bij de aard van het gebied.
+Goede waterkwaliteit betekent ook dat de kwaliteit van water past bij waar het voor gebruikt wordt. 
+
+De waterkwaliteit in het gebied van het hoogheemraadschap van Schieland en de Krimpenerwaard wordt voortdurend onderzocht. Op basis van dat onderzoek maakt het waterschap jaarlijks deze rapportage over de waterkwaliteit. De rapportage beschrijft de toestand van de waterkwaliteit en in welke mate waterkwaliteitsdoelen worden bereikt. Deze rapportage is bedoeld voor burgers, bedrijven en bestuurders.
+
+## Wat vind je in deze rapportage?
+
+### Actuele toestand en doelen
+
+[Hoofdstuk @sec-toestand]\
+Waterplanten hebben een sleutelrol voor het onderwaterleven. In dit hoofdstuk is te lezen dat er in de Krimpenerwaard steeds minder wateren met onderwaterplanten zijn. Dit komt door de opmars van de Amerikaanse rivierkreeften.
+
+[Hoofdstuk @sec-krw]\
+Het waterschap werkt, samen met andere partijen, aan de verbetering van de waterkwaliteit om ecologische doelen te bereiken. In dit hoofdstuk is te lezen in hoeverre de doelen voor de KRW-waterlichamen worden bereikt. De boezems en plassen voldoen grotendeels al aan de doelen. In de waterlichamen die bestaan uit sloten en kanalen is vooral nog verbetering nodig voor de waterplanten en de kleine waterbeestjes. Ook beschrijft dit hoofdstuk in hoeverre de doelen in andere wateren al worden bereikt.
+
+[Hoofdstuk @sec-zwemwater]\
+Zwemmen is een belangrijke recreatieve functie van het water. In dit hoofdstuk is te lezen over de kwaliteit van het zwemwater. De zwemwaterkwaliteit voldoet op officiële zwemlocaties aan de norm uit de Europese zwemwaterrichtlijn. Wel zijn er op diverse locaties af en toe problemen als gevolg van blauwalgen en zwemmersjeuk.
+
+
+
+### Stoffen in het water
+
+[Hoofdstuk @sec-nutrienten]\
+De voedingsstoffen *fosfaat en stikstof* bepalen hoe snel waterplanten, kroos en algen kunnen groeien. Vaak zorgen teveel voedingsstoffen voor een slechte waterkwaliteit. In dit hoofdstuk is te lezen dat de hoeveelheid fosfaat in het gebied langzaam maar zeker afneemt.
+
+[Hoofdstuk @sec-gbm]\
+*Gewasbeschermingsmiddelen of bestrijdingsmiddelen* worden in de landbouw gebruikt om gewassen te beschermen tegen ziektes en insecten. Deze stoffen kunnen schadelijk zijn voor het onderwaterleven. In dit hoofdstuk is te lezen dat er veel (90) bestrijdingsmiddelen in het water aanwezig zijn en dat 13 van deze stoffen de norm overschrijden. Met name in het glastuinbouwgebied zorgen deze stoffen voor schade aan het onderwaterleven.
+
+
+### En verder
+
+[Hoofdstuk @sec-meetnetten]\
+Om de waterkwaliteitsrapportage te maken moet er veel worden gemeten. Dit hoofdstuk geeft meer inzicht in de metingen die het waterschap uitvoert.
+
+Er is veel meer informatie over waterkwaliteit dan in deze rapportage opgenomen kan worden. In het hoofdstuk [Meer informatie](#meer_info) zijn een aantal verwijzingen opgenomen naar bronnen met meer gegevens en informatie over waterkwaliteit.
+
+Deze rapportage is voor een belangrijk deel automatisch opgebouwd uit data en computercode. De data en code zijn beschikbaar via [Github - Waterkwaliteitsrapportage 2024](https://github.com/HHSK-wkl/wklrap_2024).
+
+<br>
+
+Vragen over deze rapportage kunt u sturen naar rapportage_waterkwaliteit\@hhsk.nl
+
+<br>
+
+![*Tekeningen: Jasper de Ruiter, Tringa paintings*](images/zomer_veenweide_full_colour_800px.jpg){fig-alt="Een watergang in agrarisch gebied"}
