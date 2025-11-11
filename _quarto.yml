@@ -7,9 +7,6 @@ book:
   title: "Rapportage waterkwaliteit 2025"
   sidebar:
     title: "Rapportage waterkwaliteit 2025"
-  # cover-image: "images/zomer_veenweide_full_colour_800px.jpg"
-  # sidebar: 
-  #   logo: "images/logo_hhsk.png"
   page-footer: 
     center: 
       "![](images/schonevoeten.png){width=50%}"
@@ -19,7 +16,6 @@ book:
   # abstract-title: "Introductie"
   # abstract: ""
   search: true
-  # author: "Jane Doe"
   date: today
   chapters:
     - "index.qmd"
@@ -37,7 +33,7 @@ format:
       - cosmo
       - "css/styles_wklrap.scss"
       - brand
-    fig-format: svg
+    # fig-format: svg
     # cap-location: margin
     reference-location: document
 brand: "_extensions/HHSK-wkl/brand_hhsk/brand/_brand.yml"
@@ -58,6 +54,3 @@ execute:
   echo: false
   warning: false
   message: false
-# code-tools: true
-# filters:
-#    - lightbox
