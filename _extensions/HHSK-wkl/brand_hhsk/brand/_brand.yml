@@ -24,8 +24,13 @@ color:
     lichtergrijs: "#E0E0E0" # 88%
     lichtergroen: "#E7F0C0" # 85%
     tekstgrijs: "#222222"   # 13%
-  background: wit
-  foreground: tekstgrijs # main text color
+    achtergrondblauw: "#141838" # 15% #"#1b204b" 20%
+  foreground: 
+    light: tekstgrijs # main text color
+    dark:  lichterblauw
+  background: 
+    light: wit
+    dark:  achtergrondblauw
   primary: blauw
   secondary: lichtgrijs
   tertiary: oranje
@@ -35,12 +40,25 @@ logo:
     logo-hhsk: 
       path: logo_kleur.png
       alt: "Logo van Hoogheemraadschap van Schieland en de Krimpenerwaard"
+    logo-hhsk-small: 
+      path: logo_kleur_48px.png
+      alt: "Logo van Hoogheemraadschap van Schieland en de Krimpenerwaard"
     logo-hhsk-wit: 
       path: logo_wit.png
       alt: "Logo van Hoogheemraadschap van Schieland en de Krimpenerwaard in wit"
-  small: logo-hhsk
-  medium: logo-hhsk
-  large: logo-hhsk
+    logo-hhsk-wit-small: 
+      path: logo_wit_48px.png
+      alt: "Logo van Hoogheemraadschap van Schieland en de Krimpenerwaard in wit"
+    favicon: "favicon.svg"
+  small: 
+    light: logo-hhsk-small
+    dark:  logo-hhsk-wit-small
+  medium: 
+    light: logo-hhsk
+    dark:  logo-hhsk-wit
+  large: 
+    light: logo-hhsk
+    dark:  logo-hhsk-wit
 
 typography:
   fonts:
@@ -50,13 +68,20 @@ typography:
   # base: Ruda
   headings: 
     family: Ruda
-    color: donkerblauw
+    color: 
+      light: donkerblauw
+      dark:  lichtblauw
     weight: 900
   link:
-    color: oranje
+    color: 
+      light: oranje
+      dark: lichtoranje
 
 defaults:
   bootstrap:
+    defaults:
+      callout-color-note: $brand-blauw
+    #  callout-color-tip: $brand-groen
     # uses: <string>
     # functions: <string>
     # mixins: <string>
@@ -80,3 +105,12 @@ defaults:
       .footnotes{
       font-size: 0.8em;
       }
+      
+      .quarto-figure .leaflet{
+      text-align: left;
+      }
+      
+      .navbar-title{
+      font-family: Ruda;
+      }
+      
