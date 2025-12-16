@@ -1,0 +1,110 @@
+# PFAS {#sec-pfas}
+
+---
+lightbox: auto
+---
+
+```{r}
+#| label: "code-pfas"
+#| file: "R/code_pfas.R"
+#| include: false
+#| cache: FALSE
+
+```
+
+::: samenvatting
+|                                          |                                                                                                                                     |
+|---|------------------------------------------------------------|
+| [{{< fa circle-exclamation >}}]{.oranje} | Overal in het gebied zijn PFAS-stoffen aanwezig.                                                                                    |
+| [{{< fa circle-exclamation >}}]{.oranje} | Voor PFAS heeft het RIVM risicogrenzen voorgesteld. Deze risicogrenzen worden overal overschreden, variërend van 800 tot 600.000 keer de risicogrens |
+| [{{< fa circle-exclamation >}}]{.oranje} | PFAS leidt in het Kralings Zwembad tot gezondheidsrisico's voor zwemmers.                                                           |
+
+::: aside
+![](images%5Cvince_sad2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een verdrietig kijkende vis"}
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Introductie {.unnumbered}
+
+*Wat zijn PFAS?*\
+PFAS is de afkorting voor Per- en polyfluoralkylstoffen: dat wil zeggen dat het gaat om een groep stoffen die (hoofdzakelijk) bestaan uit ketens van koolstofatomen met daaraan een groot aantal fluor-atomen. Door deze samenstelling hebben veel PFAS-stoffen bijzondere eigenschappen zoals de eigenschap dat ze water, vet en vuil afstoten. Daarom worden deze stoffen voor allerlei doelen gebruikt: bijvoorbeeld als anti-aanbaklaag in pannen of in spray om kleding en schoenen te impregneren.
+
+*Problemen met PFAS*\
+PFAS-stoffen hebben ook een aantal vervelende eigenschappen. Ten eerste breken PFAS-stoffen vrijwel niet af en blijven daardoor in de leefomgeving aanwezig. Ten tweede hopen PFAS-stoffen zich in de voedselketen op waardoor bijvoorbeeld veel PFAS in vissen terecht komt (bio-accumulatie). Tot slot blijkt uit recente onderzoeken steeds duidelijker dat PFAS-stoffen al in hele lage concentraties schadelijk zijn voor de gezondheid. Op basis van deze inzichten heeft het RIVM nieuwe risicogrenswaarden[^07-pfas-1] afgeleid. Deze nieuwe risicogrenzen zijn veel lager dan de bestaande normen.
+
+[^07-pfas-1]: De nieuwe risicogrenzen zijn advieswaarden. Het ministerie van Infrastructuur en Waterstaat kan mede op basis van dit onderzoek besluiten of de waterkwaliteitsnormen voor PFAS worden aangepast.\
+    [Risicogrenzen voor PFAS in oppervlaktewater (rivm.nl)](https://www.rivm.nl/bibliotheek/rapporten/2022-0074.pdf)
+
+*Situatie bij HHSK*\
+Recent is gebleken dat de bodem en het water op veel plaatsen in Nederland is verontreinigd met PFAS-stoffen. Daarom heeft het waterschap onderzoek gedaan om een beeld te krijgen van de situatie in het gebied van Schieland en de Krimpenerwaard.
+
+Het beeld dat uit het onderzoek komt is niet positief:
+
+-   PFAS-stoffen blijken overal in het gebied aanwezig te zijn;
+-   de nieuwe risicogrenswaarden worden honderden tot duizenden keren overschreden;
+-   in het Kralings Zwembad is er zoveel PFAS dat de provincie hier een negatief zwemadvies heeft ingesteld.
+
+Hieronder wordt situatie bij HHSK verder toegelicht.
+
+{{< pagebreak >}}
+
+### Aanwezigheid PFAS {.unnumbered}
+
+Voor het onderzoek naar de aanwezigheid van PFAS is in eerste instantie in elk KRW-waterlichaam een monster genomen. In aanvulling daarop is er extra gemeten op zwemlocaties en rond plaatsen met hoge PFAS-concentraties.
+
+De resultaten van de metingen zijn weergegeven op de kaart (@fig-kaart-pfoa_eq ). Voor de kaart zijn alle afzonderlijke PFAS-stoffen omgerekend naar PFOA-equivalenten.[^07-pfas-2]
+
+[^07-pfas-2]: Er is een groot aantal verschillende PFAS-stoffen. Al deze stoffen hebben verschillende eigenschappen zoals verschillende schadelijkheid en en mate van ophoping (bio-accumulatie). Om deze stoffen toch met elkaar te kunnen vergelijken of bij elkaar op te kunnen tellen worden ze allemaal omgerekend naar PFOA (perfluoroctaanzuur). Dit worden PFOA-equivalenten genoemd.
+
+Uit de metingen blijkt dat overal PFAS-stoffen in het water aanwezig zijn. In elk monster dat is onderzocht zijn 15 tot 25 verschillende PFAS-stoffen aangetroffen. De PFAS-concentraties zijn het laagst in wateren waar weinig water wordt ingelaten zoals de Eendragtspolder en de Zevenhuizerplas. In Schieland zit er meer PFAS in het water dan in de Krimpenerwaard. Op enkele plekken in Schieland zijn zeer hoge concentraties PFAS gevonden.
+
+```{r}
+#| label: fig-kaart-pfoa_eq
+#| fig-cap: "Hoeveelheid aangetroffen PFAS uitgedrukt in PFOA-equivalenten."
+#| out-width: "100%"
+kaart_pfoa_eq
+```
+
+### Overschrijdingen PFAS {.unnumbered}
+
+De meeste PFAS-stoffen hebben op dit moment nog geen normen. De normen die er wel zijn, zijn waarschijnlijk te hoog en dus niet streng genoeg. Het RIVM heeft eind 2022 voor een aantal PFAS-stoffen risicogrenswaarden voorgesteld. Deze risicogrenswaarden zijn gebaseerd op voedselveiligheid. *"De nieuwe risicogrenzen geven aan hoeveel PFAS in het water mogen zitten zodat mensen daar hun leven lang veilig vis uit kunnen eten."*
+
+In de praktijk blijkt de PFAS-concentratie overal ver boven de risicogrenzen uit te komen. Op de beste plekken is de PFAS-concentratie 800 tot 1000x hoger dan de risicogrenzen. Op de slechtste plekken is de hoeveelheid PFAS maar liefst 600.000 keer meer dan de risicogrenzen. In @fig-grenswaarden is van elk onderzocht monster de mate van overschrijding van de risicogrenswaarde weergegeven.
+
+::: column-body-outset
+```{r}
+#| label: fig-grenswaarden
+#| fig-cap: "De PFAS-concentraties uitgedrukt t.o.v. de van de risicogrenzen die zijn voorgesteld door het RIVM.<br>Voor de figuur zijn de overschrijdingsfactoren van de afzonderlijke PFAS-stoffen bij elkaar opgeteld."
+#| fig-alt: "De PFAS-concentraties uitgedrukt t.o.v. de van de risicogrenzen die zijn voorgesteld door het RIVM."
+#| fig-height: 2
+#| fig-width: 9
+#| fig-align: center
+#| lightbox:
+#|   group: pfas
+
+plot_grenswaarden
+
+```
+:::
+
+{{< pagebreak >}}
+
+### PFAS in zwemwater {.unnumbered}
+
+Voor het beoordelen van het risico van PFAS in zwemwater zijn nog geen normen beschikbaar. Het RIVM heeft op basis van waarden van de Europese Autoriteit voor Voedselveiligheid (EFSA) een aanpak ontwikkeld waarmee een indicatie gegeven kan worden van de risico's voor zwemmen. Hierbij wordt in diverse scenario's bekeken hoeveel PFAS een zwemmer binnen zou kunnen krijgen en hoe zich dat verhoudt tot de toelaatbare dagelijkse inname (TDI) van PFAS. Voor deze rapportage gebruiken we het meest gevoelige scenario voor kinderen.[^07-pfas-3] Volwassenen zijn iets minder gevoelig voor PFAS door hun grotere lichaamsgewicht.
+
+[^07-pfas-3]: Dit scenario gaat uit van een kind met een lichaamsgewicht van 15,7 kg dat 25 keer per jaar zwemt en per keer 0,17 l water binnen krijgt.
+
+Uit de metingen blijkt dat zwemmers in het Kralings Zwembad veel PFAS binnen kunnen krijgen. Zwemmers zouden hier alleen via zwemmen al meer dan de dagelijks toelaatbare inname aan PFAS binnen kunnen krijgen. De provincie heeft daarom op deze locatie een negatief zwemadvies ingesteld vanwege PFAS. Voor de andere zwemlocaties geldt dat de hoeveelheid PFAS die zwemmers binnen kunnen krijgen veel lager is.
+
+```{r}
+#| label: fig-zwem-pfas
+#| fig-cap: "Welk percentage van de toelaatbare dagelijkse inname voor PFAS kan een kind binnenkrijgen?"
+#| fig-alt: "Figuur met het percentage van de toelaatbare dagelijkse inname voor PFAS dat een kind kan binnenkrijgen op zwemlocaties."
+#| lightbox:
+#|   group: pfas
+plot_zwem_pfas
+
+```

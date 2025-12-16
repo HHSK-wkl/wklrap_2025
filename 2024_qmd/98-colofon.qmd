@@ -1,0 +1,37 @@
+# Colofon {#sec-colofon .unnumbered}
+
+```{r}
+#| include: false
+gemaakt_op <- format(Sys.time(), '%e %B %Y')
+
+```
+
+### Over deze rapportage
+
+Versie 1.0
+
+Deze rapportage is gemaakt op **`r gemaakt_op`**.
+
+Er wordt door HHSK jaarlijks een waterkwaliteitsrapportage gemaakt.
+
+Vragen over en reacties op deze rapportage kunt u sturen naar rapportage_waterkwaliteit\@hhsk.nl
+
+**Opgesteld door:**\
+Hoogheemraadschap van Schieland en de Krimpenerwaard</br>Afdeling Watersystemen
+
+### Figuren
+
+**Tekeningen voorzijde**\
+Jasper de Ruiter, Tringa paintings
+
+Foto met waterplanten in Hoofdstuk 1 - Willem Kolvoort
+
+### Code
+
+De code en data voor deze rapportage is te vinden op [Github - Waterkwaliteitsrapportage 2024](https://github.com/HHSK-wkl/wklrap_2024){target="_blank"}.
+
+### Printbare PDF-versie
+
+De waterkwaliteitsrapportage is bedoeld om digitaal te lezen via een internetbrowser. Voor het afdrukken is er een PDF-versie beschikbaar. In deze versie ontbreekt de interactiviteit en een nette opmaak.
+
+[PDF-versie Waterkwaliteitsrapportage 2024](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/wklrap_2024/waterkwaliteitsrapportage_2024_hhsk.pdf){target="_blank"}
