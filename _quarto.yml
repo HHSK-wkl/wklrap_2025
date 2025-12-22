@@ -16,7 +16,7 @@ website:
   
 book:
   title: "Rapportage waterkwaliteit 2025"
-  navbar: 
+  navbar:
     search: true
     tools:
       - icon: github
@@ -40,11 +40,14 @@ book:
   date: today
   chapters:
     - "index.qmd"
-    # - "2024_01-zichtbare-toestand.qmd"
-    # - "01-zichtbare-toestand.qmd"
+    - part: "Het Ecosysteem"
+      chapters: 
+        - "01-zichtbare-toestand.qmd"
+    - part: "Doelen en gebruik"
+    - part: "Stoffen"
     # - "02-krw.qmd"
     # - "03-zwemwater.qmd"
-    - "04-nutrienten.qmd"
+    # - "04-nutrienten.qmd"
     # - "05-bestrijdingsmiddelen.qmd"
     # - "06-meetnetten.qmd"
     # - "09-meer_info.qmd"
