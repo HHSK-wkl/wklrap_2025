@@ -7,6 +7,9 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 
 ::: samenvatting
+
+**Samenvatting Aanpassen** 
+
 |  |  |
 |------------|------------------------------------------------------------|
 | [{{< fa circle-down >}}]{.oranje} | Waterplanten zijn in de Krimpenerwaard op bijna alle plekken verdwenen. |
@@ -24,9 +27,6 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 Als je goed naar het water kijkt, dan kun je daarmee een eerste indruk krijgen van de waterkwaliteit. Is het water helder en groeien er waterplanten? Of is het water juist heel troebel of ligt er een dikke laag kroos op het water? Dat zegt allemaal iets over de waterkwaliteit. Een goede waterkwaliteit kun je vaak herkennen doordat het water dan helder is en er onder water planten groeien.
 
-**Aanpassen** In dit hoofdstuk wordt de toestand van de waterkwaliteit beschreven aan de hand van dingen die je in het water zou kunnen zien: namelijk waterplanten, kroos, rivierkreeften en blauwalgen.
-
-**lijstje** - kleur van het water, bruin water (kwel), helder, groen (blauwalg) - kreeften (defensief, braakbal, resten) - planten
 
 ### Helderheid en kleur {.unnumbered}
 
@@ -38,11 +38,11 @@ Als het water niet zo helder is, komt dat doordat er kleine deeltjes in het wate
 
 [**Bruin water**]{.donkerblauw} ([-@fig-bruin-water]) wordt meestal veroorzaakt doordat er veel slibdeeltjes in het water aanwezig zijn. Deze slibdeeltjes komen in het water door afstroming tijdens regenbuien of worden opgewerveld van de bodem, bijvoorbeeld door vissen die de bodem omwoelen. 
 
-[**Groen water**]{.donkerblauw} ([-@fig-groen-water]) wordt meestal veroorzaakt doordat er veel algen in het water aanwezig zijn. Dit is een teken dat er (te) veel voedingsstoffen[^01-zichtbare-toestand-1] in het water zitten. 
-
-[**Roestbruin water**]{.donkerblauw} ([-@fig-roestbruin-water]) heeft de kleur van ijzerroest en dat is ook precies wat je ziet. In sommige sloten grondwater omhoog (kwel) met daarin veel opgelost ijzer. Dit opgeloste ijzer gaat 'roesten' en daardoor krijgt dit water een roestkleur.
+[**Groen water**]{.donkerblauw} ([-@fig-groen-water]) wordt meestal veroorzaakt doordat er veel algen in het water aanwezig zijn. Groen water is een teken dat er (te) veel voedingsstoffen[^01-zichtbare-toestand-1] in het water zitten. 
 
 [^01-zichtbare-toestand-1]: Fosfaat en stikstof
+
+[**Roestbruin water**]{.donkerblauw} ([-@fig-roestbruin-water]) heeft de kleur van ijzerroest en dat is ook precies wat je ziet. In sommige sloten grondwater omhoog (kwel) met daarin veel opgelost ijzer. Dit opgeloste ijzer gaat 'roesten' en daardoor krijgt dit water een roestkleur.
 
 ::: {#fig-water-kleuren layout-ncol="3"}
 ![Bruin water (Rotterdam)](images/bruin-water2.jpg){#fig-bruin-water}
@@ -55,14 +55,13 @@ Water met verschillende kleuren
 :::
 
 
-
 ### Waterplanten {.unnumbered}
 
-Waterplanten zijn een belangrijk kenmerk voor de waterkwaliteit. De soorten en de hoeveelheid waterplanten zeggen allemaal iets over de omstandigheden. Waterplanten die onder water groeien laten bijvoorbeeld zien dat er onder water genoeg licht is om te groeien. Sommige planten, zoals de Gele plomp, hebben juist drijfbladeren zodat ze veel licht krijgen (@fig-gele-plomp). Een voedselrijke bodem leidt soms tot een heel grote hoeveelheid waterplanten (@fig-dichte-vegetatie).
+Waterplanten zijn een belangrijk kenmerk voor de waterkwaliteit. De soorten en de hoeveelheid waterplanten zeggen allemaal iets over de omstandigheden. Waterplanten die onder water groeien laten bijvoorbeeld zien dat er onder water genoeg licht is om te groeien. Sommige planten, zoals de Gele plomp, hebben juist drijfbladeren zodat ze veel licht krijgen ([-@fig-gele-plomp]). Een voedselrijke bodem leidt soms tot een heel grote hoeveelheid waterplanten ([-@fig-dichte-vegetatie]).
 
 Tegenwoordig zegt de aanwezigheid van waterplanten ook dat de Amerikaanse Rivierkreeften op die plek (nog) niet de overhand hebben gekregen.
 
-::: {#fig-water-kleuren layout-ncol="2"}
+::: {#fig-zichtbare-planten layout-ncol="2"}
 
 ![Gele plomp in de gracht (Schoonhoven)](images/gele-plomp-schoonhoven.jpg){#fig-gele-plomp}
 
@@ -74,12 +73,21 @@ Waterplanten in het gebied
 
 ### Kreeften {-}
 
-::: {#fig-water-kleuren layout-ncol="3"}
-![Kreeft op het land](images/kreeft-defensief.jpg){#fig-kreeft-defensief}
+Amerikaanse Rivierkreeften komen op veel plekken in het gebied voor. De Rode Amerikaanse Rivierkreeft laat zich soms ook op het land zien. Als ze zich bedreigd voelen steken ze hun scharen hoog in de lucht  ([-@fig-kreeft-defensief]). 
 
-![Braakbal met kreeftenresten](images/braakbal-kreeftenresten.jpg){#fig-braakbal-kreeft}
+Kreeften hebben diverse natuurlijke vijanden zoals roofvissen, futen, reigers en andere vogels. Het skelet van de kreeften is niet eetbaar en de overblijfselen kun je soms zien liggen in het water ([-@fig-kreeften-zwemstrand]). Vogels slikken de kreeften in hun geheel door. De onverteerbare resten  worden later weer uitgespuugd als braakbal ([-@fig-braakbal-kreeft]).
+
+
+::: {#fig-kreeftensporen layout-ncol="3"}
+![Kreeft op het land](images/kreeft-defensief.jpg){#fig-kreeft-defensief}
 
 ![Kreeftenpoten op het zwemstrand](images/kreeftenpoten-zwemstrand.jpg){#fig-kreeften-zwemstrand}
 
-Water met verschillende kleuren
+![Braakbal met kreeftenresten](images/braakbal-kreeftenresten.jpg){#fig-braakbal-kreeft}
+
+Kreeften
 :::
+
+### Meten is weten {-}
+
+Je kunt al een goede indruk krijgen van de waterkwaliteit krijgen door goed te kijken naar wat er te zien is. Om een goed beeld te krijgen van het hele gebied is er echter meer nodig. Daarom voert het waterschap jaarlijks veel metingen uit om de waterkwaliteit te volgen. In de volgende hoofdstukken laten we zien wat de metingen zeggen over de waterkwaliteit in het gebied.
