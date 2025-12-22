@@ -113,4 +113,9 @@ defaults:
       .navbar-title{
       font-family: Ruda;
       }
+         
+      .quarto-xref{
+        color: $brand-groen;
+      }
+      
       
