@@ -3,14 +3,17 @@ lightbox: auto
 description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2024. Dit hoofdstuk gaat over de algemene waterkwaliteitstoestand. Het gaat over de hoeveelheid waterplanten en kroos; over de invasieve exoot de Amerikaanse Rivierkreeft en over de aanwezigheid van blauwalgen"
 ---
 
-# Zichtbare waterkwaliteit {#sec-toestand}
+# Toestand van het ecosysteem {#sec-toestand}
 
 ```{r code-toestand-planten, cache = FALSE}
-#| file: "R/CODE_toestand-planten.R"
+#| file: "R/CODE_toestand-ecosysteem.R"
 #| include: false
 ```
 
 ::: samenvatting
+
+**Nog aanpassen**
+
 |                                          |                                                                                                      |
 |---|------------------------------------------------------------|
 | [{{< fa circle-down >}}]{.oranje}        | Waterplanten zijn in de Krimpenerwaard op bijna alle plekken verdwenen.                              |
@@ -22,15 +25,15 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 ------------------------------------------------------------------------
 
-### Waterkwaliteit is zichtbaar {.unnumbered}
+### Inleiding {.unnumbered}
 
 ::: aside
 ![](images/vince_sad2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een verdrietig kijkende vis"}
 :::
 
-Als je goed naar het water kijkt, dan kun je daarmee een eerste indruk krijgen van de waterkwaliteit. Is het water helder en groeien er waterplanten? Of is het water juist heel troebel of ligt er een dikke laag kroos op het water? Dat zegt allemaal iets over de waterkwaliteit. Een goede waterkwaliteit kun je vaak herkennen doordat het water dan helder is en er onder water planten groeien.
+**Aanpassen introdcutie - meer focus op metingen en minder overlap met voorgaande**
 
-In dit hoofdstuk wordt de toestand van de waterkwaliteit beschreven aan de hand van dingen die je in het water zou kunnen zien: namelijk waterplanten, kroos, rivierkreeften en blauwalgen.
+In dit hoofdstuk wordt de toestand van het ecosysteem beschreven aan de hand van waterplanten, kroos, rivierkreeften en blauwalgen.
 
 ### Waterplanten {.unnumbered}
 
@@ -46,6 +49,8 @@ In de Krimpenerwaard is het aantal locaties met planten onder water[^01-zichtbar
 
 In Schieland is er tussen jaren veel variatie in het aantal locaties met planten onder water. Het aantal locaties met waterplanten lijkt in de laatste 10 jaar wel wat af te nemen.
 
+::: column-body-outset
+
 ```{r plot-submers}
 #| label: fig-submers
 #| out-width: "100%"
@@ -56,11 +61,15 @@ In Schieland is er tussen jaren veel variatie in het aantal locaties met planten
 plot_submers
 ```
 
+:::
+
 Kroos[^01-zichtbare-toestand-2] kan hard groeien als er (te) veel voedingsstoffen in het water aanwezig zijn. Kroos drijft op het water en kan grote delen van het water afdekken. Hierdoor is er onvoldoende licht voor andere waterplanten en is er minder zuurstofuitwisseling met de lucht. Als een groot gedeelte van het water met kroos is begroeid heeft dat een negatieve invloed op het water leven. 
 
 Het aantal wateren met veel kroos is te zien in onderstaande figuur. Het aantal wateren met veel kroos varieert sterk van jaar tot jaar. In de Krimpenerwaard zijn er soms veel meer wateren met veel kroos dan in Schieland. In de laatste zes jaar is het aantal wateren met veel kroos in de Krimpenerwaard juist opvallend laag. De afwezigheid van kroos is positief, maar wordt in de Krimpenerwaard waarschijnlijk veroorzaakt door de grote hoeveelheid kreeften. 
 
 [^01-zichtbare-toestand-2]: Kroos bestaat uit kleine plantjes die los op het water drijven.
+
+::: column-body-outset
 
 ```{r}
 #| label: fig-kroos
@@ -71,6 +80,8 @@ Het aantal wateren met veel kroos is te zien in onderstaande figuur. Het aantal 
 #|   group: toestand
 plot_kroos
 ```
+
+:::
 
 {{< pagebreak >}}
 
@@ -90,13 +101,18 @@ Het waterschap doet sinds 2020 jaarlijks onderzoek naar de aanwezigheid van Amer
 
 {{< pagebreak >}}
 
+::: column-body-outset
+
 ```{r}
 #| label: fig-kaart-kreeften
 #| out-width: "100%"
+#| fig-height: 3.5
 #| fig-cap: "Op welke locaties zijn in {{< var rap_jaar >}} kreeften aangetroffen? (Interactief)"
 #| fig-alt: "Kaart met de locaties waar in {{< var rap_jaar >}} kreeften zijn aangetroffen."
 kaart_kreeften
 ```
+
+:::
 
 {{< pagebreak >}}
 
@@ -114,10 +130,15 @@ In {{< var rap_jaar >}} zijn er op veel plekken blauwalgen aangetroffen (zie @fi
 
 {{< pagebreak >}}
 
+::: column-body-outset
+
 ```{r}
 #| label: fig-kaart-blauwalgen
 #| out-width: "100%" 
+#| fig-height: 3.5
 #| fig-cap: "Op welke locaties waren er veel blauwalgen? De kaart is gemaakt op basis van de grootst gemeten hoeveelheid blauwalgen in {{< var rap_jaar >}}. De indeling is gemaakt op basis van de risicobeoordeling voor zwemwater. (interactief)"
 #| fig-alt: "Kaart met de locaties waarin {{< var rap_jaar >}} veel blauwalgen zijn aangetroffen."
 kaart_blauwalgen
 ```
+
+:::

@@ -1,7 +1,5 @@
-# source("R/CODE_setup_basis.R")
-
 # stop("Checken of alle planten ingedeeld zijn (submers etc...)")
-# gecheckt 31-12-2024
+# gecheckt 22-12-2025
 
 ## ---- libs ----
 
@@ -94,13 +92,19 @@ plot_submers <-
   geom_point(colour = blauw) +
   facet_wrap(~gebied, scales = "free_y") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.0)), limits = c(0, 85), labels = scales::label_percent(scale = 1)) +
-  scale_x_continuous(breaks = scales::breaks_width(2, 0), limits = c(NA, rap_jaar)) +
+  scale_x_continuous(breaks = scales::breaks_width(5, 0), limits = c(NA, rap_jaar)) +
   labs(title = "Wateren met planten onder water",
        subtitle = " ",
        y = "aandeel van alle wateren",
        x = "",
        caption = "locaties met tenminste 5% begroeiing") +
-  hhskthema()
+  hhskthema() +
+  theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        plot.title.position = "plot",
+        panel.grid.major.x = element_blank())
+
+#"#edf7f8" 95%
+#EDF5FF
 
 
 plot_kroos <-
@@ -115,7 +119,7 @@ plot_kroos <-
   geom_point(colour = blauw) +
   facet_wrap(~gebied, scales = "free_y") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.0)), limits = c(0, 50), labels = scales::label_percent(scale = 1)) +
-  scale_x_continuous(breaks = scales::breaks_width(2, 0), limits = c(NA, rap_jaar)) +
+  scale_x_continuous(breaks = scales::breaks_width(5, 0), limits = c(NA, rap_jaar)) +
   labs(title = "Wateren met veel kroos",
        subtitle = " ",
        y = "aandeel van alle wateren",
@@ -143,7 +147,7 @@ kaart_kreeften <-
   select(-contains("stadium")) %>%
   distinct() %>%
   filter(methode == "KR12", jaar == rap_jaar, taxatype == "MACEV") %>%
-  filter(naam != "Eriocheir sinensis") %>% 
+  filter(naam != "Eriocheir sinensis") %>% # Wolhandkrab
   mutate(waarde_totaal = round(waarde_totaal, digits = 0)) %>% 
   mutate(nednaam = f_nednaam(naam)) %>%
   mutate(tekst_b = glue("<b>{nednaam}:</b> {waarde_totaal}")) %>%
@@ -164,6 +168,67 @@ kaart_kreeften <-
                    popup = ~tekst, label = ~tekst_label) %>% 
   addLegend(colors = c(blauw, oranje), labels = c("Geen kreeften aanwezig", "Wel kreeften aanwezig"), opacity = 1) %>% 
   leaflet.extras::addFullscreenControl()
+
+
+
+# Figuren kreeften --------------------------------------------------------
+
+kreeften_tot <-
+  bio %>% 
+  filter(methode == "KR12",
+         taxatype == "MACEV") %>% 
+  select(-contains("stadium")) %>%
+  rename(waarde = waarde_totaal) %>% 
+  distinct() %>% 
+  filter(str_detect(naam, "Procambarus|Faxonius|Geen kreeften")) %>% # Uitsluiten Wolhandkrab
+  add_jaar() %>% 
+  group_by(mp, jaar) %>% 
+  summarise(n_kreeften = sum(waarde)) %>% 
+  ungroup() %>% 
+  mutate(gebied = f_gebied(mp)) 
+
+# plot_kreeften_aandeel_locs <- 
+  kreeften_tot %>% 
+  group_by(gebied, jaar) %>% 
+  summarise(n_locs = n_distinct(mp),
+            n_aangetroffen = sum(n_kreeften > 0),
+            frac_aangetroffen = n_aangetroffen / n_locs) %>% 
+  ggplot(aes(jaar, frac_aangetroffen)) +
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.1)), labels = scales::percent_format()) +
+  facet_wrap(~gebied, axes = "all") +
+  labs(title = "Kreeften breiden zich uit in Schieland",
+       subtitle = "Op welke deel van de locaties worden kreeften aangetroffen?",
+       x = "",
+       y = "% locaties met kreeften") +
+  theme(plot.title.position = "plot",
+        # axis.title.y = element_text(angle = 90),
+        panel.grid.major.x = element_blank(),
+        panel.spacing.x = unit(20, "points"),
+        plot.margin = margin_auto(10))
+
+# plot_kreeften_aantallen <- 
+  kreeften_tot %>% 
+  filter(n_kreeften > 0) %>% 
+  group_by(gebied, jaar) %>% 
+  summarise(gem_n_kreeften = mean(n_kreeften, trim = 0.05)) %>% 
+  ggplot(aes(jaar, gem_n_kreeften)) +
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
+  facet_wrap(~gebied, axes = "all") +
+  labs(title = "Het aantal kreeften is in 5 jaar verdubbeld",
+       subtitle = "Ontwikkeling van het gemiddeld aantal gevangen kreeften",
+       x = "",
+       y = "Aantal",
+       caption = "Getrimd gemiddelde van locaties waar kreeften zijn aangetroffen") +
+  theme(plot.title.position = "plot",
+        # axis.title.y = element_text(angle = 90),
+        panel.grid.major.x = element_blank(),
+        panel.spacing.x = unit(20, "points"),
+        plot.margin = margin_auto(10))
+
 
 
 # Kaart blauwalgen --------------------------------------------------------
