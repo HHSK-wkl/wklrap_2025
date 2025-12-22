@@ -1,0 +1,85 @@
+---
+lightbox: auto
+description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2024. Dit hoofdstuk gaat over wat je kunt zien van de waterkwaliteit. De helderheid of troebelheid van het water en de kleur van het water. Of er waterplanten groeien of juist algen en kroos. Ook de diepte is een belangrijke factor. Soms zie je ook (de restanten) van de invasieve exoot de Amerikaanse Rivierkreeft."
+---
+
+# Zichtbare waterkwaliteit {#sec-toestand}
+
+
+::: samenvatting
+|  |  |
+|------------|------------------------------------------------------------|
+| [{{< fa circle-down >}}]{.oranje} | Waterplanten zijn in de Krimpenerwaard op bijna alle plekken verdwenen. |
+| [{{< fa circle-exclamation >}}]{.oranje} | Amerikaanse rivierkreeften hebben de hele Krimpenerwaard en veel plekken in Schieland gekoloniseerd. |
+| [{{< fa circle-exclamation >}}]{.oranje} | Blauwalgen komen op veel plekken voor en leiden soms tot overlast. |
+:::
+
+------------------------------------------------------------------------
+
+### Waterkwaliteit is zichtbaar {.unnumbered}
+
+::: aside
+![](images/vince_talk2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een pratende vis"}
+:::
+
+Als je goed naar het water kijkt, dan kun je daarmee een eerste indruk krijgen van de waterkwaliteit. Is het water helder en groeien er waterplanten? Of is het water juist heel troebel of ligt er een dikke laag kroos op het water? Dat zegt allemaal iets over de waterkwaliteit. Een goede waterkwaliteit kun je vaak herkennen doordat het water dan helder is en er onder water planten groeien.
+
+**Aanpassen** In dit hoofdstuk wordt de toestand van de waterkwaliteit beschreven aan de hand van dingen die je in het water zou kunnen zien: namelijk waterplanten, kroos, rivierkreeften en blauwalgen.
+
+**lijstje** - kleur van het water, bruin water (kwel), helder, groen (blauwalg) - kreeften (defensief, braakbal, resten) - planten
+
+### Helderheid en kleur {.unnumbered}
+
+De eerste indruk van de waterkwaliteit kun je krijgen door te kijken naar de helderheid en de kleur van het water. Helder water waar je makkelijk doorheen kijkt is een teken van een goede waterkwaliteit. Het zonlicht dat ook waterplanten nodig hebben kan dan goed in het water doordringen.
+
+Het helderste water in ons gebied is te vinden in de Zevenhuizerplas tussen Rotterdam en Zevenhuizen. Soms kun je hier wel [**meer dan 10 meter diep (!)**]{.donkerblauw} het water in kijken.
+
+Als het water niet zo helder is, komt dat doordat er kleine deeltjes in het water zweven. Hoe meer deeltjes, hoe troebeler het water.In troebel water kunnen waterplanten niet zo goed groeien. De kleur van het water wordt bepaald door het soort deeltjes in het water. In ons gebied is het water soms bruin , groen, of roestbruin.
+
+[**Bruin water**]{.donkerblauw} ([-@fig-bruin-water]) wordt meestal veroorzaakt doordat er veel slibdeeltjes in het water aanwezig zijn. Deze slibdeeltjes komen in het water door afstroming tijdens regenbuien of worden opgewerveld van de bodem, bijvoorbeeld door vissen die de bodem omwoelen. 
+
+[**Groen water**]{.donkerblauw} ([-@fig-groen-water]) wordt meestal veroorzaakt doordat er veel algen in het water aanwezig zijn. Dit is een teken dat er (te) veel voedingsstoffen[^01-zichtbare-toestand-1] in het water zitten. 
+
+[**Roestbruin water**]{.donkerblauw} ([-@fig-roestbruin-water]) heeft de kleur van ijzerroest en dat is ook precies wat je ziet. In sommige sloten grondwater omhoog (kwel) met daarin veel opgelost ijzer. Dit opgeloste ijzer gaat 'roesten' en daardoor krijgt dit water een roestkleur.
+
+[^01-zichtbare-toestand-1]: Fosfaat en stikstof
+
+::: {#fig-water-kleuren layout-ncol="3"}
+![Bruin water (Rotterdam)](images/bruin-water2.jpg){#fig-bruin-water}
+
+![Groen water (Krimpen aan de Lek)](images/groen-water.jpg){#fig-groen-water}
+
+![Roestbruin water (Moordrecht)](images/roestbruin-water.jpg){#fig-roestbruin-water}
+
+Water met verschillende kleuren
+:::
+
+
+
+### Waterplanten {.unnumbered}
+
+Waterplanten zijn een belangrijk kenmerk voor de waterkwaliteit. De soorten en de hoeveelheid waterplanten zeggen allemaal iets over de omstandigheden. Waterplanten die onder water groeien laten bijvoorbeeld zien dat er onder water genoeg licht is om te groeien. Sommige planten, zoals de Gele plomp, hebben juist drijfbladeren zodat ze veel licht krijgen (@fig-gele-plomp). Een voedselrijke bodem leidt soms tot een heel grote hoeveelheid waterplanten (@fig-dichte-vegetatie).
+
+Tegenwoordig zegt de aanwezigheid van waterplanten ook dat de Amerikaanse Rivierkreeften op die plek (nog) niet de overhand hebben gekregen.
+
+::: {#fig-water-kleuren layout-ncol="2"}
+
+![Gele plomp in de gracht (Schoonhoven)](images/gele-plomp-schoonhoven.jpg){#fig-gele-plomp}
+
+![Dichte plantenvegetatie (Bleiswijk)](images/dichte-vegetatie.jpg){#fig-dichte-vegetatie}
+
+
+Waterplanten in het gebied
+:::
+
+### Kreeften {-}
+
+::: {#fig-water-kleuren layout-ncol="3"}
+![Kreeft op het land](images/kreeft-defensief.jpg){#fig-kreeft-defensief}
+
+![Braakbal met kreeftenresten](images/braakbal-kreeftenresten.jpg){#fig-braakbal-kreeft}
+
+![Kreeftenpoten op het zwemstrand](images/kreeftenpoten-zwemstrand.jpg){#fig-kreeften-zwemstrand}
+
+Water met verschillende kleuren
+:::
