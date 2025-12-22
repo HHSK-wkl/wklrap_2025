@@ -73,8 +73,8 @@ language:
     section-title-abstract: ""
     title-block-published: "Datum"
     toc-title-document: "In dit hoofdstuk"
-    crossref-fig-title: "Figuur"
-    crossref-tbl-title: "Tabel"
+    crossref-fig-title: "figuur"
+    crossref-tbl-title: "tabel"
     crossref-ch-prefix: "hoofdstuk"
 
 fig-dpi: 150

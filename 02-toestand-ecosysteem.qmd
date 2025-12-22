@@ -33,25 +33,21 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 **Aanpassen introdcutie - meer focus op metingen en minder overlap met voorgaande**
 
-In dit hoofdstuk wordt de toestand van het ecosysteem beschreven aan de hand van waterplanten, kroos, rivierkreeften en blauwalgen.
+Planten en dieren kunnen een grote invloed uitoefenen op het ecosysteem. Planten die onder water groeien hebben een belangrijke positieve bijdrage. Kroos, rivierkreeften en blauwalgen kunnen een grote negatieve invloed hebben op het ecosysteem. In dit hoofdstuk wordt de toestand van het ecosysteem beschreven aan de genoemde groepen.
 
 ### Waterplanten {.unnumbered}
 
 Waterplanten hebben een sleutelrol in het onderwaterleven (ecosysteem). Waterplanten zorgen voor de productie van zuurstof en vormen het voedsel en leefgebied voor vissen en andere waterdieren. Door deze sleutelrol geven waterplanten een goede indicatie van de waterkwaliteit en de toestand van het leven onder water. De meeste planten hebben een positieve rol in het ecosysteem. Er zijn echter ook soorten, zoals kroos, die kunnen zorgen voor problemen.
 
-In de Krimpenerwaard is het aantal locaties met planten onder water[^01-zichtbare-toestand-1] sterk afgenomen. Vooral in de laatste zeven jaar is een sterke afname te zien. Het is aannemelijk dat de afname van waterplanten komt door de opkomst van Amerikaanse rivierkreeften.
+In de Krimpenerwaard is het aantal locaties met planten onder water[^01-zichtbare-toestand-1] sinds 2017 sterk afgenomen (@fig-submers). In 2025 was er zelfs geen enkele locatie meer over met enige bedekking van planten onder water. Ook in Schieland neemt het aantal locaties met planten onder water steeds verder af. In Schieland is de afname echter kleiner en minder snel dan in de Krimpenerwaard.
+Het is aannemelijk dat de afname van waterplanten komt door de opkomst van Amerikaanse rivierkreeften.
 
 [^01-zichtbare-toestand-1]: Als grens voor wateren met waterplanten is aangehouden dat meer dan 5% van de oppervlakte met waterplanten begroeid moet zijn.
 
-::: aside
-![Een sloot met waterplanten lijkt net een aquarium.<br>(foto: Willem Kolvoort)](images/onderwater%20landschap%201%20liggend.jpg){group="toestand"}
-:::
-
-In Schieland is er tussen jaren veel variatie in het aantal locaties met planten onder water. Het aantal locaties met waterplanten lijkt in de laatste 10 jaar wel wat af te nemen.
 
 ::: column-body-outset
 
-```{r plot-submers}
+```{r}
 #| label: fig-submers
 #| out-width: "100%"
 #| fig-cap: "De ontwikkeling van het aantal wateren met planten onder water in de Krimpenerwaard en in Schieland."
