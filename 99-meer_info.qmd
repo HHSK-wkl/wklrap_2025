@@ -1,0 +1,33 @@
+# Meer informatie {#meer_info .unnumbered}
+
+Deze rapportage geeft een weergave van enkele waterkwaliteitsaspecten op hoofdlijnen. Er zijn nog veel meer gegevens en informatie beschikbaar. Hieronder wordt een overzicht gegeven van diverse andere informatiebronnen.
+
+### Meetgegevens {.unnumbered}
+
+Alle meetgegevens van HHSK zijn te raadplegen en te downloaden via de website. Dit kan in de eerste plaats via de pagina [Actuele metingen waterkwaliteit](https://www.schielandendekrimpenerwaard.nl/actueel/actuele-metingen-waterstanden-en-waterkwaliteit/){target="_blank"}. Hier zijn alle fysisch-chemische en biologische gegevens te downloaden als *.csv-bestanden*. Voor het downloaden van grote hoeveelheden meetgegevens is de beste manier.
+
+Voor het raadplegen van fysisch-chemische meetgegevens is het gebruiksvriendelijker om gebruik te maken van de kaart met [Actuele Metingen](https://experience.arcgis.com/experience/df2ed98c882947af9a50a4af64e7b6c3/page/Waterkwaliteit){target="_blank"}. Via het tabblad *Waterkwaliteit* is zichtbaar op welke locaties waterkwaliteitsmetingen zijn uitgevoerd. Door op een punt te klikken is het mogelijk om meetgegevens in grafiekvorm te bekijken of als .csv-bestand te downloaden.
+
+### Waterkwaliteitsrapportages {.unnumbered}
+
+Op de website van HHSK, op de pagina [Actuele metingen waterkwaliteit](https://www.schielandendekrimpenerwaard.nl/actueel/actuele-metingen-waterstanden-en-waterkwaliteit/){target="_blank"}, zijn diverse rapportages over de waterkwaliteit te raadplegen: de jaarlijkse waterkwaliteitsrapportage; over [gewasbeschermingsmiddelen](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/GBM_rapportage/){target="_blank"} en over de [achtergronden van het waterkwaliteitsbeleid](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/Achtergrondinformatie%20waterkwaliteitsbeleid%20HHSK.pdf){target="_blank"}.
+
+### Amerikaanse rivierkreeften {.unnumbered}
+
+Het hoogheemraadschap heeft in 2024 weer een gebiedsbreed onderzoek uitgevoerd naar het voorkomen van Amerikaanse Rivierkreeften. De resultaten van dit onderzoek zijn beschreven in [deze rapportage](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/kreeften_2024/){target="_blank"}
+
+### Kaderrichtlijn Water {.unnumbered}
+
+Voor de Kaderrichtlijn Water worden zogenaamde factsheets gemaakt. Deze factsheets geven een overzicht van de toestand en doelstellingen voor de KRW-waterlichamen. Deze factsheets zijn te raadplegen via het [Waterkwaliteitsportaal](https://www.waterkwaliteitsportaal.nl/){target="_blank"}.
+
+### Zwemwater {.unnumbered}
+
+Gedurende het zwemseizoen worden er regelmatig metingen uitgevoerd om de zwemwaterkwaliteit te bewaken. Op de website [www.zwemwater.nl](https://www.zwemwater.nl/){target="_blank"} is altijd te zien of er op een zwemlocatie een waarschuwing van kracht is. Deze waarschuwingen zijn ook te raadplegen via de zwemwater-app. Deze app is via zwemwater.nl te downloaden.
+
+### Bestrijdingsmiddelen {.unnumbered}
+
+Informatie over bestrijdingsmiddelen wordt landelijk verzameld en beschikbaar gesteld via de [Bestrijdingsmiddelenatlas](http://www.bestrijdingsmiddelenatlas.nl/){target="_blank"}. De Bestrijdingsmiddelenatlas heeft een onderdeel *regionaal* waar (o.a.) informatie specifiek voor het beheergebied van HHSK te vinden is.
+
+De meest recent aangetroffen en overschrijdende bestrijdingsmiddelen in het beheergebied zijn te vinden via een rapport op de website van HHSK: [Gewasbeschermingsmiddelen](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/GBM_rapportage/){target="_blank"}.
+
+
