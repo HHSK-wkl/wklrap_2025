@@ -3,15 +3,13 @@ lightbox: auto
 description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2024. Dit hoofdstuk gaat over wat je kunt zien van de waterkwaliteit. De helderheid of troebelheid van het water en de kleur van het water. Of er waterplanten groeien of juist algen en kroos. Ook de diepte is een belangrijke factor. Soms zie je ook (de restanten) van de invasieve exoot de Amerikaanse Rivierkreeft."
 ---
 
-# Zichtbare waterkwaliteit {#sec-toestand}
-
+# Zichtbare waterkwaliteit {#sec-zichtbaar}
 
 ::: samenvatting
-
-**Samenvatting Aanpassen** 
+**Samenvatting Aanpassen**
 
 |  |  |
-|------------|------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | [{{< fa circle-down >}}]{.oranje} | Waterplanten zijn in de Krimpenerwaard op bijna alle plekken verdwenen. |
 | [{{< fa circle-exclamation >}}]{.oranje} | Amerikaanse rivierkreeften hebben de hele Krimpenerwaard en veel plekken in Schieland gekoloniseerd. |
 | [{{< fa circle-exclamation >}}]{.oranje} | Blauwalgen komen op veel plekken voor en leiden soms tot overlast. |
@@ -27,7 +25,6 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 Als je goed naar het water kijkt, dan kun je daarmee een eerste indruk krijgen van de waterkwaliteit. Is het water helder en groeien er waterplanten? Of is het water juist heel troebel of ligt er een dikke laag kroos op het water? Dat zegt allemaal iets over de waterkwaliteit. Een goede waterkwaliteit kun je vaak herkennen doordat het water dan helder is en er onder water planten groeien.
 
-
 ### Helderheid en kleur {.unnumbered}
 
 De eerste indruk van de waterkwaliteit kun je krijgen door te kijken naar de helderheid en de kleur van het water. Helder water waar je makkelijk doorheen kijkt is een teken van een goede waterkwaliteit. Het zonlicht dat ook waterplanten nodig hebben kan dan goed in het water doordringen.
@@ -36,9 +33,9 @@ Het helderste water in ons gebied is te vinden in de Zevenhuizerplas tussen Rott
 
 Als het water niet zo helder is, komt dat doordat er kleine deeltjes in het water zweven. Hoe meer deeltjes, hoe troebeler het water.In troebel water kunnen waterplanten niet zo goed groeien. De kleur van het water wordt bepaald door het soort deeltjes in het water. In ons gebied is het water soms bruin , groen, of roestbruin.
 
-[**Bruin water**]{.donkerblauw} ([-@fig-bruin-water]) wordt meestal veroorzaakt doordat er veel slibdeeltjes in het water aanwezig zijn. Deze slibdeeltjes komen in het water door afstroming tijdens regenbuien of worden opgewerveld van de bodem, bijvoorbeeld door vissen die de bodem omwoelen. 
+[**Bruin water**]{.donkerblauw} ([-@fig-bruin-water]) wordt meestal veroorzaakt doordat er veel slibdeeltjes in het water aanwezig zijn. Deze slibdeeltjes komen in het water door afstroming tijdens regenbuien of worden opgewerveld van de bodem, bijvoorbeeld door vissen die de bodem omwoelen.
 
-[**Groen water**]{.donkerblauw} ([-@fig-groen-water]) wordt meestal veroorzaakt doordat er veel algen in het water aanwezig zijn. Groen water is een teken dat er (te) veel voedingsstoffen[^01-zichtbare-toestand-1] in het water zitten. 
+[**Groen water**]{.donkerblauw} ([-@fig-groen-water]) wordt meestal veroorzaakt doordat er veel algen in het water aanwezig zijn. Groen water is een teken dat er (te) veel voedingsstoffen[^01-zichtbare-toestand-1] in het water zitten.
 
 [^01-zichtbare-toestand-1]: Fosfaat en stikstof
 
@@ -54,7 +51,6 @@ Als het water niet zo helder is, komt dat doordat er kleine deeltjes in het wate
 Water met verschillende kleuren
 :::
 
-
 ### Waterplanten {.unnumbered}
 
 Waterplanten zijn een belangrijk kenmerk voor de waterkwaliteit. De soorten en de hoeveelheid waterplanten zeggen allemaal iets over de omstandigheden. Waterplanten die onder water groeien laten bijvoorbeeld zien dat er onder water genoeg licht is om te groeien. Sommige planten, zoals de Gele plomp, hebben juist drijfbladeren zodat ze veel licht krijgen ([-@fig-gele-plomp]). Een voedselrijke bodem leidt soms tot een heel grote hoeveelheid waterplanten ([-@fig-dichte-vegetatie]).
@@ -62,21 +58,20 @@ Waterplanten zijn een belangrijk kenmerk voor de waterkwaliteit. De soorten en d
 Tegenwoordig zegt de aanwezigheid van waterplanten ook dat de Amerikaanse Rivierkreeften op die plek (nog) niet de overhand hebben gekregen.
 
 ::: {#fig-zichtbare-planten layout-ncol="2"}
-
 ![Gele plomp in de gracht (Schoonhoven)](images/gele-plomp-schoonhoven.jpg){#fig-gele-plomp}
 
 ![Dichte plantenvegetatie (Bleiswijk)](images/dichte-vegetatie.jpg){#fig-dichte-vegetatie}
 
-
 Waterplanten in het gebied
 :::
 
-### Kreeften {-}
+### Kreeften {.unnumbered}
 
-Amerikaanse Rivierkreeften komen op veel plekken in het gebied voor. De Rode Amerikaanse Rivierkreeft laat zich soms ook op het land zien. Als ze zich bedreigd voelen steken ze hun scharen hoog in de lucht  ([-@fig-kreeft-defensief]). 
+Amerikaanse rivierkreeften komen oorspronkelijk niet in Nederland voor: ze zijn hier ontsnapt of vrijgelaten. Sinds een aantal jaar worden de kreeften op steeds meer plekken gezien. De meeste kreeften blijven in het water, maar in de zomer worden ze ook regelmatig gezien in tuinen of op het fietspad. Als kreeften zich bedreigd voelen steken ze hun scharen hoog in de lucht ([-@fig-kreeft-defensief]).
 
-Kreeften hebben diverse natuurlijke vijanden zoals roofvissen, futen, reigers en andere vogels. Het skelet van de kreeften is niet eetbaar en de overblijfselen kun je soms zien liggen in het water ([-@fig-kreeften-zwemstrand]). Vogels slikken de kreeften in hun geheel door. De onverteerbare resten  worden later weer uitgespuugd als braakbal ([-@fig-braakbal-kreeft]).
+Kreeften hebben diverse natuurlijke vijanden zoals roofvissen, futen, reigers en andere vogels. Het skelet van de kreeften is niet eetbaar en de overblijfselen kun je soms zien liggen in het water ([-@fig-kreeften-zwemstrand]). Vogels slikken de kreeften met het skelet door. De onverteerbare resten worden later weer uitgespuugd als [**braakbal**]{.donkerblauw} ([-@fig-braakbal-kreeft]).
 
+Hoe het ervoor staat met kreeften in ons gebied is te lezen in het volgende hoofdstuk [Toestand ecosysteem - Kreeften](02-toestand-ecosysteem.qmd#kreeften){.groen}
 
 ::: {#fig-kreeftensporen layout-ncol="3"}
 ![Kreeft op het land](images/kreeft-defensief.jpg){#fig-kreeft-defensief}
@@ -88,6 +83,6 @@ Kreeften hebben diverse natuurlijke vijanden zoals roofvissen, futen, reigers en
 Kreeften
 :::
 
-### Meten is weten {-}
+### Meten is weten {.unnumbered}
 
 Je kunt al een goede indruk krijgen van de waterkwaliteit krijgen door goed te kijken naar wat er te zien is. Om een goed beeld te krijgen van het hele gebied is er echter meer nodig. Daarom voert het waterschap jaarlijks veel metingen uit om de waterkwaliteit te volgen. In de volgende hoofdstukken laten we zien wat de metingen zeggen over de waterkwaliteit in het gebied.
