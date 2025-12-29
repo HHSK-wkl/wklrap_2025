@@ -102,6 +102,10 @@ defaults:
       color: $brand-donkerblauw;
       }
       
+      .groen{
+      color: $brand-groen;
+      }
+      
       .footnotes{
       font-size: 0.8em;
       }
