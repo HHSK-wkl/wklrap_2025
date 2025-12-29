@@ -28,6 +28,13 @@ planten_info <- readxl::read_excel("data/planten_info.xlsx", sheet = "planten_in
 f_mp_type <- maak_opzoeker(meetpunten, mp, meetpunttypering)
 f_gebied <-  maak_opzoeker(meetpunten, mp, gebiednaam)
 
+panel_theme_extra <- 
+  theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        plot.title.position = "plot",
+        panel.grid.major.x = element_blank(),
+        panel.spacing.x = unit(20, "points"),
+        margins = margin_auto(10))
+
 ## ---- planten-voorbewerking ----
 
 planten <-
@@ -93,15 +100,13 @@ plot_submers <-
   facet_wrap(~gebied, scales = "free_y") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.0)), limits = c(0, 85), labels = scales::label_percent(scale = 1)) +
   scale_x_continuous(breaks = scales::breaks_width(5, 0), limits = c(NA, rap_jaar)) +
-  labs(title = "Wateren met planten onder water",
-       subtitle = " ",
+  labs(title = "Onderwaterplanten zijn in de Krimpenerwaard verdwenen",
+       subtitle = "Wateren met planten onder water",
        y = "aandeel van alle wateren",
        x = "",
        caption = "locaties met tenminste 5% begroeiing") +
   hhskthema() +
-  theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
-        plot.title.position = "plot",
-        panel.grid.major.x = element_blank())
+  panel_theme_extra
 
 #"#edf7f8" 95%
 #EDF5FF
@@ -125,7 +130,8 @@ plot_kroos <-
        y = "aandeel van alle wateren",
        x = "",
        caption = "locaties meer dan de helft bedekt met kroos") +
-  hhskthema()
+  hhskthema() +
+  panel_theme_extra
 
 
 # Kaart met kreeften ------------------------------------------------------
@@ -163,7 +169,7 @@ kaart_kreeften <-
   st_transform(crs = 4326) %>%
   basiskaart(type = "cartolight") %>%
   addPolylines(data = ws_grens_wgs, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
-  addCircleMarkers(fillColor = ~pal(aantal > 0), fillOpacity = 1, radius = 8, 
+  addCircleMarkers(fillColor = ~pal(aantal > 0), fillOpacity = 1, radius = 7, 
                    color = "#616161", opacity = 1, weight = 1, 
                    popup = ~tekst, label = ~tekst_label) %>% 
   addLegend(colors = c(blauw, oranje), labels = c("Geen kreeften aanwezig", "Wel kreeften aanwezig"), opacity = 1) %>% 
@@ -187,47 +193,41 @@ kreeften_tot <-
   ungroup() %>% 
   mutate(gebied = f_gebied(mp)) 
 
-# plot_kreeften_aandeel_locs <- 
+plot_kreeften_aandeel_locs <-
   kreeften_tot %>% 
   group_by(gebied, jaar) %>% 
   summarise(n_locs = n_distinct(mp),
             n_aangetroffen = sum(n_kreeften > 0),
             frac_aangetroffen = n_aangetroffen / n_locs) %>% 
   ggplot(aes(jaar, frac_aangetroffen)) +
-  geom_line() +
+  geom_line(linewidth = 1) +
   geom_point() +
   scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.1)), labels = scales::percent_format()) +
   facet_wrap(~gebied, axes = "all") +
-  labs(title = "Kreeften breiden zich uit in Schieland",
+  labs(title = "Toename van kreeften in Schieland",
        subtitle = "Op welke deel van de locaties worden kreeften aangetroffen?",
        x = "",
        y = "% locaties met kreeften") +
-  theme(plot.title.position = "plot",
-        # axis.title.y = element_text(angle = 90),
-        panel.grid.major.x = element_blank(),
-        panel.spacing.x = unit(20, "points"),
-        plot.margin = margin_auto(10))
+  hhskthema() +
+  panel_theme_extra
 
-# plot_kreeften_aantallen <- 
+plot_kreeften_aantallen <-
   kreeften_tot %>% 
   filter(n_kreeften > 0) %>% 
   group_by(gebied, jaar) %>% 
   summarise(gem_n_kreeften = mean(n_kreeften, trim = 0.05)) %>% 
   ggplot(aes(jaar, gem_n_kreeften)) +
-  geom_line() +
+  geom_line(linewidth = 1) +
   geom_point() +
   scale_y_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
   facet_wrap(~gebied, axes = "all") +
-  labs(title = "Het aantal kreeften is in 5 jaar verdubbeld",
+  labs(title = "Verdubbelling van het aantal kreeften sinds 2020",
        subtitle = "Ontwikkeling van het gemiddeld aantal gevangen kreeften",
        x = "",
        y = "Aantal",
        caption = "Getrimd gemiddelde van locaties waar kreeften zijn aangetroffen") +
-  theme(plot.title.position = "plot",
-        # axis.title.y = element_text(angle = 90),
-        panel.grid.major.x = element_blank(),
-        panel.spacing.x = unit(20, "points"),
-        plot.margin = margin_auto(10))
+  hhskthema() +
+  panel_theme_extra
 
 
 
