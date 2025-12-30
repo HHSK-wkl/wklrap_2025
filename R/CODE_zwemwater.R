@@ -6,25 +6,33 @@ library(scales)
 library(leaflet)
 library(sf)
 library(ggtext)
+library(gt)
+library(gtExtras)
 
 
-rap_jaar <- 2024
+rap_jaar <- 2025
 
 meetpunten <- readRDS("data/meetpunten.rds")
-ws_grens <- read_sf("data/ws_grens.gpkg") %>% st_transform(crs = 4326)
-pfas <- readRDS("data/fys_chem.rds") %>% filter(parnr == 2499, year(datum) == rap_jaar) %>% summarise(peq = mean(waarde), .by = mp)
+# ws_grens <- read_sf("data/ws_grens.gpkg") %>% st_transform(crs = 4326)
+pfas_kz <- readRDS("data/fys_chem.rds") %>% filter(parnr == 2499) %>% filter(mp == "S_1124")
 
 maatregelen <- readxl::read_excel("data/Zwemwater maatregelen vanaf 2012 v2.xlsx") %>% rename_all(tolower)
 
-blauwe_tekst <- function(tekst, grootte = NA){
-  grootte <- if (is.na(grootte)) "" else glue::glue(";font-size:{grootte}px")
-  glue::glue("<span style='color:#0079c2{grootte}'>{tekst}</span>")
-}
+# Overzichtstabel ---------------------------------------------------------
 
-oranje_tekst <- function(tekst, grootte = NA){
-  grootte <- if (is.na(grootte)) "" else glue::glue(";font-size:{grootte}px")
-  glue::glue("<span style='color:#C25100{grootte}'>{tekst}</span>")
-}
+tabel_zwemlocaties_overzicht <- readxl::read_excel("data/tabel_zwemlocaties_2025.xlsx")
+
+tabel_overzicht <- 
+  tabel_zwemlocaties_overzicht %>% 
+  # mutate(Blauwalgen = ifelse(is.na(Blauwalgen), NA, paste(Blauwalgen, "dagen"))) %>% 
+  gt(rowname_col = "Zwemlocatie") %>% 
+  fmt_icon(columns = 2,  fill_color = blauw, stroke_color = blauw) %>%
+  fmt_icon(columns = 4:5,  fill_color = oranje) %>% 
+  sub_missing(columns = 4:5, missing_text = "") %>%
+  cols_align("center", columns = !Zwemlocatie) %>% 
+  gt_plt_bar(column = 3, color = blauw, scale_type = "number") #%>% 
+  # tab_options(table_body.vlines.style = "dotted") %>% 
+  # cols_width(Bacteriën ~ px(120), Jeukklachten ~px(120), PFAS ~ px(120))
 
 ## ---- kaart-zwemlocaties ----
 
@@ -36,7 +44,7 @@ zwemlocaties <- tibble::tribble(
   "S_0124",               "Bleiswijkse Zoom", "Uitstekend",
   "S_0128",                 "Kralingse Plas", "Uitstekend",
   "S_0131", "Zevenhuizerplas Noordwestzijde", "Uitstekend",
-  "S_0152",           "Willem-Alexanderbaan", "Aanvaardbaar",
+  "S_0152",           "Willem-Alexanderbaan",       "Goed",
   "S_1120",               "'t Zwarte Plasje", "Uitstekend",
   "S_1124",               "Kralings Zwembad", "Uitstekend",
   "K_1102",                  "Krimpenerhout", "Uitstekend"
@@ -79,7 +87,7 @@ kaart_zwemlocaties <-
   st_transform(crs = 4326) %>% 
   HHSKwkl::basiskaart(type = "cartolight") %>%
   addMarkers(icon = ~zwem_icons[oordeel], label = ~paste(naam, "-", oordeel), popup = ~popup, options = markerOptions(riseOnHover = TRUE)) %>%
-  addPolylines(data = ws_grens, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
+  addPolylines(data = ws_grens_wgs, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
   addControl(html = zwem_legend, position = "topright")
 
 ## ---- waarschuwingen-blauwalg ----
@@ -126,17 +134,20 @@ blauwalgenplot <-
   labs(title = "Aantal dagen met blauwalg",
        x = "",
        y = "") +
-  thema_line_facet +
-  theme(plot.title = element_markdown(face = "bold"),
-        axis.line.x = element_line(colour = "grey60"),
-        panel.spacing.x = unit(30, "points"),
-        panel.spacing.y = unit(20, "points"),
-        axis.ticks.x = element_blank(),
-        axis.line.y = element_blank(),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        panel.grid.major.y = element_blank(),
-        legend.position = "top")
+  hhskthema() +
+  theme(
+    # plot.title = element_markdown(face = "bold"),
+    axis.line.x = element_line(colour = "grey60"),
+    panel.spacing.x = unit(30, "points"),
+    panel.spacing.y = unit(20, "points"),
+    axis.ticks.x = element_blank(),
+    axis.line.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    panel.grid.major.y = element_blank(),
+    legend.position = "top")
+    
+  # thema_line_facet +
 
 aantal_dagen_blauwalg_gemiddeld <- 
   waarschuwingen %>%
@@ -208,31 +219,42 @@ kaart_jeukklachten <-
              label = ~naam, 
              popup = ~naam, 
              options = markerOptions(riseOnHover = TRUE)) %>%
-  addPolylines(data = ws_grens, color = "#616161", weight = 3) 
+  addPolylines(data = ws_grens_wgs, color = "#616161", weight = 3) 
 
 
 # PFAS --------------------------------------------------------------------
 
+pfas_kz %>% 
+  ggplot(aes(datum, waarde)) +
+  geom_smooth(se = FALSE, linetype = "dotted") +
+  geom_line() +
+  geom_point() + 
+  scale_y_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%b %Y", limits = c(ymd(20230101, NA))) +
+  geom_hline(yintercept = 280, color = oranje, linetype = "dashed") +
+  geom_vline(xintercept = ymd(2)) +
+  annotate(geom = "text", x = ymd(20250831), y = 340, label = "grenswaarde PFAS", color = oranje, hjust = 1) +
+  hhskthema()
 
 
-plot_pfas <- 
-  pfas %>% 
-  inner_join(zwemlocaties) %>% 
-  mutate(naam = fct_reorder(naam, peq)) %>% 
-  ggplot(aes(peq, naam)) + 
-  geom_col(width = 0.85) + 
-  geom_vline(xintercept = 280, colour = oranje, linetype = "dashed", linewidth = 1) +
-  scale_x_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
-  # scale_x_log10() +
-  labs(title = "Hoeveelheid PFAS op zwemlocaties",
-       y = "",
-       x = "PFAS - PFOA-equivalenten in ng/l") +
-  annotate("text", x = 300, y = 9, hjust = 0, label = "Advieswaarde RIVM", colour = oranje, fontface = "bold") +
-  coord_cartesian(ylim = c(1, 8.7)) +
-  hhskthema() +
-  theme(panel.grid.major.y = element_blank(),
-        plot.title.position = "plot",
-        axis.text.y = element_text(size = 10),
-        axis.line.y = element_blank(),
-        axis.ticks.y = element_blank())
-
+# plot_pfas <- 
+#   pfas %>% 
+#   inner_join(zwemlocaties) %>% 
+#   mutate(naam = fct_reorder(naam, peq)) %>% 
+#   ggplot(aes(peq, naam)) + 
+#   geom_col(width = 0.85) + 
+#   geom_vline(xintercept = 280, colour = oranje, linetype = "dashed", linewidth = 1) +
+#   scale_x_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
+#   # scale_x_log10() +
+#   labs(title = "Hoeveelheid PFAS op zwemlocaties",
+#        y = "",
+#        x = "PFAS - PFOA-equivalenten in ng/l") +
+#   annotate("text", x = 300, y = 9, hjust = 0, label = "Advieswaarde RIVM", colour = oranje, fontface = "bold") +
+#   coord_cartesian(ylim = c(1, 8.7)) +
+#   hhskthema() +
+#   theme(panel.grid.major.y = element_blank(),
+#         plot.title.position = "plot",
+#         axis.text.y = element_text(size = 10),
+#         axis.line.y = element_blank(),
+#         axis.ticks.y = element_blank())
+# 

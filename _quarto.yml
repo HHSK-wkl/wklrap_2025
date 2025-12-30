@@ -2,9 +2,8 @@ project:
   title: "Rapportage waterkwaliteit 2025 - HHSK"
   type: book
   execute-dir: project
-  # brand: "_extensions/HHSK-wkl/brand_hhsk/brand/_brand.yml"
-  # post-render: 
-  #  - "R/post_render_zwem_icons.R"
+  post-render:
+   - "R/post_render_zwem_icons.R"
 
 website: 
   announcement: 
@@ -42,14 +41,14 @@ book:
   date: today
   chapters:
     - "index.qmd"
-    - part: part-1-ecosysteem.qmd
-      chapters:
-        - "01-zichtbare-toestand.qmd"
-        - "02-toestand-ecosysteem.qmd"
+    # - part: part-1-ecosysteem.qmd
+    #   chapters:
+    #     - "01-zichtbare-toestand.qmd"
+    #     - "02-toestand-ecosysteem.qmd"
     - part: "Doelen en gebruik"
-      # chapters: 
+      chapters:
         # - "03-krw.qmd"
-        # - "04-zwemwater.qmd"
+        - "04-zwemwater.qmd"
     - part: "Stoffen"
       # chapters: 
       # - "05-nutrienten.qmd"
