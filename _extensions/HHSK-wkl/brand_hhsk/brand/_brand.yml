@@ -25,6 +25,23 @@ color:
     lichtergroen: "#E7F0C0" # 85%
     tekstgrijs: "#222222"   # 13%
     achtergrondblauw: "#141838" # 15% #"#1b204b" 20%
+    # kleuren uit HHSKwkl
+    blauw_d: "#293173" # hsl(234, 47%, 31%) Orig HHSK
+    blauw_r: "#0067C6" # hsl(209, 100%, 39%)
+    blauw_m: "#339cff" # hsl(209, 100%, 60%)
+    blauw_l: "#99ceff" # hsl(209, 100%, 80%)
+    groen_d: "#015F03" # hsl(121, 98%, 19%) Orig HHSK
+    groen_r: "#76B900" # hsl(82, 100%, 36%)
+    groen_m: "#b4ff33" # hsl(82, 100%, 60%)
+    groen_l: "#daff99" # hsl(82, 100%, 80%)
+    oranje_r: "#c24105" # hsl(19, 95%, 39%)
+    oranje_m: "#fa7538" # hsl(19, 95%, 60%)
+    oranje_l: "#fcba9c" # hsl(19, 94%, 80%)
+    grijs_d: "#4F4F4F" # hsl(0, 0%, 31%)
+    grijs_r: "#636363" # hsl(0, 0%, 39%)
+    grijs_m: "#999999" # hsl(0, 0%, 60%)
+    grijs_l: "#cccccc" # hsl(0,   0%,   80%)
+    
   foreground: 
     light: tekstgrijs # main text color
     dark:  lichterblauw
@@ -87,7 +104,7 @@ defaults:
     # mixins: <string>
     rules: |
       .oranje{
-      color: $brand-oranje;
+      color: $brand-oranje_r;
       }
       
       .grijs{
