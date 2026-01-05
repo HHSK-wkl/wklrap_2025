@@ -9,6 +9,7 @@ library(scales)
 library(trend)
 library(reactable)
 library(patchwork)
+library(gt)
 
 rap_jaar <- 2025
 
@@ -17,6 +18,13 @@ meetpunten <- readRDS("data/meetpunten.rds")
 parameters <- readRDS("data/parameters.rds")
 
 theme_set(hhskthema())
+
+# panel_theme_extra <- 
+#   theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+#         plot.title.position = "plot",
+#         panel.grid.major.x = element_blank(),
+#         panel.spacing.x = unit(20, "points"),
+#         margins = margin_auto(10))
 
 landgebruik_sel <- c("glastuinbouw", "grasland - agrarisch", "grasland - natuur",
                      "stedelijk", "boezem", "grote plassen", "akkerbouw")
@@ -184,19 +192,19 @@ trends <-
     helling > 0 ~ "Toename",
   ))
   
-
+# Reactable
 trend_tabel_n <-
-  trends %>% 
-  filter(par == "Ntot") %>% 
+  trends %>%
+  filter(par == "Ntot") %>%
   mutate(decade = ifelse(trend == "Geen verandering", NA, decade),
-         decade_rel = ifelse(trend == "Geen verandering", NA, decade_rel)) %>% 
-  select(landgebruik, trend, decade_rel, decade) %>% 
-  arrange(decade_rel, landgebruik) %>% 
+         decade_rel = ifelse(trend == "Geen verandering", NA, decade_rel)) %>%
+  select(landgebruik, trend, decade_rel, decade) %>%
+  arrange(decade_rel, landgebruik) %>%
   reactable(
     columns = list(
       landgebruik = colDef(name = "Type landgebruik"),
       trend = colDef(name = "Trend"),
-      decade_rel = colDef(name = "Afname in 10 jaar (%)", 
+      decade_rel = colDef(name = "Afname in 10 jaar (%)",
                           format = colFormat(percent = TRUE, digits = 0)),
       decade = colDef(name = "Afname in 10 jaar",
                       format = colFormat(digits = 2, suffix = " mg N/l"))
@@ -204,23 +212,69 @@ trend_tabel_n <-
   )
 
 trend_tabel_p <-
-  trends %>% 
-  filter(par == "Ptot") %>% 
+  trends %>%
+  filter(par == "Ptot") %>%
   mutate(decade = ifelse(trend == "Geen verandering", NA, decade),
-         decade_rel = ifelse(trend == "Geen verandering", NA, decade_rel)) %>% 
-  select(landgebruik, trend, decade_rel, decade) %>% 
-  arrange(decade_rel, landgebruik) %>% 
+         decade_rel = ifelse(trend == "Geen verandering", NA, decade_rel)) %>%
+  select(landgebruik, trend, decade_rel, decade) %>%
+  arrange(decade_rel, landgebruik) %>%
   reactable(
     columns = list(
       landgebruik = colDef(name = "Type landgebruik"),
       trend = colDef(name = "Trend"),
       decade = colDef(name = "Verandering per 10 jaar",
                       format = colFormat(digits = 2, suffix = " mg P/l")),
-      decade_rel = colDef(name = "Relatieve verandering per 10 jaar", 
+      decade_rel = colDef(name = "Relatieve verandering per 10 jaar",
                           format = colFormat(percent = TRUE, digits = 0))
     )
   )
 
+# Variant met gt
+# trend_tabel_n <-
+#   trends %>% 
+#   filter(par == "Ntot") %>% 
+#   mutate(decade = ifelse(trend == "Geen verandering", NA, decade),
+#          decade_rel = ifelse(trend == "Geen verandering", NA, decade_rel)) %>% 
+#   select(landgebruik, trend, decade_rel, decade) %>% 
+#   arrange(decade_rel, landgebruik) %>% 
+#   mutate(trend = case_when(
+#     trend ==  "Geen verandering" ~ NA,
+#     trend == "Afname" ~ "fas fa-arrow-trend-down",
+#     trend == "Toename" ~ "fas fa-arrow-trend-up",
+#   )) %>% 
+#   gt(rowname_col = "landgebruik") %>% 
+#   cols_label(trend ~ "Trend",
+#              decade_rel ~ "Afname in 10 jaar (%)",
+#              decade ~ "Afname in 10 jaar") %>% 
+#   tab_stubhead(label = md("**Landgebruik**")) %>% 
+#   fmt_icon(columns = trend, fill_color = blauw, height = "1.5em") %>% 
+#   fmt_percent(columns = decade_rel, dec_mark = ",", decimals = 0, incl_space = TRUE) %>% 
+#   fmt_number(columns = decade, dec_mark = ",", pattern = "{x} mg N/l") %>% 
+#   sub_missing() %>% 
+#   cols_align("center", columns = !landgebruik) 
+
+# trend_tabel_p <-
+#   trends %>% 
+#   filter(par == "Ptot") %>% 
+#   mutate(decade = ifelse(trend == "Geen verandering", NA, decade),
+#          decade_rel = ifelse(trend == "Geen verandering", NA, decade_rel)) %>% 
+#   select(landgebruik, trend, decade_rel, decade) %>% 
+#   arrange(decade_rel, landgebruik) %>% 
+#   mutate(trend = case_when(
+#     trend ==  "Geen verandering" ~ NA,
+#     trend == "Afname" ~ "fas fa-arrow-trend-down",
+#     trend == "Toename" ~ "fas fa-arrow-trend-up",
+#   )) %>% 
+#   gt(rowname_col = "landgebruik") %>% 
+#   cols_label(trend ~ "Trend",
+#              decade_rel ~ "Afname in 10 jaar (%)",
+#              decade ~ "Afname in 10 jaar") %>% 
+#   tab_stubhead(label = md("**Landgebruik**")) %>% 
+#   fmt_icon(columns = trend, fill_color = blauw, height = "1.5em") %>% 
+#   fmt_percent(columns = decade_rel, dec_mark = ",", decimals = 0, incl_space = TRUE) %>% 
+#   fmt_number(columns = decade, dec_mark = ",", pattern = "{x} mg P/l") %>% 
+#   sub_missing() %>% 
+#   cols_align("center", columns = !landgebruik) 
 
 # Glastuinbouw t.o.v. andere gebieden -------------------------------------
 
