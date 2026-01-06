@@ -10,15 +10,24 @@ library(ggtext)
 # library(plotly)
 library(leaflet)
 
-rap_jaar <- 2024
+rap_jaar <- 2025
 
 fys_chem <- readRDS("data/fys_chem.rds") %>% HHSKwkl::add_jaar()
 meetpunten <- readRDS("data/meetpunten.rds")
 parameters <- readRDS("data/parameters.rds")
 toxiciteit <- readxl::read_excel("data/gbm_toxiciteit.xlsx", sheet = "SSDinfo")
-ws_grens <- sf::st_read("data/ws_grens.gpkg", quiet = TRUE) %>% sf::st_transform(crs = 4326)
+# ws_grens <- sf::st_read("data/ws_grens.gpkg", quiet = TRUE) %>% sf::st_transform(crs = 4326)
 
 theme_set(hhskthema())
+
+panel_theme_extra <- 
+  theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        legend.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")), 
+        strip.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        plot.title.position = "plot",
+        plot.subtitle.position = "plot",
+        panel.spacing.x = unit(20, "points"),
+        margins = margin_auto(10))
 
 f_parnaam <- maak_opzoeker(parameters, parnr, parnaamlang)
 f_aquopar <- maak_opzoeker(parameters, parnr, aquo_parcode)
@@ -54,13 +63,13 @@ transpermethrin <- tibble(parnr = 1324, naam = "trans-permethrin", wns_code = NA
 formetanaat <- tibble(parnr = 1346, naam = "formetanaat", wns_code = "WNS5784",
                       norm_JGM = 0.11, norm_MAX = 0.11, norm_P90 = NA_real_, min_norm = 0.11)
 
-normen <- HHSKwkl::import_normen_rivm(parameterdf = parameters) %>%
+normen <- readRDS("data/normen.rds") %>%
   bind_rows(transpermethrin) %>%
   bind_rows(formetanaat)
 
-mspaf <- function(paf_vector){
-  1 - prod(1 - paf_vector, na.rm = TRUE)
-}
+# mspaf <- function(paf_vector){
+#   1 - prod(1 - paf_vector, na.rm = TRUE)
+# }
 
 # direct aangepast in scale_y_continuous maakt de functie overbodig. De functie werkt ook niet correct meer.
 # reverselog_trans <- function(base = 10, n = 5) {
@@ -261,7 +270,7 @@ kaart_overschrijdingen <-
   sf::st_as_sf(coords = c("x", "y"), crs = 28992) %>% 
   sf::st_transform(crs = 4326) %>% 
   basiskaart(type = "cartolight") %>% 
-  addPolylines(data = ws_grens, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
+  addPolylines(data = ws_grens_wgs, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
   addCircleMarkers(fillColor = ~pal(sno_tekst), stroke = TRUE, fillOpacity = 1, popup = ~label_tekst, 
                    opacity = 1, color = "#333333", weight = 1,
                    label = ~glue("De opgetelde normoverschrijding is {sno_rond} x")) %>% 
@@ -286,13 +295,15 @@ plot_mspaf_mp <-
        x = "Percentage aangetaste soorten",
        y = "Meetlocatie",
        fill = "") +
-  thema_hor_bar +
-  theme(legend.position = "bottom",
-        plot.subtitle = element_text(face = "italic"),
-        panel.grid.major.x = element_line(linewidth = 0.8),
-        axis.title.y.left = element_text(margin = margin(r = 10)),
-        panel.spacing = unit(2, "lines"),
-        axis.text.y = element_text(hjust = 0))
+  hhskthema() +
+  panel_theme_extra
+  
+  # theme(legend.position = "bottom",
+  #       plot.subtitle = element_text(face = "italic"),
+  #       panel.grid.major.x = element_line(linewidth = 0.8),
+  #       axis.title.y.left = element_text(margin = margin(r = 10)),
+  #       panel.spacing = unit(2, "lines"),
+  #       axis.text.y = element_text(hjust = 0))
 
 plot_mspaf_tijd <- 
   mspaf_mp %>% 
