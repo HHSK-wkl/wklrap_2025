@@ -4,7 +4,6 @@
 
 # Setup  ------------------------------------------------------------------
 
-
 library(HHSKwkl)
 library(tidyverse)
 library(glue)
@@ -12,14 +11,11 @@ library(sf)
 library(leaflet)
 library(readxl)
 
-rap_jaar <- 2024
+rap_jaar <- 2025
 
 # INFORMATIE OVER WATERLICHAAM TOVOEGEN AAN POPUP
 
-waterlichamen <- st_read("data/waterlichamen.gpkg", quiet = TRUE) %>% 
-  rename(naam = OWMNAAM, nr = OWMIDENT) #%>% 
-
-ws_grens <- st_read("data/ws_grens.gpkg", quiet = TRUE) %>% st_transform(crs = 4326)
+waterlichamen <- read_sf("data/waterlichamen.gpkg") 
 
 f_krw_omsch <-
   tibble::tribble(
@@ -35,11 +31,18 @@ f_krw_omsch <-
   ) %>% maak_opzoeker()
 
 krw_data <-
-  readxl::read_excel("data/waterlichamen_ekrs_en_doelen_2024.xlsx") %>%
+  readxl::read_excel("data/waterlichamen_ekrs_en_doelen_2025.xlsx") %>%
   mutate(type = fct_relevel(type, c("Algen", "Waterplanten", "Macrofauna", "Vis")),
-         groep = fct_relevel(groep, "Boezem", "Plassen", "Sloten", "Kanalen Krimpenerwaard", "Kanalen Schieland")) %>% 
-  arrange(nr, type)
-  
+         groep = fct_relevel(groep, "Boezem", "Plassen", "Sloten", "Kanalen Krimpenerwaard", "Kanalen Schieland")) 
+
+panel_theme_extra <- 
+  theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        legend.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")), 
+        strip.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        plot.title.position = "plot",
+        plot.subtitle.position = "plot",
+        panel.spacing.x = unit(20, "points"),
+        margins = margin_auto(10))
 
 
 # Waterlichamen-kaart -------------------------------------------------------------------
@@ -47,29 +50,29 @@ krw_data <-
 popup_data <-
   krw_data %>%
   # mutate(oordeel = cut(ekr_2021 / doelen, c(0, 0.33333, 0.66666, 1, 50), labels = c("Slecht", "Ontoereikend", "Matig", "Goed"))) %>%
-  mutate(frac = ekr / doelen,
+  mutate(frac = ekr / doel,
          oordeel = scales::percent(ifelse(frac > 1, 1, frac), accuracy = 1)) %>%
-  group_by(nr, naam, watertype) %>%
+  group_by(wl_code, wl_naam, wl_type) %>%
   summarise(oordeel = glue_collapse(glue("<b>{type}:</b> {oordeel}", .na = "-"), sep = "<br>")) %>%
   ungroup() %>%
-  mutate(popup_tekst = glue("<b>Waterlichaam:</b> {naam}<br><b>Watertype:</b> {f_krw_omsch(watertype)} ({watertype})<hr><b>Toestand t.o.v. doel</b><br>{oordeel}")) %>%
-  select(nr, popup_tekst)
+  mutate(popup_tekst = glue("<b>Waterlichaam:</b> {wl_naam}<br><b>Watertype:</b> {f_krw_omsch(wl_type)} ({wl_type})<hr><b>Toestand t.o.v. doel</b><br>{oordeel}")) %>%
+  select(wl_code, popup_tekst)
 
-pal <- leaflet::colorFactor(palette = RColorBrewer::brewer.pal(9, "Set1") , domain = waterlichamen$naam)
+pal <- leaflet::colorFactor(palette = RColorBrewer::brewer.pal(9, "Set1") , domain = waterlichamen$wl_naam)
 
 kaart_waterlichamen <-
   waterlichamen %>%
-  left_join(popup_data, by = "nr") %>% #st_drop_geometry() %>%  View()
+  left_join(popup_data, by = "wl_code") %>% #st_drop_geometry() %>%  View()
   st_transform(crs = 4326) %>%
   leaflet() %>%
   leaflet::addProviderTiles(leaflet::providers$CartoDB.Positron, group = "Kaart") %>%
   leaflet::addProviderTiles(leaflet::providers$Esri.WorldImagery, group = "Luchtfoto") %>%
   leaflet::addLayersControl(baseGroups = c("Kaart", "Luchtfoto"),
                             options = leaflet::layersControlOptions(collapsed = FALSE), position = "topleft") %>%
-  addPolylines(data = ws_grens, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
-  addPolygons(weight = 4, color = ~pal(naam),
+  addPolylines(data = ws_grens_wgs, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
+  addPolygons(weight = 4, color = ~pal(wl_naam),
               fillOpacity = 0.8, opacity = 0.8,
-              label = ~naam,
+              label = ~wl_naam,
               popup = ~popup_tekst,
               highlightOptions = highlightOptions(color = blauw, bringToFront = TRUE, opacity = 1)) %>% 
   leaflet.extras::addFullscreenControl()
@@ -79,14 +82,14 @@ kaart_waterlichamen <-
 
 krw_doelen <-
   krw_data %>%
-  mutate(fractie = doelen / 0.6,
+  mutate(fractie = doel / 0.6,
          fractie = if_else(fractie > 1, 1, fractie)) %>%
   mutate(doelaanpassing = 1 - fractie) %>%
-  rename(doel = fractie) %>%
+  rename(doel_ekr = doel, doel = fractie) %>%
   pivot_longer(cols = c(doel, doelaanpassing), names_to = "dummy", values_to = "fractie2") %>%
 
-  ggplot(aes(fractie2, fct_reorder(naam, nr, .fun = first, .desc = TRUE), fill = fct_rev(dummy))) +
-  geom_col() +
+  ggplot(aes(fractie2, fct_reorder(wl_naam, wl_code, .fun = first, .desc = TRUE), fill = fct_rev(dummy))) +
+  geom_col(color = NA) +
   facet_grid(cols = vars(type), rows = vars(groep),
              scales = "free_y", space = "free_y", switch = "y", labeller = label_wrap_gen(16)) +
   scale_fill_manual(values = c(doel = blauw_m, doelaanpassing = grijs_m)) +
@@ -105,7 +108,9 @@ krw_doelen <-
         panel.grid.major.y =  element_blank(),
         panel.grid.major.x = element_blank(),
         legend.position = "top",
-        plot.title.position = "plot") +
+        plot.title.position = "plot",
+        panel.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),) +
+  panel_theme_extra +
   guides(fill = guide_legend(title = "", reverse = TRUE))
 
 
@@ -113,13 +118,13 @@ krw_doelen <-
 
 krw_opgave <-
   krw_data %>%
-  mutate(fractie = ekr / doelen,
+  mutate(fractie = ekr / doel,
          fractie = if_else(fractie > 1, 1, fractie)) %>%
   mutate(doelgat = 1 - fractie) %>%
   rename(`huidige toestand` = fractie) %>%
   pivot_longer(cols = c(`huidige toestand`, doelgat), names_to = "dummy", values_to = "fractie2") %>%
-  ggplot(aes(fractie2, fct_reorder(naam, nr, .fun = first, .desc = TRUE), fill = dummy)) +
-  geom_col() +
+  ggplot(aes(fractie2, fct_reorder(wl_naam, wl_code, .fun = first, .desc = TRUE), fill = dummy)) +
+  geom_col(color = NA) +
   facet_grid(cols = vars(type), rows = vars(groep),
              scales = "free_y", space = "free_y", switch = "y", labeller = label_wrap_gen(16)) +
   scale_fill_manual(values = c("huidige toestand" = blauw_m, doelgat = oranje_m)) +
@@ -138,7 +143,9 @@ krw_opgave <-
         panel.grid.major.y =  element_blank(),
         panel.grid.major.x = element_blank(),
         legend.position = "top",
-        plot.title.position = "plot") +
+        plot.title.position = "plot",
+        panel.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),) +
+  panel_theme_extra +
   guides(fill = guide_legend(title = "", reverse = TRUE))
 
 
@@ -168,7 +175,7 @@ kaart_overig <-
   st_read("data/overig_water_kaart.gpkg") %>%
   st_transform(crs = 4326) %>%
   basiskaart(type = "cartolight") %>%
-  addPolylines(data = ws_grens, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
+  addPolylines(data = ws_grens_wgs, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
   addPolygons(color = ~f_kleur_ov(naam_ovw), fillOpacity = 0.7, stroke = 0, label = ~naam_ovw, popup = ~naam_ovw) %>%
   addLegend(position = "topright", pal = f_kleur_ov, values = ~naam_ovw, opacity = 0.7, title = "Overig water") %>% 
   leaflet.extras::addFullscreenControl()
@@ -211,7 +218,7 @@ overig_doelen <-
          doelaanpassing = 1 - doel) %>%
   pivot_longer(cols = c(doel, doelaanpassing)) %>%
   ggplot(aes(value, fct_rev(ovw_naam), fill = fct_rev(name))) +
-  geom_col() +
+  geom_col(color = NA) +
   scale_fill_manual(values = c(doel = blauw_m, doelaanpassing = grijs_m)) +
   scale_x_continuous(limits = c(0, 1), expand = c(0, 0), labels = function(x) scales::percent(x, accuracy = 1)) +
   labs(x = "Hoogte doel t.o.v. standaard",
@@ -225,6 +232,7 @@ overig_doelen <-
         legend.position = "top",
         plot.title.position = "panel",
         plot.margin = margin(5.5, 15, 5.5, 5.5)) +
+  panel_theme_extra +
   guides(fill = guide_legend(title = "", reverse = TRUE))
 
 
@@ -242,7 +250,7 @@ overig_opgave <-
   pivot_longer(c(`huidige toestand`, doelgat)) %>%
   mutate(ovw_naam = fct_reorder(ovw_naam, ovw_code, .fun = last)) %>%
   ggplot(aes(value, fct_rev(ovw_naam), fill = name)) +
-  geom_col() +
+  geom_col(color = NA) +
   scale_fill_manual(values = c("huidige toestand" = blauw_m, doelgat = oranje_m)) +
   scale_x_continuous(limits = c(0, 1), expand = c(0, 0), labels = function(x) scales::percent(x, accuracy = 1)) +
   labs(x = "Toestand ten opzichte van het doel",
@@ -257,4 +265,5 @@ overig_opgave <-
         legend.position = "top",
         plot.title.position = "panel",
         plot.margin = margin(5.5, 15, 5.5, 2)) +
+  panel_theme_extra +
   guides(fill = guide_legend(title = "", reverse = TRUE))
