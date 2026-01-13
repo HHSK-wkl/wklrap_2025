@@ -29,10 +29,6 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 ![](images%5Cvince_sad2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een verdrietig kijkende vis"}
 :::
 
-**Idee: iets over de aanwezigheid van PFAS-pesticiden**
-
-**Idee: iets over toxische stoffen die de norm niet overschrijden**
-
 Bestrijdingsmiddelen zijn stoffen die meestal bedoeld zijn om landbouwgewassen te beschermen tegen schade en ziektes. Daarom worden ze ook wel gewasbeschermingsmiddelen[^05-bestrijdingsmiddelen-1] genoemd. De meeste van deze stoffen zijn giftig en hebben als doel om bepaalde planten, schimmels of insecten te doden. Vaak komen deze stoffen ook in het water terecht. In het water zijn deze stoffen schadelijk voor het leven onder water. Het schadelijke effect wordt nog versterkt doordat er vaak meerdere schadelijke stoffen tegelijk aanwezig zijn. Het waterschap spant zich in om te voorkomen dat deze milieuvreemde stoffen in het oppervlaktewater terecht komen.
 
 [^05-bestrijdingsmiddelen-1]: In deze rapportage gebruiken we bestrijdingsmiddelen als aanduiding. De term gewasbeschermingsmiddelen is vanuit de landbouw gangbaar: deze stoffen worden in de landbouw gebruikt ter bescherming van het gewas.
@@ -57,6 +53,7 @@ In @fig-kaart-overschrijdingen is te zien op welke locaties de normen voor bestr
 #| label: fig-kaart-overschrijdingen
 #| fig-cap: "Op welke meetlocaties was er in {{< var rap_jaar >}} een overschrijding van de normen voor bestrijdingsmiddelen? (interactief)<br>**Klik** op een meetpunt voor meer informatie."
 #| out-width: "100%"
+#| fig-height: 3.2
 
 kaart_overschrijdingen
 
@@ -66,7 +63,7 @@ Bestrijdingsmiddelen overschrijden de normen op veel verschillende plekken. Daar
 
 -   Er zijn in totaal **`r oranje_tekst(aantal_gbm_aanwezig, 20)`** verschillende bestrijdingsmiddelen aangetroffen.
 -   **`r oranje_tekst(aantal_gbm_overschrijdend, 20)`** verschillende bestrijdingsmiddelen overschreden de normen.
--   De grootste normoverschrijding werd veroorzaakt door de piperonyl-butoxide. Deze stof overschreed de norm **`r oranje_tekst("720x", 20)`** op een locatie in de Zuidplaspolder.
+-   De grootste normoverschrijding werd veroorzaakt door de stof deltamethrin. Deze stof overschreed de norm **`r oranje_tekst("5930x", 20)`** op een locatie in de Zuidplaspolder.
 -   Er waren gemiddeld **`r oranje_tekst(gbm_per_monster_aanwezig, 20)`** verschillende bestrijdingsmiddelen in het water aanwezig op de onderzoekslocaties.
 -   Op elke meetlocatie overschreden gemiddeld altijd **`r oranje_tekst(gbm_per_monster_overschrijdend, 20)`** verschillende bestrijdingsmiddelen de normwaarde.
 
@@ -85,7 +82,6 @@ De schade kan worden uitgedrukt in acute effecten en chronische effecten.
 
 De schadelijkheid van bestrijdingsmiddelen in {{< var rap_jaar >}} is in @fig-mspaf-mp per meetlocatie weergegeven. Het is opvallend dat schadelijke effecten vrijwel alleen maar optreden op meetlocaties in het glastuinbouwgebied. De acute effecten lopen op tot 9,5%. Dat betekent dat 1 op de 11 soorten op deze locatie niet kan overleven. De chronische schadelijke effecten lopen zelfs op tot 14-23%. Dat betekent dat op die locaties bijna 1 op de 4 soorten planten en dieren last heeft van de aanwezige bestrijdingsmiddelen.
 
-::: column-body
 ```{r}
 #| label: fig-mspaf-mp
 #| out-width: "100%"
@@ -96,11 +92,9 @@ De schadelijkheid van bestrijdingsmiddelen in {{< var rap_jaar >}} is in @fig-ms
 #|   group: gbm
 plot_mspaf_mp
 ```
-:::
 
 Neemt de schade door gewasbeschermingsmiddelen toe of af? De ontwikkeling van de acute giftigheid is weergegeven in @fig-mspaf-tijd. Over het algemeen neemt de giftigheid af. Vooral locaties waar de giftigheid zeer hoog komen steeds minder voor.
 
-::: column-body-outset
 ```{r}
 #| label: fig-mspaf-tijd
 #| out-width: "100%"
@@ -112,7 +106,6 @@ Neemt de schade door gewasbeschermingsmiddelen toe of af? De ontwikkeling van de
 #|   group: gbm
 plot_mspaf_tijd
 ```
-:::
 
 ### Ontwikkeling normoverschrijdingen {.unnumbered}
 
@@ -136,18 +129,3 @@ plot_overschr_freq
 ```
 :::
 
-### Stoffen zonder norm {.unnumbered}
-
-Voor sommige (nieuwe) gewasbeschermingsmiddelen bestaat er nog geen norm. Als deze gewasbeschermingsmiddelen worden aangetroffen, dan kan niet worden beoordeeld hoe ernstig dat is.
-
-In onderstaande tabel is te zien dat de stoffen cyantraniliprole en flupyradifuron zeer vaak in de monsters worden aangetroffen. Voor deze twee stoffen heeft het RIVM[^05-bestrijdingsmiddelen-5] een aanbeveling gegeven voor een norm maar deze normen zijn nog niet officieel vastgesteld. Volgens deze conceptnormen zou flupyradifuron in 2021 en in 2022 de norm hebben overschreden op één locatie. Cyantraniliprole zou in 2023 op twee locaties en in 2024 op één locatie de conceptnorm overschrijden.
-
-[^05-bestrijdingsmiddelen-5]: [Risicogrenzen voor gewasbeschermingsmiddelen in oppervlaktewater - RIVM-briefrapport 2022-0210 (rivm.nl)](https://www.rivm.nl/bibliotheek/rapporten/2022-0210.pdf)
-
-```{r}
-#| label: tbl-gbm-zonder-norm
-#| out-width: "100%"
-#| fig-height: 4
-#| tbl-cap: "Aangetroffen gewasbeschermingsmiddelen zonder norm"
-tabel_niet_toetsbaar
-```
