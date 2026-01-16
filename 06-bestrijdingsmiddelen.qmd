@@ -29,7 +29,7 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 ![](images%5Cvince_sad2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een verdrietig kijkende vis"}
 :::
 
-Bestrijdingsmiddelen zijn stoffen die meestal bedoeld zijn om landbouwgewassen te beschermen tegen schade en ziektes. Daarom worden ze ook wel gewasbeschermingsmiddelen[^05-bestrijdingsmiddelen-1] genoemd. De meeste van deze stoffen zijn giftig en hebben als doel om bepaalde planten, schimmels of insecten te doden. Vaak komen deze stoffen ook in het water terecht. In het water zijn deze stoffen schadelijk voor het leven onder water. Het schadelijke effect wordt nog versterkt doordat er vaak meerdere schadelijke stoffen tegelijk aanwezig zijn. Het waterschap spant zich in om te voorkomen dat deze milieuvreemde stoffen in het oppervlaktewater terecht komen.
+Bestrijdingsmiddelen zijn stoffen die meestal bedoeld zijn om landbouwgewassen te beschermen tegen (vraat)schade en ziektes. Daarom worden ze ook wel gewasbeschermingsmiddelen[^05-bestrijdingsmiddelen-1] genoemd. De meeste van deze stoffen zijn giftig en hebben als doel om bepaalde planten, schimmels of insecten te doden. Vaak komen deze stoffen ook in het water terecht. In het water zijn deze stoffen schadelijk voor het leven onder water. Het schadelijke effect wordt nog versterkt doordat er vaak meerdere schadelijke stoffen tegelijk aanwezig zijn. Het waterschap spant zich in om te voorkomen dat deze milieuvreemde stoffen in het oppervlaktewater terecht komen.
 
 [^05-bestrijdingsmiddelen-1]: In deze rapportage gebruiken we bestrijdingsmiddelen als aanduiding. De term gewasbeschermingsmiddelen is vanuit de landbouw gangbaar: deze stoffen worden in de landbouw gebruikt ter bescherming van het gewas.
 
@@ -37,7 +37,7 @@ Bestrijdingsmiddelen zijn stoffen die meestal bedoeld zijn om landbouwgewassen t
 
 Uit onderzoek blijkt dat de meeste bestrijdingsmiddelen voorkomen in het glastuinbouwgebied.[^05-bestrijdingsmiddelen-2] Het grootste deel van de metingen van bestrijdingsmiddelen worden daarom gedaan in het glastuinbouwgebied.[^05-bestrijdingsmiddelen-3]
 
-[^05-bestrijdingsmiddelen-2]: In 2020 is er een gebiedsbrede screening uitgevoerd om controleren of deze verwachting juist is. Uit de screening blijkt dat gewasbeschermingsmiddelen vooral in het glastuinbouwgebied worden aangetroffen. In de Krimpenerwaard werden vrijwel geen gewasbeschermingsmiddelen aangetroffen.
+[^05-bestrijdingsmiddelen-2]: In 2020 is er een gebiedsbrede screening uitgevoerd om controleren of deze verwachting juist is. Uit de screening blijkt dat gewasbeschermingsmiddelen vooral in het glastuinbouwgebied worden aangetroffen. In de Krimpenerwaard worden vrijwel geen gewasbeschermingsmiddelen aangetroffen.
 
 [^05-bestrijdingsmiddelen-3]: Onderzoek naar bestrijdingsmiddelen is erg kostbaar doordat het gaat om honderden verschillende stoffen die bij zeer lage concentraties gemeten moeten worden. Daarom kunnen deze stoffen niet op veel plekken en met een hoge frequentie gemeten worden. Hierdoor het is beeld van de aanwezige bestrijdingsmiddelen niet volledig. Het is daarom mogelijk dat er op sommige momenten en/of op sommige plekken hoge concentraties bestrijdingsmiddelen aanwezig zijn die niet worden opgemerkt.
 
@@ -46,6 +46,14 @@ Dit hoofdstuk gaat over de aanwezigheid en de schadelijkheid van bestrijdingsmid
 {{< pagebreak >}}
 
 ### Aanwezigheid bestrijdingsmiddelen {.unnumbered}
+
+Bestrijdingsmiddelen zijn bijna overal aanwezig. Op veel plekken overschrijden ze de normen. Daarnaast gaat het ook om veel verschillende bestrijdingsmiddelen. De volgende cijfers geven een overzicht van de situatie in {{< var rap_jaar >}}.
+
+-   Er zijn in totaal **`r oranje_tekst(aantal_gbm_aanwezig, 20)`** verschillende bestrijdingsmiddelen aangetroffen.
+-   **`r oranje_tekst(aantal_gbm_overschrijdend, 20)`** verschillende bestrijdingsmiddelen overschreden de normen.
+-   De grootste normoverschrijding werd veroorzaakt door de stof deltamethrin. Deze stof overschreed de norm **`r oranje_tekst("5930x", 20)`** op een locatie in de Zuidplaspolder.
+-   Er waren gemiddeld **`r oranje_tekst(gbm_per_monster_aanwezig, 20)`** verschillende bestrijdingsmiddelen in het water aanwezig op de onderzoekslocaties.
+-   Op elke meetlocatie overschreden gemiddeld altijd **`r oranje_tekst(gbm_per_monster_overschrijdend, 20)`** verschillende bestrijdingsmiddelen de normwaarde.
 
 In @fig-kaart-overschrijdingen is te zien op welke locaties de normen voor bestrijdingsmiddelen in {{< var rap_jaar >}} overschreden werden. Op veel locaties overschrijden bestrijdingsmiddelen de normen. Er zijn ook locaties waar de aanwezige bestrijdingsmiddelen afzonderlijk de norm niet overschrijden. Maar als je het mengsel van deze stoffen gezamenlijk zou beoordelen dan zou er toch sprake zijn van een normoverschrijding.
 
@@ -59,53 +67,28 @@ kaart_overschrijdingen
 
 ```
 
-Bestrijdingsmiddelen overschrijden de normen op veel verschillende plekken. Daarnaast gaat het ook om veel verschillende bestrijdingsmiddelen. De volgende cijfers geven een overzicht van de situatie in {{< var rap_jaar >}}.
 
--   Er zijn in totaal **`r oranje_tekst(aantal_gbm_aanwezig, 20)`** verschillende bestrijdingsmiddelen aangetroffen.
--   **`r oranje_tekst(aantal_gbm_overschrijdend, 20)`** verschillende bestrijdingsmiddelen overschreden de normen.
--   De grootste normoverschrijding werd veroorzaakt door de stof deltamethrin. Deze stof overschreed de norm **`r oranje_tekst("5930x", 20)`** op een locatie in de Zuidplaspolder.
--   Er waren gemiddeld **`r oranje_tekst(gbm_per_monster_aanwezig, 20)`** verschillende bestrijdingsmiddelen in het water aanwezig op de onderzoekslocaties.
--   Op elke meetlocatie overschreden gemiddeld altijd **`r oranje_tekst(gbm_per_monster_overschrijdend, 20)`** verschillende bestrijdingsmiddelen de normwaarde.
 
-Er zijn dus altijd behoorlijk veel bestrijdingsmiddelen aanwezig die regelmatig ook de normen overschrijden. Het volgende deel beschrijft wat voor effecten de aanwezige bestrijdingsmiddelen hebben op het waterleven.
+Er zijn dus altijd behoorlijk veel bestrijdingsmiddelen aanwezig die regelmatig ook de normen overschrijden. Het volgende deel gaat in op de effecten de aanwezige bestrijdingsmiddelen hebben op het waterleven.
 
 ### Schadelijke effecten {.unnumbered}
 
-Hoe schadelijk zijn de aanwezige bestrijdingsmiddelen voor het waterleven? Het antwoord op die vraag is afhankelijk van de concentratie van de stof en de gifigheid van de stof. Met deze informatie kan de schadelijkheid worden uitgerekend.[^05-bestrijdingsmiddelen-4] Het resultaat van deze berekening is een inschatting van het aandeel van alle soorten planten en dieren dat mogelijk schade oploopt (msPAF). Er zijn schadelijke effecten op het ecosysteem als meer dan 0,5% van de planten en dieren wordt aangetast.
+Hoe schadelijk zijn de aanwezige bestrijdingsmiddelen voor het waterleven? Het antwoord op die vraag is afhankelijk van de concentratie van de stof en de gifigheid van de stof. Met deze informatie kan de schadelijkheid worden uitgerekend.[^05-bestrijdingsmiddelen-4] Het resultaat van deze berekening is een inschatting van het aandeel van alle soorten planten en dieren dat mogelijk schade oploopt (msPAF). Er zijn schadelijke effecten op het ecosysteem als meer dan 0,5% van de planten en dieren wordt aangetast. We hebben het dan over een hoge toxiciteit.
 
 [^05-bestrijdingsmiddelen-4]: Deze informatie is ongeveer voor 75% van de aangetroffen stoffen beschikbaar
 
-De schade kan worden uitgedrukt in acute effecten en chronische effecten.
-
--   *Acute effecten* zijn effecten die snel optreden zoals sterfte en verlamming.
--   *Chronische effecten* zijn niet direct dodelijk, maar kunnen op lange termijn wel een grote impact hebben; het gaat dan bijvoorbeeld om verminderde groei of het niet voltooien van de levenscyclus waardoor een soort zich niet voortplant.
-
-De schadelijkheid van bestrijdingsmiddelen in {{< var rap_jaar >}} is in @fig-mspaf-mp per meetlocatie weergegeven. Het is opvallend dat schadelijke effecten vrijwel alleen maar optreden op meetlocaties in het glastuinbouwgebied. De acute effecten lopen op tot 9,5%. Dat betekent dat 1 op de 11 soorten op deze locatie niet kan overleven. De chronische schadelijke effecten lopen zelfs op tot 14-23%. Dat betekent dat op die locaties bijna 1 op de 4 soorten planten en dieren last heeft van de aanwezige bestrijdingsmiddelen.
+De belangrijkste bron van bestrijdingsmiddelen in het gebied is de glastuinbouw. In het glastuinbouwgebied zijn dan ook het vaakst schadelijke hoeveelheden van bestrijdingsmiddelen aanwezig in het water. In het verleden had bijna elk watermonster hier een hoge toxiciteit (zie figuur [-@fig-tox-glastuinbouw]). De situatie in het glastuinbouwgebied is echter aan het verbeteren en in de laatste jaren heeft nog maar ongeveer 25% van de watermonsters een hoge toxiciteit. Hoewel dit een grote verbetering is, betekent dit nog wel dat er op een meetlocatie gemiddeld twee of 3 keer per jaar een hoge toxiciteit wordt gemeten.
 
 ```{r}
-#| label: fig-mspaf-mp
+#| label: fig-tox-glastuinbouw
 #| out-width: "100%"
-#| fig-height: 5
-#| fig-cap: "Schadelijkheid van de aangetroffen gewasbeschermingsmiddelen per meetlocatie uitgedrukt als msPAF. De oranje stippellijn geeft de grens van 0,5% aan. De schadelijkheid is bepaald door per locatie van iedere stof het effect van de hoogst gemeten concentratie te bepalen. "
-#| fig-alt: "Schadelijkheid van de aangetroffen gewasbeschermingsmiddelen per meetlocatie uitgedrukt als msPAF."
+#| fig-cap: "Het aandeel watermonsters per jaar met een hoge toxiciteit (msPAF groter dan 0,5 %) van alle monsters waarin bestrijdingsmiddelen zijn gemeten."
+#| fig-alt: "Het aandeel watermonsters per jaar met een hoge toxiciteit (msPAF groter dan 0,5 %) van alle monsters waarin bestrijdingsmiddelen zijn gemeten."
 #| lightbox:
 #|   group: gbm
-plot_mspaf_mp
+plot_tox_glastuinbouw
 ```
 
-Neemt de schade door gewasbeschermingsmiddelen toe of af? De ontwikkeling van de acute giftigheid is weergegeven in @fig-mspaf-tijd. Over het algemeen neemt de giftigheid af. Vooral locaties waar de giftigheid zeer hoog komen steeds minder voor.
-
-```{r}
-#| label: fig-mspaf-tijd
-#| out-width: "100%"
-#| fig-height: 6
-#| fig-width: 8
-#| fig-cap: "Welk aandeel van de soorten kan acute schade ondervinden van de aanwezige gewasbeschermingsmiddelen?<br>Elk punt is de giftigheid op een onderzoekslocatie. De horizontale lijnen geven de grens aan tussen zeer hoge toxiciteit en hoge toxiciteit (1 op de 10) en de grens tussen hoge toxiciteit en matige toxiciteit. (1 op de 200)."
-#| fig-alt: "De acute toxiciteit per locatie per jaar in de laatste 10 jaar."
-#| lightbox:
-#|   group: gbm
-plot_mspaf_tijd
-```
 
 ### Ontwikkeling normoverschrijdingen {.unnumbered}
 

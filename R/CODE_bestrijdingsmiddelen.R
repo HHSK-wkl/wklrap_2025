@@ -67,18 +67,6 @@ normen <- readRDS("data/normen.rds") %>%
   bind_rows(transpermethrin) %>%
   bind_rows(formetanaat)
 
-# mspaf <- function(paf_vector){
-#   1 - prod(1 - paf_vector, na.rm = TRUE)
-# }
-
-# direct aangepast in scale_y_continuous maakt de functie overbodig. De functie werkt ook niet correct meer.
-# reverselog_trans <- function(base = 10, n = 5) {
-#   trans <- function(x) -log(x, base)
-#   inv <- function(x) base^(-x)
-#   scales::trans_new(paste0("reverselog-", format(base)), trans, inv,
-#                     scales::log_breaks(n = n, base = base),
-#                     domain = c(1e-100, Inf))
-# }
 
 
 meer_of_minder <- function(waarde) {
@@ -104,9 +92,9 @@ kleuren_functies_gbm <-
 toetsing <- data_gbm %>% HHSKwkl::toetsing_gbm(normen, factor_detectiegrens = 0.5) %>%
   filter(aantal > 1) # screeningswaarden wegfilteren; op 1 waarde is geen toetsing mogelijk
 
-mspaf_mp <-
+tox_per_monster <- 
   data_gbm %>%
-  filter(jaar > rap_jaar - 10) %>%
+  # filter(jaar > rap_jaar - 10) %>%
   mutate(paf_acuut = paf_gbm(f_aquopar(parnr),
                              concentratie = waarde,
                              detectiegrens = detectiegrens,
@@ -116,43 +104,25 @@ mspaf_mp <-
                                  concentratie = waarde,
                                  detectiegrens = detectiegrens,
                                  ssd_data = toxiciteit,
-                                 type_paf = "chronisch")) %>%
+                                 type_paf = "chronisch")) %>% 
   # afhandelen detectiegrenswaarden
-  mutate(paf_acuut = ifelse(is.na(detectiegrens), paf_acuut, 0),
-         paf_chronisch = ifelse(is.na(detectiegrens), paf_chronisch, 0)) %>%
-  mutate(aantal_monsters = n_distinct(datum), .by = c(mp, jaar)) %>%
-  # alleen de hoogste waarde telt mee in de msPAF
-  filter(waarde == max(waarde), .by = c(mp, parnr, jaar)) %>%
-  group_by(mp, aantal_monsters, jaar) %>%
-  summarise(`Acute effecten` = mspaf(paf_acuut),
-            `Chronische effecten` = mspaf(paf_chronisch)) %>%
-  ungroup() %>%
-  mutate(landgebruik = ifelse(mp == "S_0609", "Glastuinbouw", str_to_sentence(f_landgebruik(mp)))) %>%
-  mutate(mp2 = glue("{landgebruik} -- {mp}")) %>%
-  mutate(mp2 = fct_reorder(mp2, `Acute effecten`)) %>%
-  pivot_longer(cols = c(`Acute effecten`, `Chronische effecten`), names_to = "type", values_to = "mspaf" ) %>%
-  mutate(landgebruik = fct_reorder(landgebruik, mspaf, .desc = TRUE))
-
-paf <-
-  data_gbm %>%
-  mutate(paf_acuut = paf_gbm(f_aquopar(parnr),
-                             concentratie = waarde,
-                             detectiegrens = detectiegrens,
-                             ssd_data = toxiciteit,
-                             type_paf = "acuut"),
-         paf_chronisch = paf_gbm(f_aquopar(parnr),
-                                 concentratie = waarde,
-                                 detectiegrens = detectiegrens,
-                                 ssd_data = toxiciteit,
-                                 type_paf = "chronisch")) %>%
-  # afhandelen detectiegrenswaarden
-  mutate(paf_acuut = ifelse(is.na(detectiegrens), paf_acuut, 0),
-         paf_chronisch = ifelse(is.na(detectiegrens), paf_chronisch, 0)) %>%
+  replace_na(replace = list(paf_acuut = 0, paf_chronisch = 0)) %>%  # detectiegrenswaarden of ontbrekende tox-info
   group_by(mp, jaar, datum) %>%
-  summarise(`Acute effecten` = mspaf(paf_acuut),
-            `Chronische effecten` = mspaf(paf_chronisch)) %>%
-  ungroup() %>%
+  summarise(mspaf_acuut = mspaf(paf_acuut),
+            mspaf_chronisch = mspaf(paf_chronisch),
+            n_stoffen_gemeten = n(),
+            n_stoffen_aanwezig = sum(is.na(detectiegrens))) %>%
+  ungroup() %>% 
+  mutate(categorie = case_when(
+    mspaf_acuut > 0.1 ~ "Zeer Hoge toxiciteit",
+    mspaf_acuut > 0.005 ~ "Hoge toxiciteit",
+    mspaf_chronisch > 0.05 ~ "Matige toxiciteit",
+    mspaf_chronisch > 0.005 ~ "Geringe toxiciteit",
+    mspaf_chronisch < 0.005 ~ "Geen toxiciteit"
+  )) %>% 
   mutate(landgebruik = f_landgebruik(mp))
+
+
 
 
 # aantallen GBM ----
@@ -239,6 +209,35 @@ ind_overschr <-
 pal <- colorFactor(palette = c(oranje_m, blauw, oranje, "#752E00"), 
                    domain = c("Geen normoverschrijding", "Beperkte normoverschrijding (1-10x)", "Grote normoverschrijding (10-100x)", "Zeer grote normoverschrijding (> 100x)"))
 
+mspaf_mp <-
+  data_gbm %>%
+  filter(jaar > rap_jaar - 10) %>%
+  mutate(paf_acuut = paf_gbm(f_aquopar(parnr),
+                             concentratie = waarde,
+                             detectiegrens = detectiegrens,
+                             ssd_data = toxiciteit,
+                             type_paf = "acuut"),
+         paf_chronisch = paf_gbm(f_aquopar(parnr),
+                                 concentratie = waarde,
+                                 detectiegrens = detectiegrens,
+                                 ssd_data = toxiciteit,
+                                 type_paf = "chronisch")) %>%
+  # afhandelen detectiegrenswaarden
+  mutate(paf_acuut = ifelse(is.na(detectiegrens), paf_acuut, 0),
+         paf_chronisch = ifelse(is.na(detectiegrens), paf_chronisch, 0)) %>%
+  mutate(aantal_monsters = n_distinct(datum), .by = c(mp, jaar)) %>%
+  # alleen de hoogste waarde telt mee in de msPAF
+  filter(waarde == max(waarde), .by = c(mp, parnr, jaar)) %>%
+  group_by(mp, aantal_monsters, jaar) %>%
+  summarise(`Acute effecten` = mspaf(paf_acuut),
+            `Chronische effecten` = mspaf(paf_chronisch)) %>%
+  ungroup() %>%
+  mutate(landgebruik = ifelse(mp == "S_0609", "Glastuinbouw", str_to_sentence(f_landgebruik(mp)))) %>%
+  mutate(mp2 = glue("{landgebruik} -- {mp}")) %>%
+  mutate(mp2 = fct_reorder(mp2, `Acute effecten`)) %>%
+  pivot_longer(cols = c(`Acute effecten`, `Chronische effecten`), names_to = "type", values_to = "mspaf" ) %>%
+  mutate(landgebruik = fct_reorder(landgebruik, mspaf, .desc = TRUE))
+
 mspaf_label <- 
   mspaf_mp %>% 
   filter(jaar == rap_jaar) %>% 
@@ -278,6 +277,32 @@ kaart_overschrijdingen <-
   leaflet.extras::addFullscreenControl()
 
 # Toxiciteit --------------------------------------------------------------
+
+plot_tox_glastuinbouw <- 
+  tox_per_monster %>% 
+  filter(f_landgebruik(mp) == "Glastuinbouw") %>% 
+  # filter(n_stoffen_gemeten > 120) %>% 
+  group_by(jaar) %>% 
+  summarise(n = n(),
+            n_zeer_hoog = sum(mspaf_acuut > 0.1),
+            fractie_zeer_hoog = n_zeer_hoog / n,
+            n_hoog = sum(mspaf_acuut > 0.005),
+            fractie_hoog = n_hoog / n,
+            n_matig = sum(mspaf_acuut > 0.005 | mspaf_chronisch > 0.05),
+            fractie_matig = n_matig / n) %>% 
+  ungroup() %>% 
+  # mutate(label = glue("{n_hoog} van de {n}")) %>% 
+  
+  ggplot(aes(jaar, fractie_hoog)) + 
+  geom_line() + geom_point() +
+  # ggrepel::geom_text_repel(aes(label = label)) +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.0)), labels = scales::label_percent()) +
+  scale_x_continuous(breaks = scales::breaks_width(2, 1)) +
+  labs(title = "Steeds minder giftige effecten in het glastuinbouwgebied",
+       subtitle = "Aandeel monsters met hoge toxiciteit in het glastuinbouwgebied",
+       x = "",
+       y = "% monsters met hoge toxiciteit") +
+  panel_theme_extra
 
 plot_mspaf_mp <-
   mspaf_mp %>%
@@ -326,15 +351,16 @@ plot_mspaf_tijd <-
        subtitle = "Acute effecten per locatie",
        x = "",
        y = "Aandeel aangetaste soorten") +
-  thema_line_facet +
-  theme(plot.subtitle = element_text(face = "italic"),
-        axis.text.y = element_text(hjust = 1),
-        panel.grid.major.x = element_blank(),
-        axis.ticks.x = element_blank(), 
-        strip.background = element_blank(),
-        panel.spacing = unit(20, "points")
-        
-        ) +
+  hhskthema() + 
+  panel_theme_extra +
+  # theme(plot.subtitle = element_text(face = "italic"),
+  #       axis.text.y = element_text(hjust = 1),
+  #       panel.grid.major.x = element_blank(),
+  #       axis.ticks.x = element_blank(), 
+  #       strip.background = element_blank(),
+  #       panel.spacing = unit(20, "points")
+  #       
+  #       ) +
   NULL
 
 # plot_mspaf_tijd <-
@@ -417,8 +443,9 @@ plot_overschr_freq <-
        subtitle = "per type landgebruik",
        x = "",
        y = "% normoverschrijdingen") +
-  thema_line_facet +
-  theme(panel.spacing = unit(25, "points"))
+  hhskthema() +
+  panel_theme_extra
+  # theme(panel.spacing = unit(25, "points"))
 
 # Niet toetsbare stoffen -----------------------------------------
 
@@ -441,7 +468,7 @@ tabel_niet_toetsbaar <-
             .by = c(Naam)) %>% 
   select(-n, -n_aanwezig) %>% 
   
-  bind_cols(tibble(`Soort stof` = c("Fungicide (metaboliet)", rep("Insecticide", 3)))) %>% #, Bijzonderheden = c("", "Giftig voor bijen", "Afbraak product van tolylfluanide"))) %>%
+  bind_cols(tibble(`Soort stof` = "Fungicide (metaboliet)")) %>% #, Bijzonderheden = c("", "Giftig voor bijen", "Afbraak product van tolylfluanide"))) %>%
   knitr::kable(align = "lrl")
 
 
