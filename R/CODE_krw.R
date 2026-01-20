@@ -15,7 +15,7 @@ rap_jaar <- 2025
 
 # INFORMATIE OVER WATERLICHAAM TOVOEGEN AAN POPUP
 
-waterlichamen <- read_sf("data/waterlichamen.gpkg") 
+waterlichamen <- read_sf("data/waterlichamen.gpkg") %>% st_simplify(dTolerance = 1)
 
 f_krw_omsch <-
   tibble::tribble(
@@ -173,6 +173,7 @@ nieuwste_bestand <- function(pattern, pad = "data"){
 
 kaart_overig <-
   st_read("data/overig_water_kaart.gpkg") %>%
+  st_simplify(dTolerance = 1) %>% 
   st_transform(crs = 4326) %>%
   basiskaart(type = "cartolight") %>%
   addPolylines(data = ws_grens_wgs, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
