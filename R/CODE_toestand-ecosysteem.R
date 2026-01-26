@@ -94,9 +94,14 @@ plot_submers <-
          gebied %in% c("Schieland", "Krimpenerwaard")) %>%
   group_by(jaar, gebied) %>%
   summarise(perc = perc(waarde >= 5)) %>%
+  ungroup() %>% 
   ggplot(aes(jaar, perc)) +
   geom_line(colour = blauw, linewidth = 1) +
-  geom_point(colour = blauw) +
+  geom_point(colour = blauw) + 
+  ggrepel::geom_text_repel(aes(label = paste0(round(perc), "%")), nudge_y = 8, direction = "y",
+                            color = blauw, segment.color = grijs, segment.linetype = "dotted",
+                            family = "Ruda Bold", size = 4,
+                            data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
   facet_wrap(~gebied, scales = "free_y") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.0)), limits = c(0, 85), labels = scales::label_percent(scale = 1)) +
   scale_x_continuous(breaks = scales::breaks_width(5, 0), limits = c(NA, rap_jaar)) +
@@ -202,6 +207,10 @@ plot_kreeften_aandeel_locs <-
   ggplot(aes(jaar, frac_aangetroffen)) +
   geom_line(linewidth = 1) +
   geom_point() +
+  ggrepel::geom_text_repel(aes(label = paste0(round(frac_aangetroffen * 100), "%")), nudge_y = -0.08, direction = "y",
+                           color = blauw, segment.color = grijs, segment.linetype = "dotted",
+                           family = "Ruda Bold", size = 4,
+                           data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
   scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.1)), labels = scales::percent_format()) +
   facet_wrap(~gebied, axes = "all") +
   labs(title = "Toename van kreeften in Schieland",
@@ -219,6 +228,11 @@ plot_kreeften_aantallen <-
   ggplot(aes(jaar, gem_n_kreeften)) +
   geom_line(linewidth = 1) +
   geom_point() +
+  ggrepel::geom_text_repel(aes(label = round(gem_n_kreeften)), nudge_y = -4, direction = "y",
+                           color = blauw, segment.color = grijs, , segment.linetype = "dotted", 
+                           family = "Ruda Bold", size = 4,
+                            data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.1)), labels = scales::percent_format()) +
   scale_y_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
   facet_wrap(~gebied, axes = "all") +
   labs(title = "Verdubbelling van het aantal kreeften sinds 2020",
