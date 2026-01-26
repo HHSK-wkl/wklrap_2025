@@ -22,13 +22,11 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 ------------------------------------------------------------------------
 
-## KRW-waterlichamen {.unnumbered}
+### De Kaderrichtlijn water {.unnumbered}
 
 ::: aside
 ![](images%5Cvince_neutral2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een neutraal kijkende vis"}
 :::
-
-### Wat zijn KRW-waterlichamen? {.unnumbered}
 
 De ecologische doelen voor het watersysteem komen voor een belangrijk deel voort uit de Europese Kaderrichtlijn Water. De Kaderrichtlijn Water (KRW) is een richtlijn die bedoeld is om de waterkwaliteit en ecologie te beschermen en te verbeteren. De KRW geeft richtlijnen voor de wijze waarop waterkwaliteitsdoelen vastgesteld moeten worden. Ook verplicht de KRW de Nederlandse overheden om voor 2027 alle zinvolle maatregelen te nemen om die doelen te bereiken. Hoewel de KRW geldt voor alle wateren worden de KRW-doelen alleen vastgesteld voor zogenaamde waterlichamen.[^02-krw-1] In het gebied van het hoogheemraadschap zijn 26 waterlichamen aanwezig.
 
@@ -48,9 +46,18 @@ kaart_waterlichamen
 
 {{< pagebreak >}}
 
-### KRW-doelen {.unnumbered}
+::: {.callout-note collapse="true"}
 
-::: aside
+### Hoe worden KRW-doelen bepaald? {.unnumbered}
+
+De KRW-doelen worden bepaald op basis van het watertype van het water. Voor elk watertype is een standaard-doel vastgesteld, dit zijn zogenaamde 'default-doelen'. Als het water functies of natuurlijke omstandigheden heeft die beperkend zijn voor de ecologie, dan wordt de doelstelling naar beneden toe bijgesteld. Dit noemt men een technische doelaanpassing. Er zijn diverse geldige redenen om het KRW-doel aan te passen. Een veel voorkomende reden is dat het niet mogelijk is om het waterpeil te laten fluctueren omdat dat zou leiden tot wateroverlast. Een andere belangrijke reden is dat de natuurlijke achtergrondbelasting met nutriënten zo hoog is dat dit beperkend is voor de waterkwaliteit.
+
+Hierdoor zijn de KRW-doelen in principe haalbare doelen die door het treffen van de juiste maatregelen gehaald moeten kunnen worden. Per waterlichaam wordt voor drie of vier kwaliteitselementen een KRW-doel vastgesteld: algen, waterplanten, macrofauna (waterdiertjes) en vissen.
+
+De KRW-doelen kunnen op basis van functies en omstandigheden aangepast worden (technische doelaanpassing). Alleen in de natuurgebieden zijn de doelen niet aangepast. In alle andere wateren zijn de doelen in min of meerdere mate aangepast.
+
+In @fig-krw-doelen is per waterlichaam te zien of en hoeveel de doelen naar beneden toe zijn aangepast ten opzichte van het standaard-doel (default). Het blauwe gedeelte toont de hoogte van het doel, het grijze gedeelte toont hoeveel het doel is aangepast.
+
 ```{r}
 #| label: fig-krw-doelen
 #| fig-height: 8
@@ -62,23 +69,14 @@ kaart_waterlichamen
 #|   group: krw
 krw_doelen
 ```
+
 :::
-
-De KRW-doelen worden bepaald op basis van het watertype van het water. Voor elk watertype is een standaard-doel vastgesteld, dit zijn zogenaamde 'default-doelen'. Als het water functies of natuurlijke omstandigheden heeft die beperkend zijn voor de ecologie, dan wordt de doelstelling naar beneden toe bijgesteld.[^02-krw-2] Hierdoor zijn de KRW-doelen haalbare doelen die door het treffen van de juiste maatregelen gehaald moeten kunnen worden. Per waterlichaam wordt voor drie of vier kwaliteitselementen een KRW-doel vastgesteld: algen, waterplanten, macrofauna (waterdiertjes) en vissen.
-
-[^02-krw-2]: Dit noemt men een technische doelaanpassing. Er zijn diverse geldige redenen om het KRW-doel aan te passen. Een veel voorkomende reden is dat het niet mogelijk is om het waterpeil te laten fluctueren omdat dat zou leiden tot wateroverlast. Een andere belangrijke reden is dat de natuurlijke achtergrondbelasting met nutriënten zo hoog is dat dit beperkend is voor de waterkwaliteit.
-
-De KRW-doelen kunnen op basis van functies en omstandigheden aangepast worden (technische doelaanpassing). Alleen in de natuurgebieden zijn de doelen niet aangepast. In alle andere wateren zijn de doelen in min of meerdere mate aangepast.
-
-In @fig-krw-doelen is per waterlichaam te zien of en hoeveel de doelen naar beneden toe zijn aangepast ten opzichte van het standaard-doel (default). Het blauwe gedeelte toont de hoogte van het doel, het grijze gedeelte toont hoeveel het doel is aangepast.
 
 {{< pagebreak >}}
 
 ### KRW-opgave {.unnumbered}
 
-Uit de Kaderrichtlijn Water volgt de verplichting om de benodigde maatregelen te nemen zodat de waterkwaliteit in 2027 voldoet aan de doelstelling. In @fig-krw-opgave is te zien in welke mate de waterlichamen voldoen aan de doelstellingen. Het blauwe gedeelte van de balk toont de huidige toestand ten opzichte van het doel, het oranje gedeelte toont het gat tussen de huidige toestand en het doel. De toestand van de waterlichamen is bepaald met gegevens tot en met het jaar {{< var vorig_jaar >}}.[^02-krw-3]
-
-[^02-krw-3]: Bij de KRW-beoordeling van sloten worden algen niet beoordeeld. Daarom ontbreken daar de balkjes met de opgave en het doelgat.
+Uit de Kaderrichtlijn Water volgt de verplichting om de benodigde maatregelen te nemen zodat de waterkwaliteit in 2027 voldoet aan de doelstelling. In @fig-krw-opgave is te zien in welke mate de waterlichamen voldoen aan de doelstellingen. Het blauwe gedeelte van de balk toont de huidige toestand ten opzichte van het doel, het oranje gedeelte toont het gat tussen de huidige toestand en het doel. De toestand van de waterlichamen is bepaald met gegevens tot en met het jaar {{< var vorig_jaar >}}.
 
 Er is te zien dat de boezems en de plassen grotendeels voldoen aan de doelstellingen. De lijnvormige wateren voldoen vaak nog niet aan de doelstelling. Vooral op het gebied van waterplanten en macrofauna worden de gestelde doelen nog niet bereikt.
 
@@ -87,7 +85,7 @@ Er is te zien dat de boezems en de plassen grotendeels voldoen aan de doelstelli
 #| fig-height: 8
 #| fig-width: 7.5
 #| out-width: "100%"
-#| fig-cap: "De toestand van de waterlichamen ten opzichte van de doelstelling. Het blauwe gedeelte toont de huidige toestand ten opzichte van het doel, het oranje gedeelte toont het gat tussen de huidige toestand en het doel."
+#| fig-cap: "De toestand van de waterlichamen ten opzichte van de doelstelling. Het blauwe gedeelte toont de huidige toestand ten opzichte van het doel, het oranje gedeelte toont het gat tussen de huidige toestand en het doel. Bij de KRW-beoordeling van sloten worden algen niet beoordeeld. Daarom ontbreken daar de balkjes met de opgave en het doelgat."
 #| fig-alt: "Figuur met de KRW-opgave voor elk waterlichaam en elk kwaliteitselement."
 #| lightbox:
 #|   group: krw
@@ -96,9 +94,23 @@ krw_opgave
 
 {{< pagebreak >}}
 
-## Overig water {.unnumbered}
+Vanaf het eerste stroomgebiedsbeheerplan (SGBP) in 2009-2015 zijn er veel maatregelen getroffen om de waterkwaliteit te verbeteren. Veel waterlichamen hebben hierdoor een betere kwaliteit gekregen. Er is echter ook een verslechtering te zien in de waterlichamen die bestaan uit (veen-)sloten en in de bredere wateren in de Krimpenerwaard. Deze wateren zijn als gevolg van de kreeften en het daaropvolgende verdwijnen van waterplanten verder van het doel afgeraakt. In de meeste andere watertypen zijn meestal wel verbetering te zien. In figuur [-@fig-krw-verandering] is de gemiddelde ontwikkeling per type water te zien sinds het eerste stroomgebiedsbeheerplan.
 
-### Wat is overig water? {.unnumbered}
+```{r}
+#| label: fig-krw-verandering
+##| fig-height: 8
+##| fig-width: 7.5
+#| out-width: "100%"
+#| fig-cap: "De gemiddelde verandering ten opzichte van de doelstelling per type water per biologische groep."
+#| fig-alt: "Figuur met de verandering van de KRW-opgave sinds het eerste stroomgebiedsbeheerplan"
+#| lightbox:
+#|   group: krw
+krw_verandering
+```
+
+
+
+### Overig water {.unnumbered}
 
 Wateren die geen KRW-waterlichaam zijn, worden aangeduid als 'overig water'. Het overig water is voornamelijk ingedeeld naar het landgebruik; het landgebruik heeft namelijk een grote invloed op de mogelijkheden en beperkingen voor het waterleven. Voor elke vorm van landgebruik is een doel voor het overig water bepaald. Voor sommige wateren is daarnaast een doel vastgesteld dat specifiek aansluit op de lokale situatie. De indeling van het overig water is te zien op de onderstaande kaart (@fig-kaart-overig).
 

@@ -149,6 +149,63 @@ krw_opgave <-
   guides(fill = guide_legend(title = "", reverse = TRUE))
 
 
+# KRW-ontwikkeling --------------------------------------------------------
+
+# 
+# doelen <-
+#   readxl::read_excel("data-raw/waterlichamen_ekrs_en_doelen_2024.xlsx") %>% 
+#   select(type, nr, doelen, groep) 
+
+
+
+ekrs <- 
+  read_excel("data/overzicht ekr nieuwe toetsing 2025 v11-07-2025.xlsx") %>% 
+  pivot_longer(cols = starts_with("20"), names_to = "jaar", values_to = "ekr", values_drop_na = TRUE) %>% 
+  rename_all(str_to_lower) %>%
+  mutate(jaar = as.numeric(jaar)) %>% 
+  arrange(type, nr, naam, jaar) %>% 
+  group_by(type, nr, naam) %>% 
+  mutate(ekr3 = slider::slide_dbl(ekr, ~round(mean(.x), digits = 3), .before = 2)) %>% 
+  ungroup() %>% 
+  mutate(naam = str_replace(naam, "t Weegje", "'t Weegje")) %>% 
+  select(wl_code = nr, wl_naam = naam, wl_type = watertype, type, doel, jaar, ekr) %>% 
+  left_join(select(krw_data, wl_code, groep, type, doel)) %>% 
+  arrange(wl_code, type)
+
+krw_verandering <- 
+  ekrs %>% 
+  mutate(type = fct_relevel(type, c("Algen", "Waterplanten", "Macrofauna", "Vis")),
+         groep = fct_relevel(groep, "Boezem", "Plassen", "Sloten", "Kanalen Krimpenerwaard", "Kanalen Schieland")) %>% 
+  mutate(sgbp = cut(jaar, 
+                    breaks = c( 2008.5, 2015.5, 2021.5, 2027.5), 
+                    labels =  c("SGBP_1", "SGBP_2", "SGBP_3"))) %>% 
+  mutate(doelbereik = pmin(1, ekr/ doel)) %>% 
+  group_by(groep, type, sgbp) %>% 
+  summarise(doelbereik = mean(doelbereik)) %>% 
+  ungroup() %>% 
+  pivot_wider(names_from = sgbp, values_from = doelbereik) %>% 
+  mutate(verandering = SGBP_3 - coalesce(SGBP_1, SGBP_2),
+         test =  coalesce(SGBP_1, SGBP_2)) %>% 
+  mutate(verandering2 = ifelse(verandering >= 0, "verbetering", "achteruitgang")) %>% 
+  ggplot(aes(y = type, colour = verandering2)) +
+  geom_segment(aes(x = SGBP_1, xend = SGBP_3), linewidth = 1, arrow = arrow(angle = 30, length = unit(0.2, "cm"),
+                                                                            ends = "last", type = "closed")) +
+  facet_wrap(~groep, ncol = 2, axes = "all") +
+  scale_colour_manual(values = c(verbetering = blauw, achteruitgang = oranje), guide = guide_legend(title = "")) +
+  scale_y_discrete(limits = rev) +
+  scale_x_continuous(labels = scales::label_percent(), limits = c(0, 1), expand = c(0,0), ) +
+  hhskthema() +
+  coord_cartesian(clip = "off") +
+  panel_theme_extra  +
+  theme(panel.spacing.x = unit(30, "points"),
+        axis.text.y = element_text(hjust = 0),
+        legend.position = "top",
+        panel.grid.major.y = element_blank()) +
+  labs(title = "Hoeveel verbetering heeft de KRW gebracht?",
+       subtitle = "Gemiddelde verandering tussen SGBP 1 (2009-2015) en SGBP 3 (2022-2027)",
+       x = "Toestand ten opzichte van het doel",
+       y = "")
+
 # Overig water ------------------------------------------------------------
 
 
