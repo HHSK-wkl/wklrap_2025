@@ -172,7 +172,7 @@ ekrs <-
   left_join(select(krw_data, wl_code, groep, type, doel)) %>% 
   arrange(wl_code, type)
 
-krw_verandering <- 
+krw_verandering <-
   ekrs %>% 
   mutate(type = fct_relevel(type, c("Algen", "Waterplanten", "Macrofauna", "Vis")),
          groep = fct_relevel(groep, "Boezem", "Plassen", "Sloten", "Kanalen Krimpenerwaard", "Kanalen Schieland")) %>% 
@@ -191,15 +191,17 @@ krw_verandering <-
   geom_segment(aes(x = SGBP_1, xend = SGBP_3), linewidth = 1, arrow = arrow(angle = 30, length = unit(0.2, "cm"),
                                                                             ends = "last", type = "closed")) +
   facet_wrap(~groep, ncol = 2, axes = "all") +
-  scale_colour_manual(values = c(verbetering = blauw, achteruitgang = oranje), guide = guide_legend(title = "")) +
+  scale_colour_manual(values = c(verbetering = blauw, achteruitgang = oranje), guide = guide_legend(title = "Soort verandering")) +
   scale_y_discrete(limits = rev) +
   scale_x_continuous(labels = scales::label_percent(), limits = c(0, 1), expand = c(0,0), ) +
   hhskthema() +
   coord_cartesian(clip = "off") +
   panel_theme_extra  +
   theme(panel.spacing.x = unit(30, "points"),
+        margins = margin_auto(15),
         axis.text.y = element_text(hjust = 0),
-        legend.position = "top",
+        legend.position =  c(0.73, 0.10),
+        # legend.background = element_rect(fill = wit),
         panel.grid.major.y = element_blank()) +
   labs(title = "Hoeveel verbetering heeft de KRW gebracht?",
        subtitle = "Gemiddelde verandering tussen SGBP 1 (2009-2015) en SGBP 3 (2022-2027)",
