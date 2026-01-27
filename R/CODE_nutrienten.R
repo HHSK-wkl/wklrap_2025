@@ -19,6 +19,16 @@ parameters <- readRDS("data/parameters.rds")
 
 theme_set(hhskthema())
 
+panel_theme_extra <- 
+  theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        legend.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")), 
+        strip.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        plot.title.position = "plot",
+        plot.subtitle.position = "plot",
+        panel.spacing.x = unit(20, "points"),
+        margins = margin_auto(10),
+        axis.text.y = element_text(hjust = 0))
+
 # panel_theme_extra <- 
 #   theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
 #         plot.title.position = "plot",
@@ -80,12 +90,13 @@ nutrienten_plot <-
   mutate(par_strip = c("3" = "Fosfaat (mg P/l)", "7" = "Stikstof (mg N/l)")[as.character(parnr)]) %>%
   mutate(landgebruik = fct_reorder(landgebruik, .fun = first, waarde_gem, .desc = FALSE)) %>%
   ggplot(aes(waarde_gem, landgebruik)) +
-  geom_col(colour = blauw_d, linewidth = 0.5, fill = grijs_m) +
+  geom_col(aes(fill = landgebruik)) +
+  # geom_col(colour = blauw_d, linewidth = 0.5, fill = grijs_m) +
   facet_wrap(vars(par_strip), scales = "free", strip.position = "top",) +
   scale_x_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1)), labels = scales::label_number(decimal.mark = ",")) +
-  # scale_fill_manual(values = kleuren_functies_nutrienten) +
-  labs(title = "Nutriënten",
-       subtitle = glue("gemiddeld per gebied in {rap_jaar}"),
+  scale_fill_manual(values = kleuren_functies_nutrienten) +
+  labs(title = "Glastuinbouwgebied heeft dubbel zoveel fosfaat en stikstof",
+       subtitle = glue("Gemiddelde concentratie per gebied in {rap_jaar}"),
        y = "",
        x = "") +
   theme(axis.ticks.y = element_blank(),
@@ -93,16 +104,71 @@ nutrienten_plot <-
         # strip.background = ggplot2::element_rect(fill = NA, colour = NA),
         strip.text = ggplot2::element_text(size = 12),
         panel.spacing = unit(1, "cm"),
+        panel.grid.major.y = element_blank()
         ) +
   guides(fill = "none") +
   # geom_vline(xintercept = 0,color = "grey40", size = 0.5) + # kunstmatige y-aslijn
-  NULL
+  panel_theme_extra
 
 kleuren_functies_lijnen <-
   kleuren_functies_nutrienten %>%
   darken(amount = 0.3, space = "combined", method = "absolute") %>%
   set_names(str_to_lower(names(kleuren_functies_nutrienten)))
 
+
+
+# Nutriëntenlimitatie -----------------------------------------------------
+
+lim_data <- 
+  fys_chem %>% 
+  filter(year(datum) == 2025, parnr %in% c(2,4, 6), month(datum) %in% c(4:9)) %>% 
+  select(-parnr, -eenheid) %>% 
+  pivot_wider(names_from = par, values_from = c(detectiegrens, waarde)) %>% 
+  mutate(p_lim = !is.na(detectiegrens_PO4),
+         n_lim = !is.na(detectiegrens_NH4) & !is.na(detectiegrens_sNO3NO2),
+         nut_lim = p_lim | n_lim) %>% 
+  group_by(mp) %>% 
+  summarise(aantal = n(),
+            aantal_lim = sum(nut_lim),
+            lim_frac = aantal_lim / aantal,
+            
+            # aantal_lim_n = sum(n_lim),
+            # lim_frac_n = aantal_lim_n / aantal,
+            # 
+            # aantal_lim_p = sum(p_lim),
+            # lim_frac_p = aantal_lim_p / aantal
+            ) %>% 
+  inner_join(mp_sel, by = "mp") %>% 
+  group_by(landgebruik) %>% 
+  summarise(lim_frac = mean(lim_frac),
+            Nutrienten = 1 - lim_frac,
+            aantal_locs = n(),
+            aantal_locs_lim = sum(aantal_lim > 0),
+            frac_locs_lim = aantal_locs_lim / aantal_locs,
+            
+            # lim_frac_n = mean(lim_frac_n),
+            # Stikstof = 1 - lim_frac_n,
+            # aantal_locs_lim_n = sum(aantal_lim_n > 0),
+            # frac_locs_lim_n = aantal_locs_lim_n / aantal_locs,
+            # 
+            # lim_frac_p = mean(lim_frac_p),
+            # Fosfaat = 1 - lim_frac_p,
+            # aantal_locs_lim_p = sum(aantal_lim_p > 0),
+            # frac_locs_lim_p = aantal_locs_lim_p / aantal_locs,
+  )
+
+limitatie_plot <-
+  lim_data %>% 
+  mutate(landgebruik = str_to_sentence(landgebruik)) %>%
+  mutate(landgebruik = fct_reorder(landgebruik, frac_locs_lim, .desc = TRUE)) %>% 
+  ggplot(aes(1 - frac_locs_lim, landgebruik)) +
+  geom_col() +
+  scale_x_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1)), labels = scales::label_percent()) +
+  labs(title = "Welke soort gebieden hebben teveel nutriënten?",
+       subtitle = 'Op welk deel van de locaties raakt fosfaat en/of stikstof niet "op"?',
+       x = "Aandeel van alle meetlocaties",
+       y = "") +
+  panel_theme_extra 
 
 # Fosfor plot --------------------------------------------------------------
 
