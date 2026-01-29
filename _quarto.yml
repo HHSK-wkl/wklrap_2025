@@ -4,6 +4,7 @@ project:
   execute-dir: project
   post-render:
    - "R/post_render_zwem_icons.R"
+   # - "R/post_render_pdf.R"
 
 website: 
   announcement: 
@@ -12,16 +13,20 @@ website:
     content: "Dit is nog een conceptversie!"
     type: warning
     position: above-navbar
+    
   
 book:
   title: "Rapportage waterkwaliteit 2025"
   repo-url: "https://github.com/HHSK-wkl/wklrap_2025"
   sharing: [linkedin, twitter]
+  downloads: [pdf]
   navbar:
     search: true
-    # left: 
-    #   - text: "Kreeftenrapportage"
-    #     href: https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/kreeften_2025/
+    # left:
+    #   - text: Meer informatie
+    #     href: 99-meer_info.html
+      # - text: "Kreeftenrapportage"
+      #   href: https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/kreeften_2025/
     # background: "#D2EBEE"
     logo: logo-hhsk-wit
     pinned: false
@@ -45,17 +50,17 @@ book:
     #   chapters:
     #     - "01-zichtbare-toestand.qmd"
     #     - "02-toestand-ecosysteem.qmd"
-    - part: "Doelen en gebruik"
-      chapters:
-        # - "03-krw.qmd"
-        - "04-zwemwater.qmd"
+    # - part: "Doelen en gebruik"
+    #   chapters:
+    #     - "03-krw.qmd"
+    #     - "04-zwemwater.qmd"
     - part: "Stoffen"
-      # chapters: 
-      # - "05-nutrienten.qmd"
-      # - "06-bestrijdingsmiddelen.qmd"
-      # - "07-meetnetten.qmd"
-      # - "09-meer_info.qmd"
-      # - "98-colofon.qmd"
+      chapters:
+        - "05-nutrienten.qmd"
+        # - "06-bestrijdingsmiddelen.qmd"
+        # - "07-meetnetten.qmd"
+        # - "99-meer-info.qmd"
+        # - "98-colofon.qmd"
       
 
 format:
