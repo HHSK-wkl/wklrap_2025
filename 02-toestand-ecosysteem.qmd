@@ -82,6 +82,8 @@ Het waterschap doet sinds 2020 jaarlijks onderzoek naar de aanwezigheid van Amer
 #| label: fig-kreeften-locaties
 #| fig-cap: Het gedeelte van alle onderzoekslocaties waar kreeften zijn aangetroffen.
 #| fig-alt: Grafiek met het gedeelte van alle onderzoekslocaties waar kreeften zijn aangetroffen.
+#| lightbox:
+#|   group: toestand
 plot_kreeften_aandeel_locs
 ```
 
@@ -102,6 +104,8 @@ Er is niet alleen een toename in het aantal plekken waar kreeften voorkomen. Er 
 #| label: fig-kreeften-aantallen
 #| fig-cap: Het gemiddeld aantal gevangen kreeften. Er is een getrimd gemiddelde gebruikt waarbij de meest extreme 5% van de waarden niet gebruikt zijn voor het bepalen van het gemiddeld aantal gevangen kreeften.
 #| fig-alt: Grafiek met het gemiddeld aantal gevangen kreeften.
+#| lightbox:
+#|   group: toestand
 plot_kreeften_aantallen
 ```
 
