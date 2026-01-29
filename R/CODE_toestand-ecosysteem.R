@@ -30,6 +30,8 @@ f_gebied <-  maak_opzoeker(meetpunten, mp, gebiednaam)
 
 panel_theme_extra <- 
   theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        strip.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
+        legend.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
         plot.title.position = "plot",
         panel.grid.major.x = element_blank(),
         panel.spacing.x = unit(20, "points"),
