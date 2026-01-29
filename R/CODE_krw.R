@@ -203,7 +203,7 @@ krw_verandering <-
         legend.position =  c(0.73, 0.10),
         # legend.background = element_rect(fill = wit),
         panel.grid.major.y = element_blank()) +
-  labs(title = "Hoeveel verbetering heeft de KRW gebracht?",
+  labs(title = "Invloed van kreeften zorgt voor achteruitgang",
        subtitle = "Gemiddelde verandering tussen SGBP 1 (2009-2015) en SGBP 3 (2022-2027)",
        x = "Toestand ten opzichte van het doel",
        y = "")
