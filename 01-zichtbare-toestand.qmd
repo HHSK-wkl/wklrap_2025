@@ -9,7 +9,7 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 **Samenvatting Aanpassen**
 
 |  |  |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | [{{< fa circle-down >}}]{.oranje} | Waterplanten zijn in de Krimpenerwaard op bijna alle plekken verdwenen. |
 | [{{< fa circle-exclamation >}}]{.oranje} | Amerikaanse rivierkreeften hebben de hele Krimpenerwaard en veel plekken in Schieland gekoloniseerd. |
 | [{{< fa circle-exclamation >}}]{.oranje} | Blauwalgen komen op veel plekken voor en leiden soms tot overlast. |
@@ -42,11 +42,11 @@ Als het water niet zo helder is, komt dat doordat er kleine deeltjes in het wate
 [**Roestbruin water**]{.donkerblauw} ([-@fig-roestbruin-water]) heeft de kleur van ijzerroest en dat is ook precies wat je ziet. In sommige sloten grondwater omhoog (kwel) met daarin veel opgelost ijzer. Dit opgeloste ijzer gaat 'roesten' en daardoor krijgt dit water een roestkleur.
 
 ::: {#fig-water-kleuren layout-ncol="3"}
-![Bruin water (Rotterdam)](images/bruin-water2.jpg){#fig-bruin-water}
+![Bruin water (Rotterdam)](images/bruin-water2.jpg){#fig-bruin-water fig-alt="Watergang met bruin water in Rotterdam"}
 
-![Groen water (Krimpen aan de Lek)](images/groen-water.jpg){#fig-groen-water}
+![Groen water (Krimpen aan de Lek)](images/groen-water.jpg){#fig-groen-water fig-alt="Watergang met groen water in Krimpen aan de Lek"}
 
-![Roestbruin water (Moordrecht)](images/roestbruin-water.jpg){#fig-roestbruin-water}
+![Roestbruin water (Moordrecht)](images/roestbruin-water.jpg){#fig-roestbruin-water fig-alt="Watergang met roestbruin water in Moordrecht"}
 
 Water met verschillende kleuren
 :::
@@ -58,9 +58,9 @@ Waterplanten zijn een belangrijk kenmerk voor de waterkwaliteit. De soorten en d
 Tegenwoordig zegt de aanwezigheid van waterplanten ook dat de Amerikaanse Rivierkreeften op die plek (nog) niet de overhand hebben gekregen.
 
 ::: {#fig-zichtbare-planten layout-ncol="2"}
-![Gele plomp in de gracht (Schoonhoven)](images/gele-plomp-schoonhoven.jpg){#fig-gele-plomp}
+![Gele plomp in de gracht (Schoonhoven)](images/gele-plomp-schoonhoven.jpg){#fig-gele-plomp fig-alt="Gracht met Gele plomp in Schoonhoven"}
 
-![Dichte plantenvegetatie (Bleiswijk)](images/dichte-vegetatie.jpg){#fig-dichte-vegetatie}
+![Dichte plantenvegetatie (Bleiswijk)](images/dichte-vegetatie.jpg){#fig-dichte-vegetatie fig-alt="Dichte plantenvegetatie (Bleiswijk)"}
 
 Waterplanten in het gebied
 :::
@@ -74,11 +74,11 @@ Kreeften hebben diverse natuurlijke vijanden zoals roofvissen, futen, reigers en
 Hoe het ervoor staat met kreeften in ons gebied is te lezen in het volgende hoofdstuk [Toestand ecosysteem - Kreeften](02-toestand-ecosysteem.qmd#kreeften){.groen}
 
 ::: {#fig-kreeftensporen layout-ncol="3"}
-![Kreeft op het land](images/kreeft-defensief.jpg){#fig-kreeft-defensief}
+![Kreeft op het land](images/kreeft-defensief.jpg){#fig-kreeft-defensief fig-alt="Kreeft in een dreigende houding"}
 
-![Kreeftenpoten op het zwemstrand](images/kreeftenpoten-zwemstrand.jpg){#fig-kreeften-zwemstrand}
+![Kreeftenpoten op het zwemstrand](images/kreeftenpoten-zwemstrand.jpg){#fig-kreeften-zwemstrand fig-alt="Kreeftenpoten op het zwemstrand"}
 
-![Braakbal met kreeftenresten](images/braakbal-kreeftenresten.jpg){#fig-braakbal-kreeft}
+![Braakbal met kreeftenresten](images/braakbal-kreeftenresten.jpg){#fig-braakbal-kreeft fig-alt="Braakbal met kreeftenresten"}
 
 Kreeften
 :::
