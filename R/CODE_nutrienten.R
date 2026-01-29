@@ -1,6 +1,5 @@
 # Setup -------------------------------------------------------------------
 
-
 library(tidyverse)
 library(HHSKwkl)
 library(glue)
@@ -29,12 +28,6 @@ panel_theme_extra <-
         margins = margin_auto(10),
         axis.text.y = element_text(hjust = 0))
 
-# panel_theme_extra <- 
-#   theme(plot.background = element_rect(fill = prismatic::clr_lighten(blauw_l, 0.90, space = "HSL")),
-#         plot.title.position = "plot",
-#         panel.grid.major.x = element_blank(),
-#         panel.spacing.x = unit(20, "points"),
-#         margins = margin_auto(10))
 
 landgebruik_sel <- c("glastuinbouw", "grasland - agrarisch", "grasland - natuur",
                      "stedelijk", "boezem", "grote plassen", "akkerbouw")
@@ -90,8 +83,8 @@ nutrienten_plot <-
   mutate(par_strip = c("3" = "Fosfaat (mg P/l)", "7" = "Stikstof (mg N/l)")[as.character(parnr)]) %>%
   mutate(landgebruik = fct_reorder(landgebruik, .fun = first, waarde_gem, .desc = FALSE)) %>%
   ggplot(aes(waarde_gem, landgebruik)) +
-  geom_col(aes(fill = landgebruik)) +
-  # geom_col(colour = blauw_d, linewidth = 0.5, fill = grijs_m) +
+  # geom_col(aes(fill = landgebruik), color = grijs_m ) +
+  geom_col(color = grijs_m, fill = blauw_m) +
   facet_wrap(vars(par_strip), scales = "free", strip.position = "top",) +
   scale_x_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1)), labels = scales::label_number(decimal.mark = ",")) +
   scale_fill_manual(values = kleuren_functies_nutrienten) +
@@ -102,7 +95,7 @@ nutrienten_plot <-
   theme(axis.ticks.y = element_blank(),
         strip.placement = "outside",
         # strip.background = ggplot2::element_rect(fill = NA, colour = NA),
-        strip.text = ggplot2::element_text(size = 12),
+        strip.text = element_text(size = 12, hjust = 0),
         panel.spacing = unit(1, "cm"),
         panel.grid.major.y = element_blank()
         ) +
@@ -121,7 +114,9 @@ kleuren_functies_lijnen <-
 
 lim_data <- 
   fys_chem %>% 
-  filter(year(datum) == 2025, parnr %in% c(2,4, 6), month(datum) %in% c(4:9)) %>% 
+  filter(year(datum) == 2025, parnr %in% c(2,4, 6), 
+         month(datum) %in% c(4:9) # alleen in het groeiseizoen
+         ) %>% 
   select(-parnr, -eenheid) %>% 
   pivot_wider(names_from = par, values_from = c(detectiegrens, waarde)) %>% 
   mutate(p_lim = !is.na(detectiegrens_PO4),
@@ -162,13 +157,16 @@ limitatie_plot <-
   mutate(landgebruik = str_to_sentence(landgebruik)) %>%
   mutate(landgebruik = fct_reorder(landgebruik, frac_locs_lim, .desc = TRUE)) %>% 
   ggplot(aes(1 - frac_locs_lim, landgebruik)) +
-  geom_col() +
-  scale_x_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1)), labels = scales::label_percent()) +
+  geom_col(fill = blauw_m, color = grijs_m) +
+  scale_x_continuous(limits = c(0, 1), expand = expansion(c(0, 0)), labels = scales::label_percent()) +
   labs(title = "Welke soort gebieden hebben teveel nutriënten?",
        subtitle = 'Op welk deel van de locaties raakt fosfaat en/of stikstof niet "op"?',
        x = "Aandeel van alle meetlocaties",
-       y = "") +
-  panel_theme_extra 
+       y = "",
+       caption = "Gedurende het groeiseizoen (april - september)") +
+  panel_theme_extra +
+  theme(panel.grid.major.y = element_blank(),
+        axis.ticks.y = element_blank())
 
 # Fosfor plot --------------------------------------------------------------
 
@@ -221,6 +219,106 @@ stikstof_plot <-
   NULL
 
 
+
+
+
+
+# Glastuinbouw t.o.v. andere gebieden -------------------------------------
+
+grafiek_data_glas <-
+  fys_chem %>%
+  filter(jaar >= rap_jaar - 9,
+         jaar <= rap_jaar,
+         parnr %in% c(3, 7)) %>%
+  inner_join(mp_sel, by = "mp") %>%
+  add_maand() %>%
+  mutate(landgebruik = fct_collapse(landgebruik, glastuinbouw = "glastuinbouw", other_level = "andere gebieden")) %>% 
+  group_by(mp, parnr, landgebruik, jaar, maand) %>%
+  summarise(waarde = mean(waarde)) %>%
+  group_by(parnr, landgebruik, jaar) %>%
+  summarise(waarde_gem = mean(waarde)) %>%
+  ungroup() %>%
+  left_join(parameters, by = "parnr") %>%
+  mutate(
+    fill_group = ifelse(jaar == rap_jaar, rap_jaar, "Andere jaren"),
+    landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE))
+
+plot_glastuinbouw <-
+  grafiek_data_glas %>%
+  mutate(parnaam2 = case_when(
+    parnr == 3 ~ "Fosfaat (mg P/l)",
+    parnr == 7 ~ "Stikstof (mg N/l)")) %>% 
+  # filter(parnr == 7) %>%
+  # mutate(landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE)) %>%
+  ggplot(aes(jaar, waarde_gem, group = landgebruik, colour = landgebruik)) +
+  geom_line(linewidth = 1) +
+  facet_wrap(~parnaam2, scales = "free_y")  +
+  scale_colour_manual(values = c(glastuinbouw = oranje, `andere gebieden` = blauw), guide = "none") +
+  scale_y_continuous(limits = c(0,NA), 
+                     expand = expansion(c(0,0.1)), 
+                     labels = scales::label_number(decimal.mark = ","), 
+                     breaks = pretty_breaks(5)) +
+  scale_x_continuous(breaks = scales::breaks_width(2, 1), limits = c(NA, NA)) +
+  labs(title = glue("Ontwikkeling van fosfaat en stikstof"),
+       subtitle = glue("<span style='color:{oranje};'>glastuinbouwgebied</span> t.o.v. <span style='color:{blauw};'>andere gebieden</span>"),
+       x = "",
+       y = "mg/l" )  +
+  coord_cartesian(clip = "off") +
+  theme(plot.title = ggtext::element_markdown(),
+        plot.subtitle = ggtext::element_markdown(),
+        strip.text = element_text(size = 12, hjust = 0)) +
+  panel_theme_extra 
+
+# 
+# plot_glas_n <-
+#   grafiek_data_glas %>%
+#   filter(parnr == 7) %>%
+#   mutate(landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE)) %>%
+#   ggplot(aes(jaar, waarde_gem, group = landgebruik, colour = landgebruik)) +
+#   geom_line(linewidth = 1) +
+#   scale_colour_manual(values = c(glastuinbouw = oranje, `andere gebieden` = blauw)) +
+#   scale_y_continuous(limits = c(0,NA), 
+#                      expand = expansion(c(0,0.1)), 
+#                      labels = scales::label_number(decimal.mark = ","), 
+#                      breaks = pretty_breaks(5)) +
+#   scale_x_continuous(breaks = scales::breaks_width(2, 1), limits = c(NA, NA)) +
+#   labs(title = "Stikstof",
+#        x = "",
+#        y = "mg N/l" )  +
+#   coord_cartesian(clip = "off") +
+#   theme(
+#     plot.title = element_text(size = rel(1.2)), legend.position = "none") +
+#   panel_theme_extra
+# 
+# plot_glas_p <- 
+#   grafiek_data_glas %>%
+#   filter(parnr == 3) %>%
+#   mutate(landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE)) %>%
+#   ggplot(aes(jaar, waarde_gem, group = landgebruik, colour = landgebruik)) +
+#   geom_line(linewidth = 1) +
+#   scale_colour_manual(values = c(glastuinbouw = oranje, `andere gebieden` = blauw)) +
+#   scale_y_continuous(limits = c(0,NA), expand = expansion(c(0,0.1)), labels = scales::label_number(decimal.mark = ","), breaks = pretty_breaks(5)) +
+#   scale_x_continuous(breaks = scales::breaks_width(2, 1), limits = c(NA, NA)) +
+#   labs(title = "Fosfaat",
+#        x = "",
+#        y = "mg P/l" )  +
+#   coord_cartesian(clip = "off") +
+#   theme(
+#     plot.title = element_text(size = rel(1.2)),
+#     legend.position = "none") +
+#   NULL +
+#   panel_theme_extra
+# 
+# # library(patchwork)
+# 
+# plot_glastuinbouw <- 
+# (plot_glas_p + plot_glas_n) + 
+#   patchwork::plot_annotation(title = glue("Ontwikkeling van fosfaat en stikstof"),
+#                              subtitle = glue("<span style='color:{oranje};'>glastuinbouwgebied</span> t.o.v. <span style='color:{blauw};'>andere gebieden</span>"),
+#                              theme = theme(plot.title = ggtext::element_markdown(),
+#                                            plot.subtitle = ggtext::element_markdown()))  
+
+  
 # Berekening trend en verandering -----------------------------------------
 
 # Deze code wordt niet direct opgenomen in de rapportage maar wordt gebruikt in de voetnoten van de tekst 
@@ -288,9 +386,9 @@ trend_tabel_p <-
     columns = list(
       landgebruik = colDef(name = "Type landgebruik"),
       trend = colDef(name = "Trend"),
-      decade = colDef(name = "Verandering per 10 jaar",
+      decade = colDef(name = "Afname in 10 jaar",
                       format = colFormat(digits = 2, suffix = " mg P/l")),
-      decade_rel = colDef(name = "Relatieve verandering per 10 jaar",
+      decade_rel = colDef(name = "Afname in 10 jaar (%)",
                           format = colFormat(percent = TRUE, digits = 0))
     )
   )
@@ -342,73 +440,25 @@ trend_tabel_p <-
 #   sub_missing() %>% 
 #   cols_align("center", columns = !landgebruik) 
 
-# Glastuinbouw t.o.v. andere gebieden -------------------------------------
 
-grafiek_data_glas <-
-  fys_chem %>%
-  filter(jaar >= rap_jaar - 9,
-         jaar <= rap_jaar,
-         parnr %in% c(3, 7)) %>%
-  inner_join(mp_sel, by = "mp") %>%
-  add_maand() %>%
-  mutate(landgebruik = fct_collapse(landgebruik, glastuinbouw = "glastuinbouw", other_level = "andere gebieden")) %>% 
-  group_by(mp, parnr, landgebruik, jaar, maand) %>%
-  summarise(waarde = mean(waarde)) %>%
-  group_by(parnr, landgebruik, jaar) %>%
-  summarise(waarde_gem = mean(waarde)) %>%
-  ungroup() %>%
-  left_join(parameters, by = "parnr") %>%
-  mutate(
-    fill_group = ifelse(jaar == rap_jaar, rap_jaar, "Andere jaren"),
-    landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE))
+# Nitraatmeter ------------------------------------------------------------
 
+nitraat <-
+  read_delim("data/blockbax-measurements-export-2026-01-29_15-11-30.csv", locale = locale(decimal_mark = ",")) %>% 
+  rename(datum = 1, waarde = 2)
 
-
-
-plot_glas_n <-
-  grafiek_data_glas %>%
-  filter(parnr == 7) %>%
-  mutate(landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE)) %>%
-  ggplot(aes(jaar, waarde_gem, group = landgebruik, colour = landgebruik)) +
-  geom_line(linewidth = 1) +
-  scale_colour_manual(values = c(glastuinbouw = oranje, `andere gebieden` = blauw)) +
-  scale_y_continuous(limits = c(0,NA), 
-                     expand = expansion(c(0,0.1)), 
-                     labels = scales::label_number(decimal.mark = ","), 
-                     breaks = pretty_breaks(5)) +
-  scale_x_continuous(breaks = scales::breaks_width(2, 1), limits = c(NA, NA)) +
-  labs(title = "Stikstof",
+plot_nitraatmeter <- 
+nitraat %>% 
+  filter(datum > ymd("20251101"), datum < ymd("20251115")) %>% 
+  filter(waarde > 2) %>% 
+  filter(datum < ymd_hm("202511051420") | datum > ymd_hm("202511051530") ) %>% 
+  ggplot(aes(datum, waarde)) +
+  geom_line() +
+  scale_y_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
+  scale_x_datetime(date_breaks = "2 days", date_labels = "%e %b") +
+  labs(title = "Plotselinge toename in de nitraatconcentratie",
+       subtitle = "Metingen van de nitraatmeter",
        x = "",
-       y = "mg N/l" )  +
-  coord_cartesian(clip = "off") +
-  theme(
-    plot.title = element_text(size = rel(1.2)), legend.position = "none") 
+       y = "Nitraatconcentratie in mg N/l") +
+  panel_theme_extra
 
-plot_glas_p <- 
-  grafiek_data_glas %>%
-  filter(parnr == 3) %>%
-  mutate(landgebruik = fct_reorder(landgebruik, waarde_gem, .desc = TRUE)) %>%
-  ggplot(aes(jaar, waarde_gem, group = landgebruik, colour = landgebruik)) +
-  geom_line(linewidth = 1) +
-  scale_colour_manual(values = c(glastuinbouw = oranje, `andere gebieden` = blauw)) +
-  scale_y_continuous(limits = c(0,NA), expand = expansion(c(0,0.1)), labels = scales::label_number(decimal.mark = ","), breaks = pretty_breaks(5)) +
-  scale_x_continuous(breaks = scales::breaks_width(2, 1), limits = c(NA, NA)) +
-  labs(title = "Fosfaat",
-       x = "",
-       y = "mg P/l" )  +
-  coord_cartesian(clip = "off") +
-  theme(
-    plot.title = element_text(size = rel(1.2)),
-    legend.position = "none") +
-  NULL
-
-# library(patchwork)
-
-plot_glastuinbouw <- 
-(plot_glas_p + plot_glas_n) + 
-  patchwork::plot_annotation(title = glue("Ontwikkeling van fosfaat en stikstof"),
-                             subtitle = glue("<span style='color:{oranje};'>glastuinbouwgebied</span> t.o.v. <span style='color:{blauw};'>andere gebieden</span>"),
-                             theme = theme(plot.title = ggtext::element_markdown(),
-                                           plot.subtitle = ggtext::element_markdown()))  
-
-  
