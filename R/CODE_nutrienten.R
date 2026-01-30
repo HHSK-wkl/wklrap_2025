@@ -448,13 +448,13 @@ nitraat <-
   rename(datum = 1, waarde = 2)
 
 plot_nitraatmeter <- 
-nitraat %>% 
+  nitraat %>% 
   filter(datum > ymd("20251101"), datum < ymd("20251115")) %>% 
   filter(waarde > 2) %>% 
   filter(datum < ymd_hm("202511051420") | datum > ymd_hm("202511051530") ) %>% 
   ggplot(aes(datum, waarde)) +
   geom_line() +
-  scale_y_continuous(limits = c(0, NA), expand = expansion(c(0, 0.1))) +
+  scale_y_continuous(limits = c(0, 15), expand = expansion(c(0, 0.0))) +
   scale_x_datetime(date_breaks = "2 days", date_labels = "%e %b") +
   labs(title = "Plotselinge toename in de nitraatconcentratie",
        subtitle = "Metingen van de nitraatmeter",

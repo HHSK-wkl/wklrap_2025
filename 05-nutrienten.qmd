@@ -7,7 +7,7 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 ::: samenvatting
 |  |  |
-|------------------|------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | [{{< fa circle-down >}}]{.blauw} | De hoeveelheid fosfaat in het glastuinbouwgebied is verder gedaald en is voor het eerst niet meer het hoogste. |
 | [{{< fa star >}}]{.blauw} | In de grote plassen zijn de nutriëntenconcentraties het laagst. |
 | [{{< fa circle-down >}}]{.blauw} | De hoeveelheid fosfaat neemt langzaam af in gebieden met grasland, stedelijk gebied, de boezems en in de glastuinbouw. |
@@ -29,15 +29,13 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 ![](images%5Cvince_positive2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een voorzichtig blij kijkende vis"}
 :::
 
-**Aandacht voor de nitraatmeter!**
-
 Fosfaat en stikstof zijn voedingsstoffen die planten en algen nodig hebben om te groeien. Veel fosfaat en stikstof in het water is gunstig voor snelle groeiers zoals algen en kroos. Die soorten kunnen dan heel hard groeien en overlast geven. Andere soorten krijgen daardoor geen kans. Veel fosfaat en stikstof leidt daarom tot soortenverlies en een eenzijdig ecosysteem.
 
-Het waterschap werkt aan het beperken van de hoeveelheid fosfaat en stikstof in het water.[^05-nutrienten-1] De doelen voor fosfaat en stikstof zijn afhankelijk van het watertype en zijn daarom niet overal hetzelfde.[^05-nutrienten-2] De concentraties van fosfaat en stikstof zijn op veel plaatsen nog te hoog.
+Het waterschap werkt aan het beperken van de hoeveelheid fosfaat en stikstof in het water.[^05-nutrienten-1] De doelen voor fosfaat en stikstof zijn afhankelijk van het watertype en zijn daarom niet overal hetzelfde.[^05-nutrienten-2] De concentraties van fosfaat en stikstof zijn op veel plaatsen nog te hoog. Op deze plekken worden algen en kroos niet beperkt in hun groei door fosfaat en stikstof.
 
 [^05-nutrienten-1]: Hoewel fosfaat en stikstof essentieel zijn, komt het in de praktijk niet voor dat er te weinig fosfaat en stikstof in het water zitten.
 
-[^05-nutrienten-2]: De doelstelling voor fosfaat ligt meestal tussen 0,16 en 0,30 mg P/l. De doelstelling voor stikstof ligt meestal tussen 2,6 en 4,1 mg N/l/
+[^05-nutrienten-2]: De doelstelling voor fosfaat ligt meestal tussen 0,09 en 0,50 mg P/l. De doelstelling voor stikstof ligt meestal tussen 1,3 en 4,0 mg N/l.
 
 ### Fosfaat en stikstof per type landgebruik {.unnumbered}
 
@@ -60,13 +58,15 @@ De grote plassen hebben de laagste nutriëntenconcentraties. Dit komt doordat he
 nutrienten_plot
 ```
 
-Fosfaat en stikstof zijn voedingsstoffen voor algen en waterplanten. Zolang deze stoffen beschikbaar zijn in het water zullen vooral algen onbeperkt kunnen groeien. Dit leidt tot een slechte waterkwaliteit met troebel water en weinig biodiversiteit. Als fosfaat of stikstof wel op raakt dan worden waterplanten en algen op een gegeven moment beperkt in hun groei. Dit noemen we nutriëntenlimitatie. Hierdoor ontstaat een betere waterkwaliteit met meer biodiversiteit. Als er geen nutriëntenlimitatie optreedt dan is er teveel fosfaat en stikstof in het water voor een gezond ecosysteem.
+Fosfaat en stikstof zijn voedingsstoffen voor algen en waterplanten. Zolang deze stoffen beschikbaar zijn in het water zullen vooral algen onbeperkt kunnen groeien. Dit leidt tot een slechte waterkwaliteit met troebel water en weinig biodiversiteit. Als fosfaat of stikstof wel op raakt dan worden waterplanten en algen op een gegeven moment beperkt in hun groei. Dit noemen we nutriëntenlimitatie. Hierdoor ontstaat een betere waterkwaliteit met meer biodiversiteit.
 
-In de grote plassen treedt overal nutriëntenlimitatie op tijdens het groeiseizoen ([-@fig-limitatie]). Dit komt doordat er hier zo min mogelijk water met fosfaat en stikstof wordt ingelaten. In het glastuinbouwgebied treed bijna nergens nutriëntenlimitatie op. Dit is waarschijnlijk het gevolg van voortdurende emissies uit de glastuinbouw. De boezems ontvangen veel water uit het gebied wat altijd een bepaalde hoeveelheid fosfaat en stikstof bevat. Daarom treedt hier vaak geen nutriëntenlimitatie op.
+In figuur ([-@fig-limitatie]) is per type gebied weergegeven op hoeveel meetlocaties er geen nutriëntenlimitatie optreedt. Als er geen nutriëntenlimitatie optreedt dan is er meer fosfaat en stikstof aanwezig dan planten en algen kunnen opnemen. Dat is een indicatie dat er teveel fosfaat en stikstof in het water zit. In de meeste gevallen komt dat dan doordat er bronnen zijn waaruit steeds fosfaat en stikstof in het water kom.
+
+In het glastuinbouwgebied is bijna altijd fosfaat en stikstof beschikbaar en treedt bijna nergens nutriëntenlimitatie op. Dit is waarschijnlijk het gevolg van voortdurende emissies uit de glastuinbouw. De boezems ontvangen het hele jaar door water uit het gebied dat altijd een bepaalde hoeveelheid fosfaat en stikstof bevat. Daarom treedt hier vaak geen nutriëntenlimitatie op. In de grote plassen treedt juist wel overal nutriëntenlimitatie op tijdens het groeiseizoen. Dit komt doordat er hier zo min mogelijk water met fosfaat en stikstof wordt ingelaten.
 
 ```{r}
 #| label: fig-limitatie
-#| fig-cap: "Het aandeel locaties waar geen nutriëntenlimitatie optreedt waardoor kroos en algen niet beperkt worden in hun groei. Er is sprake van nutriëntenlimitatie als er geen vrij aanwezig fosfaat (PO~4~^3-^) of stikstof (NH~4~^+^ of NO~3~^-^) in het water aanwezig is."
+#| fig-cap: "Het aandeel locaties per type landgebruik waar geen nutriëntenlimitatie optreedt waardoor kroos en algen niet beperkt worden in hun groei. Er is sprake van nutriëntenlimitatie als er geen vrij aanwezig fosfaat (PO~4~^3-^) of stikstof (NH~4~^+^ of NO~3~^-^) in het water aanwezig is."
 #| fig-alt: "Het aandeel locaties met nutriëntenlimitatie per type landgebruik."
 #| fig-height: 4
 #| out.width: "100%"
@@ -77,9 +77,9 @@ limitatie_plot
 
 ### Trends in fosfaat en stikstof {.unnumbered}
 
-De verandering in de concentratie fosfaat en stikstof gaat relatief langzaam. In niet-agrarische gebieden zijn de jaarlijkse veranderingen relatief klein. Bij agrarisch landgebruik zijn er van jaar tot jaar vrij grote schommelingen. In deze gebieden worden de concentraties sterker bepaald door factoren die jaarlijks kunnen verschillen: weersomstandigheden, lozingen en bemesting.
+De verandering in de concentratie fosfaat en stikstof gaat relatief langzaam. In niet-agrarische gebieden zijn de jaarlijkse veranderingen relatief klein. Bij agrarisch landgebruik zijn er van jaar tot jaar wel vrij grote schommelingen. In deze gebieden worden de concentraties sterker bepaald door factoren die jaarlijks kunnen verschillen: zoals weersomstandigheden, lozingen en bemesting.
 
-De ontwikkeling van fosfaat en stikstof in de tijd is te zien in @fig-fosfor-plot en @fig-stikstof-plot. De hoeveelheid fosfaat neemt in veel gebieden af: in de gebieden met grasland, stedelijk gebied, de boezems en het glastuinbouwgebied. De hoeveelheid stikstof neemt alleen af in de boezems. In de andere gebieden kan geen dalende trend worden aangetoond. Voor fosfaat is er niet alleen in meer gebieden een dalende trend. De afname van fosfaat is in de laatste 10 jaar ook veel groter dan die van stikstof.
+De ontwikkeling van fosfaat en stikstof in de tijd is te zien in @fig-fosfor-plot en @fig-stikstof-plot. De hoeveelheid stikstof neemt alleen af in de boezems. In de andere gebieden kan geen dalende trend worden aangetoond. De hoeveelheid fosfaat neemt wel in veel gebieden af: in de gebieden met grasland, stedelijk gebied, de boezems en het glastuinbouwgebied. De afname van fosfaat is in de laatste 10 jaar ook veel groter dan die van stikstof.
 
 ::: column-margin
 ```{r}
@@ -133,37 +133,36 @@ trend_tabel_n
 De trend is bepaald met een Mann-Kendall trendtest. De test is uitgevoerd op de gemiddelde concentraties van de laatste 10 jaar. Als de p-waarde kleiner is dan 0,05 dan is het aannemelijk dat er sprake is van een echte trend. Als er sprake is van een significante trend dan is de verandering bepaald met de Theil-Sen hellingschatter.
 :::
 
-### Het glastuinbouwgebied
+### Het glastuinbouwgebied {.unnumbered}
 
-Het glastuinbouwgebied heeft de hoogste concentraties fosfaat en stikstof. Hoewel de concentraties afnemen blijft het verschil met de andere gebieden erg groot. De afname is ook niet zo erg stabiel. [**In 2025 was de hoeveelheid fosfaat en stikstof in het glastuinbouwgebied aanzienlijk hoger dan in 2023 en 2024.**]{.donkerblauw}
+Het glastuinbouwgebied heeft de hoogste concentraties fosfaat en stikstof. Hoewel de concentraties afnemen blijft het verschil met de andere gebieden erg groot. De afname is ook niet zo erg stabiel. [**In 2025 was de hoeveelheid fosfaat en stikstof in het glastuinbouwgebied aanzienlijk hoger dan in 2023 en 2024.**]{.donkerblauw} -[-@fig-nutrienten-glas]
 
 ```{r}
 #| label: fig-nutrienten-glas
 #| fig-cap: "Ontwikkeling van de gemiddelde concentratie fosfaat en stikstof in het glastuinbouwgebied ten opzichte van andere gebieden"
 #| fig-alt: "Ontwikkeling van de gemiddelde concentratie fosfaat en stikstof in het glastuinbouwgebied ten opzichte van andere gebieden"
 #| fig-height: 4.5
-#| fig-width: 9
 #| lightbox:
 #|   group: nutrienten
 plot_glastuinbouw
 ```
 
-Vanwege de emissies van fosfaat, stikstof en ook bestrijdingsmiddelen (@sec-gbm) besteedt het waterschap extra aandacht aan het glastuinbouwgebied. In het programma *Emissieloze Kas* samengewerkt met de sector en andere overheden om emissies terug te dringen.
+Vanwege de emissies van fosfaat, stikstof en ook bestrijdingsmiddelen (@sec-gbm) besteedt het waterschap extra aandacht aan het glastuinbouwgebied. In het programma *Emissieloze Kas* wordt samengewerkt met de glastuinbouwsector en andere overheden om emissies terug te dringen.
 
-In 2025 is een pilot uitgevoerd met een nitraatmeter. Deze meter meet elke kwartier de nitraatconcentratie in het water. Met de meter hebben we voortdurend een actueel beeld. In 2025 hebben we meerdere malen gezien dat de concentratie in korte tijd sterk toenam. Op basis hiervan hebben toezichthouder diverse lozingen op kunnen sporen en snel kunnen stoppen. Vanwege het succes worden er in 2026 meerdere meters in het glastuinbouwgebied geplaatst.
+In 2025 is een pilot uitgevoerd met een nitraatmeter ([-@fig-nitraatmeter]). Deze meter meet elke kwartier de nitraatconcentratie in het water. Nitraat is een goede indicator voor lozingen. Met de meter kunnen we voortdurend volgen of er aanwijzingen zijn voor een lozing. In 2025 hebben we meerdere malen gezien dat de concentratie in korte tijd sterk toenam ([-@fig-nitraatmeter-grafiek]). Op basis hiervan hebben toezichthouders diverse lozingen op kunnen sporen en snel kunnen stoppen. De nitraatmeter heeft zijn waarde bewezen. Daarom worden er in 2026 nog enkele nitraatmeters in het glastuinbouwgebied geplaatst.
 
-::: {#fig-nitraatmeter layout="[[1,1], [1]]"}
+::: {#fig-nitraatmeter layout-ncol="2"}
 ![Nitraatmeter met een zonnecel](images/nitraatmeter.jpg){#fig-nitraatmeter1 group="nutrienten" fig-alt="Nitraatmeter met een zonnecel"}
 
 ![Nitraatmeter in het kassengebied](images/nitraatmeter-overzicht.jpg){#fig-nitraatmeter2 group="nutrienten" fig-alt="Nitraatmeter in het kassengebied"}
+:::
 
 ```{r}
-#| label: fig-nitraatmeter3
+#| label: "fig-nitraatmeter-grafiek"
 #| fig-cap: "Metingen van de nitraatmeter begin november"
 #| fig-alt: "Metingen van de nitraatmeter begin november"
-#| fig-height: 4.5
+#| fig-height: 4
 #| lightbox:
 #|   group: nutrienten
 plot_nitraatmeter
 ```
-:::
