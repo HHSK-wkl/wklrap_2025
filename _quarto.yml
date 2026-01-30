@@ -46,21 +46,22 @@ book:
   date: today
   chapters:
     - "index.qmd"
-    # - part: part-1-ecosysteem.qmd
-    #   chapters:
-    #     - "01-zichtbare-toestand.qmd"
-    #     - "02-toestand-ecosysteem.qmd"
-    # - part: "Doelen en gebruik"
-    #   chapters:
-    #     - "03-krw.qmd"
-    #     - "04-zwemwater.qmd"
+    - part: "Het ecosysteem"
+      chapters:
+        - "01-zichtbare-toestand.qmd"
+        - "02-toestand-ecosysteem.qmd"
+    - part: "Doelen en gebruik"
+      chapters:
+        - "03-krw.qmd"
+        - "04-zwemwater.qmd"
     - part: "Stoffen"
       chapters:
         - "05-nutrienten.qmd"
-        # - "06-bestrijdingsmiddelen.qmd"
-        # - "07-meetnetten.qmd"
-        # - "99-meer-info.qmd"
-        # - "98-colofon.qmd"
+        - "06-bestrijdingsmiddelen.qmd"
+  appendices:
+    - "07-meetnetten.qmd"
+    - "99-meer_info.qmd"
+    - "99-colofon.qmd"
       
 
 format:

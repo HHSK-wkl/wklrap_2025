@@ -8,14 +8,17 @@
 }
 
 .samenvatting{
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: 500;
   line-height: 1.5;
+  color: #293173;
+  font-style: italic;
 }
 
 .samenvatting .table>:not(caption)>*>*{
    border: hidden;
    padding: .1rem .1rem;
+   
 }
 
 .quarto-figure .leaflet{

@@ -1,14 +1,12 @@
 ---
 params: 
-  rap_jaar: 2025
 lightbox: false
+toc: false
 # abstract-title: "Introductie"
 # abstract: "TESt"
 ---
 
 ![](images/vier_watergangen_jdr.jpg){fig-alt="Vier typen gebieden met een watergang"}
-
-[**Document nog bijwerken en nalopen**]{.oranje}
 
 # Inleiding {.unnumbered}
 
@@ -24,8 +22,11 @@ De waterkwaliteit in het gebied van het hoogheemraadschap van Schieland en de Kr
 
 ### Actuele toestand en doelen
 
+[Hoofdstuk @sec-zichtbaar]\
+Als je naar het water kijkt kun je al een indruk krijgen van de waterkwaliteit. In dit hoofdstuk komen een aantal voorbeelden voorbij waaraan je iets kunt zien van de waterkwaliteit.
+
 [Hoofdstuk @sec-toestand]\
-Waterplanten hebben een sleutelrol voor het onderwaterleven. In dit hoofdstuk is te lezen dat er in de Krimpenerwaard steeds minder wateren met onderwaterplanten zijn. Dit komt door de opmars van de Amerikaanse rivierkreeften.
+Waterplanten hebben een sleutelrol voor het onderwaterleven. In dit hoofdstuk is te lezen dat er in de Krimpenerwaard steeds minder wateren met onderwaterplanten zijn. Dit komt door de opmars van de Amerikaanse rivierkreeften die er juist steeds meer komen.
 
 [Hoofdstuk @sec-krw]\
 Het waterschap werkt, samen met andere partijen, aan de verbetering van de waterkwaliteit om ecologische doelen te bereiken. In dit hoofdstuk is te lezen in hoeverre de doelen voor de KRW-waterlichamen worden bereikt. De boezems en plassen voldoen grotendeels al aan de doelen. In de waterlichamen die bestaan uit sloten en kanalen is vooral nog verbetering nodig voor de waterplanten en de kleine waterbeestjes. Ook beschrijft dit hoofdstuk in hoeverre de doelen in andere wateren al worden bereikt.
@@ -34,24 +35,28 @@ Het waterschap werkt, samen met andere partijen, aan de verbetering van de water
 Zwemmen is een belangrijke recreatieve functie van het water. In dit hoofdstuk is te lezen over de kwaliteit van het zwemwater. De zwemwaterkwaliteit voldoet op officiële zwemlocaties aan de norm uit de Europese zwemwaterrichtlijn. Wel zijn er op diverse locaties af en toe problemen als gevolg van blauwalgen en zwemmersjeuk.
 
 
-
 ### Stoffen in het water
 
 [Hoofdstuk @sec-nutrienten]\
 De voedingsstoffen *fosfaat en stikstof* bepalen hoe snel waterplanten, kroos en algen kunnen groeien. Vaak zorgen teveel voedingsstoffen voor een slechte waterkwaliteit. In dit hoofdstuk is te lezen dat de hoeveelheid fosfaat in het gebied langzaam maar zeker afneemt.
 
 [Hoofdstuk @sec-gbm]\
-*Gewasbeschermingsmiddelen of bestrijdingsmiddelen* worden in de landbouw gebruikt om gewassen te beschermen tegen ziektes en insecten. Deze stoffen kunnen schadelijk zijn voor het onderwaterleven. In dit hoofdstuk is te lezen dat er veel (90) bestrijdingsmiddelen in het water aanwezig zijn en dat 13 van deze stoffen de norm overschrijden. Met name in het glastuinbouwgebied zorgen deze stoffen voor schade aan het onderwaterleven.
+*Gewasbeschermingsmiddelen of bestrijdingsmiddelen* worden in de landbouw gebruikt om gewassen te beschermen tegen ziektes en insecten. Deze stoffen kunnen schadelijk zijn voor het onderwaterleven. In dit hoofdstuk is te lezen dat er veel (82) bestrijdingsmiddelen in het water aanwezig zijn en dat 12 van deze stoffen de norm overschrijden. Met name in het glastuinbouwgebied zorgen deze stoffen voor schade aan het onderwaterleven.
 
 
 ### En verder
 
-[Hoofdstuk @sec-meetnetten]\
-Om de waterkwaliteitsrapportage te maken moet er veel worden gemeten. Dit hoofdstuk geeft meer inzicht in de metingen die het waterschap uitvoert.
+[@sec-meetnetten]\
+Om de waterkwaliteitsrapportage te maken moet er veel worden gemeten. Deze bijlage geeft meer inzicht in de metingen die het waterschap uitvoert.
 
-Er is veel meer informatie over waterkwaliteit dan in deze rapportage opgenomen kan worden. In het hoofdstuk [Meer informatie](#meer_info) zijn een aantal verwijzingen opgenomen naar bronnen met meer gegevens en informatie over waterkwaliteit.
+[@sec-meer_info]\
+Er is veel meer informatie over waterkwaliteit dan in deze rapportage opgenomen kan worden. In deze bijlage zijn een aantal verwijzingen opgenomen naar bronnen met meer gegevens en informatie over waterkwaliteit.
 
-Deze rapportage is voor een belangrijk deel automatisch opgebouwd uit data en computercode. De data en code zijn beschikbaar via [Github - Waterkwaliteitsrapportage 2024](https://github.com/HHSK-wkl/wklrap_2024).
+### Over deze rapportage
+
+Deze rapportage is digitaal en heeft diverse interactieve elementen. Door op de afbeeldingen te klikken kan worden ingezoomd en door de figuren worden gebladerd. De kaarten kunnen worden ingezoomd en op volledig scherm worden weergegeven. Door op de objecten op de kaart te klikken wordt meer informatie zichtbaar.
+
+Deze rapportage is voor een belangrijk deel automatisch opgebouwd uit data en computercode. De data en code zijn beschikbaar via [Github - Waterkwaliteitsrapportage 2025](https://github.com/HHSK-wkl/wklrap_2025){.groen}.
 
 <br>
 
