@@ -23,10 +23,10 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 #| cache: false
 ```
 
-### Introductie {.unnumbered}
+### Inleiding {.unnumbered}
 
 ::: aside
-![](images%5Cvince_sad2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een verdrietig kijkende vis"}
+![](images%5Cvince_neutral2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een verdrietig kijkende vis"}
 :::
 
 Bestrijdingsmiddelen zijn stoffen die meestal bedoeld zijn om landbouwgewassen te beschermen tegen (vraat)schade en ziektes. Daarom worden ze ook wel gewasbeschermingsmiddelen[^05-bestrijdingsmiddelen-1] genoemd. De meeste van deze stoffen zijn giftig en hebben als doel om bepaalde planten, schimmels of insecten te doden. Vaak komen deze stoffen ook in het water terecht. In het water zijn deze stoffen schadelijk voor het leven onder water. Het schadelijke effect wordt nog versterkt doordat er vaak meerdere schadelijke stoffen tegelijk aanwezig zijn. Het waterschap spant zich in om te voorkomen dat deze milieuvreemde stoffen in het oppervlaktewater terecht komen.
@@ -89,14 +89,34 @@ De belangrijkste bron van bestrijdingsmiddelen in het gebied is de glastuinbouw.
 plot_tox_glastuinbouw
 ```
 
+::: {.callout-note collapse="true"}
+### Hoe ontwikkelen de schadelijke effecten zich in de tijd?
+
+In de figuur [-@fig-mspaf-tijd] is de toxiciteit per meetlocatie per jaar weergegeven. Hierin is zichtbaar dat de schadelijke effecten van bestrijdingsmiddelen langzaam maar zeker afnemen. 
+
+```{r}
+#| label: fig-mspaf-tijd
+#| out-width: "100%"
+#| fig-height: 6
+#| fig-width: 8
+#| fig-cap: "Welk aandeel van de soorten kan acute schade ondervinden van de aanwezige gewasbeschermingsmiddelen?<br>Elk punt is de giftigheid op een onderzoekslocatie. De horizontale lijnen geven de grens aan tussen zeer hoge toxiciteit en hoge toxiciteit (1 op de 10) en de grens tussen hoge toxiciteit en matige toxiciteit. (1 op de 200). Meetlocaties met een gifitigheid minder dan 0,1% zijn niet weergegeven." 
+#| fig-alt: "De acute toxiciteit per locatie per jaar in de laatste 10 jaar."
+#| lightbox:
+#|   group: gbm
+plot_mspaf_tijd
+```
+
+
+:::
+
 
 ### Ontwikkeling normoverschrijdingen {.unnumbered}
 
-Op elke onderzochte locatie kan elk afzonderlijk bestrijdingsmiddel worden getoetst aan de norm. Dit leidt tot een groot aantal toetsingen (*aantal locaties x aantal stoffen*). Bij een gedeelte van deze toetsingen wordt een overschrijding van de norm geconstateerd. Het percentage van de toetsingen met een normoverschrijding geeft een indicatie of het aantal normoverschrijdingen verandert. In @fig-overschr-fractie-van-toetsingen is de ontwikkeling van het percentage normoverschrijdingen weergegeven per type landgebruik. Er is te zien dat het percentage overschrijdingen over het algemeen afneemt.
+Op elke onderzochte locatie kan elk afzonderlijk bestrijdingsmiddel worden getoetst aan de norm. Dit leidt tot een groot aantal toetsingen (*aantal locaties x aantal stoffen*). Bij een gedeelte van deze toetsingen wordt een overschrijding van de norm geconstateerd. Het percentage van de toetsingen met een normoverschrijding geeft een indicatie of het aantal normoverschrijdingen verandert. In @fig-overschr-fractie-van-toetsingen is de ontwikkeling van het percentage normoverschrijdingen weergegeven per type landgebruik. Het percentage overschrijdingen neemt over het algemeen af. wel zijn er in 2025 zijn er wel meer overschrijdingen gemeten dan in 2024.
 
 ::: aside
 *Nieuw meetpakket*\
-Een probleem voor het onderzoek naar bestrijdingsmiddelen is dat de stoffen al giftig zijn bij zeer lage concentraties. Deze lage concentraties kunnen niet altijd gemeten worden. In 2024 is in het glastuinbouwgebied gebruik gemaakt van een nieuw meetpakket waarmee gevoeliger wordt gemeten. Mede hierdoor zijn er in 2024 meer normoverschrijdingen gemeten dan in eerdere jaren.
+Een probleem voor het onderzoek naar bestrijdingsmiddelen is dat de stoffen al giftig zijn bij zeer lage concentraties. Deze lage concentraties kunnen niet altijd gemeten worden. In 2024 is in het glastuinbouwgebied gebruik gemaakt van een nieuw meetpakket waarmee gevoeliger wordt gemeten. Dit kan deels verklaren waarom er in 2025 meer normoverschrijdingen gemeten zijn dan in eerdere jaren.
 :::
 
 ::: column-body

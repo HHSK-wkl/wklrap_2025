@@ -3,11 +3,9 @@
 library(tidyverse)
 library(HHSKwkl)
 library(glue)
-# library(colorspace)
 library(scales)
 library(ggbeeswarm)
 library(ggtext)
-# library(plotly)
 library(leaflet)
 
 rap_jaar <- 2025
@@ -16,7 +14,6 @@ fys_chem <- readRDS("data/fys_chem.rds") %>% HHSKwkl::add_jaar()
 meetpunten <- readRDS("data/meetpunten.rds")
 parameters <- readRDS("data/parameters.rds")
 toxiciteit <- readxl::read_excel("data/gbm_toxiciteit.xlsx", sheet = "SSDinfo")
-# ws_grens <- sf::st_read("data/ws_grens.gpkg", quiet = TRUE) %>% sf::st_transform(crs = 4326)
 
 theme_set(hhskthema())
 
@@ -304,24 +301,24 @@ plot_tox_glastuinbouw <-
        y = "% monsters met hoge toxiciteit") +
   panel_theme_extra
 
-plot_mspaf_mp <-
-  mspaf_mp %>%
-  filter(jaar == rap_jaar) %>% 
-  mutate(mp2 = fct_reorder2(mp2, desc(type), mspaf) |> fct_rev()) %>%
-  # filter(aantal_monsters > 2) %>% # locaties met 2 monsters en 1 pakket eruit alleen in 2023!!!
-  ggplot() +
-  geom_col(aes(mspaf, mp2, fill = landgebruik), colour = "grey60", linewidth = 0.2) +
-  geom_vline(xintercept = 0.005, colour = oranje, linetype = "dashed", linewidth = 0.8) + 
-  scale_x_continuous(expand = expansion(c(0, 0.05)), labels = function(.x) scales::percent(.x, accuracy = 1)) +
-  scale_fill_manual(values = kleuren_functies_gbm) +
-  facet_wrap(~type, scales = "free_x") +
-  labs(title = "Hoe schadelijk zijn de gewasbeschermingsmiddelen?",
-       subtitle = glue("per locatie in {rap_jaar}"),
-       x = "Percentage aangetaste soorten",
-       y = "Meetlocatie",
-       fill = "") +
-  hhskthema() +
-  panel_theme_extra
+# plot_mspaf_mp <-
+#   mspaf_mp %>%
+#   filter(jaar == rap_jaar) %>% 
+#   mutate(mp2 = fct_reorder2(mp2, desc(type), mspaf) |> fct_rev()) %>%
+#   # filter(aantal_monsters > 2) %>% # locaties met 2 monsters en 1 pakket eruit alleen in 2023!!!
+#   ggplot() +
+#   geom_col(aes(mspaf, mp2, fill = landgebruik), colour = "grey60", linewidth = 0.2) +
+#   geom_vline(xintercept = 0.005, colour = oranje, linetype = "dashed", linewidth = 0.8) + 
+#   scale_x_continuous(expand = expansion(c(0, 0.05)), labels = function(.x) scales::percent(.x, accuracy = 1)) +
+#   scale_fill_manual(values = kleuren_functies_gbm) +
+#   facet_wrap(~type, scales = "free_x") +
+#   labs(title = "Hoe schadelijk zijn de gewasbeschermingsmiddelen?",
+#        subtitle = glue("per locatie in {rap_jaar}"),
+#        x = "Percentage aangetaste soorten",
+#        y = "Meetlocatie",
+#        fill = "") +
+#   hhskthema() +
+#   panel_theme_extra
   
   # theme(legend.position = "bottom",
   #       plot.subtitle = element_text(face = "italic"),
@@ -353,6 +350,7 @@ plot_mspaf_tijd <-
        y = "Aandeel aangetaste soorten") +
   hhskthema() + 
   panel_theme_extra +
+  theme(strip.text = element_text(size = 12, hjust = 0))
   # theme(plot.subtitle = element_text(face = "italic"),
   #       axis.text.y = element_text(hjust = 1),
   #       panel.grid.major.x = element_blank(),
@@ -444,7 +442,8 @@ plot_overschr_freq <-
        x = "",
        y = "% normoverschrijdingen") +
   hhskthema() +
-  panel_theme_extra
+  panel_theme_extra +
+  theme(strip.text = element_text(size = 12, hjust = 0))
   # theme(panel.spacing = unit(25, "points"))
 
 # Niet toetsbare stoffen -----------------------------------------
