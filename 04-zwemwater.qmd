@@ -14,15 +14,17 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 
 ::: samenvatting
 
+Het zwemwater wordt bijna niet verontreinigd door bacteriën. Wel zijn er diverse locaties met problemen door blauwalgen en zwemmersjeuk. Er is één locatie die verontreinigd is met PFAS. Hoewel de verontreiniging nog niet weg is, is de situatie al wel sterk verbeterd.
+
+:::
+
 ```{r}
 #| label: tbl-overzicht-zwemwater
 #| tbl-cap: Overzicht van de zwemkwaliteit op de acht zwemwaterlocaties in 2025.
-#| tbl-cap-location: bottom
+#| tbl-cap-location: top
 #| out-width: 100%
 tabel_overzicht
 ```   
-
-:::
 
 ------------------------------------------------------------------------
 

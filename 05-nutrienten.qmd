@@ -6,12 +6,9 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 # Fosfaat en stikstof {#sec-nutrienten}
 
 ::: samenvatting
-|  |  |
-|-------------------|-----------------------------------------------------|
-| [{{< fa circle-down >}}]{.blauw} | De hoeveelheid fosfaat in het glastuinbouwgebied is verder gedaald en is voor het eerst niet meer het hoogste. |
-| [{{< fa star >}}]{.blauw} | In de grote plassen zijn de nutriëntenconcentraties het laagst. |
-| [{{< fa circle-down >}}]{.blauw} | De hoeveelheid fosfaat neemt langzaam af in gebieden met grasland, stedelijk gebied, de boezems en in de glastuinbouw. |
-| [{{< fa circle-down >}}]{.grijs} | De hoeveelheid stikstof neemt alleen in de boezems een klein beetje af. |
+
+ In gebieden met agrarisch gebruik, vooral glastuinbouw, is er vaak veel fosfaat en stikstof in het water. De hoeveelheid fosfaat en stikstof neemt over het algemeen wel af. Het waterschap besteed extra aandacht aan het glastuinbouwgebied om de hoeveelheid fosfaat en stikstof te verminderen.
+
 :::
 
 ------------------------------------------------------------------------
@@ -26,7 +23,7 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 ### Introductie {.unnumbered}
 
 ::: aside
-![](images%5Cvince_positive2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een voorzichtig blij kijkende vis"}
+![](images%5Cvince_neutral2.svg){.nolightbox fig-align="center" width="200" fig-alt="Pictogram van een voorzichtig blij kijkende vis"}
 :::
 
 Fosfaat en stikstof zijn voedingsstoffen die planten en algen nodig hebben om te groeien. Veel fosfaat en stikstof in het water is gunstig voor snelle groeiers zoals algen en kroos. Die soorten kunnen dan heel hard groeien en overlast geven. Andere soorten krijgen daardoor geen kans. Veel fosfaat en stikstof leidt daarom tot soortenverlies en een eenzijdig ecosysteem.

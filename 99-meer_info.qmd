@@ -1,4 +1,4 @@
-# Meer informatie {#meer_info .unnumbered}
+# Meer informatie {#sec-meer_info}
 
 Deze rapportage geeft een weergave van enkele waterkwaliteitsaspecten op hoofdlijnen. Er zijn nog veel meer gegevens en informatie beschikbaar. Hieronder wordt een overzicht gegeven van diverse andere informatiebronnen.
 
@@ -14,7 +14,7 @@ Op de website van HHSK, op de pagina [Actuele metingen waterkwaliteit](https://w
 
 ### Amerikaanse rivierkreeften {.unnumbered}
 
-Het hoogheemraadschap heeft in 2024 weer een gebiedsbreed onderzoek uitgevoerd naar het voorkomen van Amerikaanse Rivierkreeften. De resultaten van dit onderzoek zijn beschreven in [deze rapportage](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/kreeften_2024/){target="_blank"}
+Het hoogheemraadschap heeft in 2024 weer een gebiedsbreed onderzoek uitgevoerd naar het voorkomen van Amerikaanse Rivierkreeften. De resultaten van dit onderzoek zijn beschreven in [deze rapportage](https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/kreeften_2025/){target="_blank"}
 
 ### Kaderrichtlijn Water {.unnumbered}
 

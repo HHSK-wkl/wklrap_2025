@@ -1,6 +1,6 @@
 ---
 lightbox: auto
-description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2024. Dit hoofdstuk gaat over de algemene waterkwaliteitstoestand. Het gaat over de hoeveelheid waterplanten en kroos; over de invasieve exoot de Amerikaanse Rivierkreeft en over de aanwezigheid van blauwalgen"
+description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2025. Dit hoofdstuk gaat over de algemene waterkwaliteitstoestand. Het gaat over de hoeveelheid waterplanten en kroos; over de invasieve exoot de Amerikaanse Rivierkreeft en over de aanwezigheid van blauwalgen"
 ---
 
 # Toestand ecosysteem {#sec-toestand}
@@ -10,14 +10,10 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 #| include: false
 ```
 
-::: samenvatting
-**Nog aanpassen**
+::: {.samenvatting}
 
-|  |  |
-|----------------|--------------------------------------------------------|
-| [{{< fa circle-down >}}]{.oranje} | Waterplanten zijn in de Krimpenerwaard op bijna alle plekken verdwenen. |
-| [{{< fa circle-exclamation >}}]{.oranje} | Amerikaanse rivierkreeften hebben de hele Krimpenerwaard en veel plekken in Schieland gekoloniseerd. |
-| [{{< fa circle-exclamation >}}]{.oranje} | Blauwalgen komen op veel plekken voor en leiden soms tot overlast. |
+Er komen steeds meer Amerikaanse rivierkreeften. Het aantal is in de laatste vijf jaar verdubbeld. Met de opkomst van de kreeften verdwijnen de waterplanten en zelfs kroos steeds meer uit het gebied. De afwezigheid van planten leidt ook tot steeds meer blauwalgen.
+
 :::
 
 ------------------------------------------------------------------------

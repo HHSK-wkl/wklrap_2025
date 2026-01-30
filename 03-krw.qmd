@@ -1,6 +1,6 @@
 ---
 lightbox: auto
-description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2024. Dit hoofdstuk gaat over de Kaderrichtlijn Water (KRW). Het beschrijft de ligging van de waterlichamen, de doelen en de technische doelaanpassing en de huidige toestand en de beoordeling. Het gaat zowel over de KRW-waterlichamen als over het zogenaamde overig water."
+description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2025. Dit hoofdstuk gaat over de Kaderrichtlijn Water (KRW). Het beschrijft de ligging van de waterlichamen, de doelen en de technische doelaanpassing en de huidige toestand en de beoordeling. Het gaat zowel over de KRW-waterlichamen als over het zogenaamde overig water."
 ---
 
 # Ecologisch doelbereik - KRW {#sec-krw}
@@ -12,12 +12,9 @@ description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Sch
 ```
 
 ::: samenvatting
-|                                          |                                                                                              |
-|---|------------------------------------------------------------|
-| [{{< fa circle-info >}}]{.grijs}         | Het hoogheemraadschap heeft 26 verschillende waterlichamen.                                  |
-| [{{< fa circle-check >}}]{.blauw}        | Er zijn twee waterlichamen die momenteel voor alle biologische groepen voldoen aan het doel. |
-| [{{< fa circle-exclamation >}}]{.oranje} | Vooral in lijnvormige wateren voldoen waterplanten en macrofauna nog niet aan de doelen.     |
-| [{{< fa circle-exclamation >}}]{.grijs}  | Het meeste overige water bevindt zich op de helft van het doel.                              |
+
+De doelen voor het waterleven komen voort uit de Kaderrichtlijn Water. Veel wateren voldoen (bijna) aan deze doelstellingen. Er zijn echter ook veel wateren die nog niet voldoen en zelfs achteruitgegaan zijn door de opkomst van de Amerikaanse rivierkreeften.
+
 :::
 
 ------------------------------------------------------------------------

@@ -1,17 +1,14 @@
 ---
 lightbox: auto
-description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2024. Dit hoofdstuk gaat over gewasbeschermingsmiddelen of bestrijdingsmiddelen. Welke middelen worden aangetroffen en overschrijden ze de norm, dat blijkt uit de toetsing. En ook de vraag of de aanwezige stoffen giftig zijn komt aan bod bij de toxiciteit. "
+description: "Rapportage waterkwaliteit van waterschap Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) 2025. Dit hoofdstuk gaat over gewasbeschermingsmiddelen of bestrijdingsmiddelen. Welke middelen worden aangetroffen en overschrijden ze de norm, dat blijkt uit de toetsing. En ook de vraag of de aanwezige stoffen giftig zijn komt aan bod bij de toxiciteit. "
 ---
 
 # Bestrijdingsmiddelen {#sec-gbm}
 
 ::: samenvatting
-|                                          |                                                                                                                                                                    |
-|---|------------------------------------------------------------|
-| [{{< fa circle-exclamation >}}]{.oranje} | Er zijn 90 verschillende bestrijdingsmiddelen aangetroffen.                                                                  |
-| [{{< fa circle-exclamation >}}]{.oranje} | 13 verschillende bestrijdingsmiddelen overschrijden de norm.                                                                                                       |
-| [{{< fa circle-exclamation >}}]{.oranje} | De giftigheid door bestrijdingsmiddelen is soms zeer hoog. Op de slechtste locatie kan 1 op de 11 soorten direct doodgaan door de aanwezige bestrijdingsmiddelen.  |
-| [{{< fa circle-down >}}]{.blauw}         | Het aantal normoverschrijdingen van bestrijdingsmiddelen is de laatste 10 jaar verminderd.                                                                         |
+
+Er worden veel bestrijdingsmiddelen in het water aangetroffen. Ze overschrijden vaak de normen en hebben schadelijke effecten op het waterleven. Op de lange termijn nemen de normoverschrijdingen en schadelijke effecten wel steeds verder af.
+
 :::
 
 ------------------------------------------------------------------------
