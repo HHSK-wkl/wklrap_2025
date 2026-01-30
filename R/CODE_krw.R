@@ -201,6 +201,7 @@ krw_verandering <-
         margins = margin_auto(15),
         axis.text.y = element_text(hjust = 0),
         legend.position =  c(0.73, 0.10),
+        strip.text = element_text(size = 12, hjust = 0),
         # legend.background = element_rect(fill = wit),
         panel.grid.major.y = element_blank()) +
   labs(title = "Invloed van kreeften zorgt voor achteruitgang",

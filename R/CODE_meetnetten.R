@@ -6,7 +6,7 @@ library(reactable)
 library(glue)
 library(twn)
 
-rap_jaar <- 2024
+rap_jaar <- 2025
 
 fys_chem <- readRDS("data/fys_chem.rds") 
   
@@ -14,10 +14,9 @@ fys_chem <- readRDS("data/fys_chem.rds")
 meetpunten <- readRDS("data/meetpunten.rds")
 parameters <- readRDS("data/parameters.rds")
 bio <- readRDS("data/biologie.rds") %>% HHSKwkl::add_jaar()
-ws_grens <- st_read("data/ws_grens.gpkg", quiet = TRUE) %>% st_transform(crs = 4326)
 
 meetnetten <- 
-  readxl::read_excel("data/tabellen_monitoringsplan_OMS_03_01_2025.xlsx", "meetnetten") %>% 
+  readxl::read_excel("data/tabellen_monitoringsplan_OMS 30-1-2026.xlsx", "meetnetten") %>% 
   filter(!is.na(meetnet_code)) %>% 
   select(contains("meetnet"), mp = meetpunt_code, meetjaar) %>% 
   distinct()
@@ -174,7 +173,7 @@ kaart_meetnetten <-
   meetnetten_sel %>% 
   leaflet() %>% 
   addProviderTiles("CartoDB.Positron", group = "Kaart") %>% 
-  addPolylines(data = ws_grens, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
+  addPolylines(data = ws_grens_wgs, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
   addCircleMarkers(group = ~meetnet_label, label = ~mp, popup = ~popup_tekst,
                    color = ~pal(meetjaar), stroke = FALSE, fillOpacity = 1, radius = 8) %>% 
   addLayersControl(baseGroups = meetnet_labels$meetnet_label, 
@@ -189,7 +188,7 @@ kaart_meetnetten <-
 
 # leaflet() %>% 
 #   addProviderTiles("CartoDB.Positron", group = "Kaart") %>% 
-#   addPolylines(data = ws_grens, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
+#   addPolylines(data = ws_grens_wgs, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
 #   addCircleMarkers(data = filter(meetnetten_sel, meetnet_nr == 1),  group = "Basis meetnet",
 #                    color = ~pal(meetjaar), stroke = FALSE, fillOpacity = 1, radius = 8,
 #                    label = ~mp, popup = ~popup_tekst) %>% 
@@ -263,7 +262,7 @@ kaart_meetnetten <-
 #     sf::st_as_sf(coords = c("x", "y"), crs = 28992) %>% 
 #     st_transform(crs = 4326) %>% 
 #     basiskaart() %>% 
-#     addPolylines(data = ws_grens, opacity = 1, color = "grey", weight = 3, label = "waterschapsgrens") %>% 
+#     addPolylines(data = ws_grens_wgs, opacity = 1, color = "grey", weight = 3, label = "waterschapsgrens") %>% 
 #     leaflet.extras::addFullscreenControl()
 #     
 # }
@@ -289,7 +288,7 @@ kaart_meetnetten <-
 #   leaflet::addProviderTiles(leaflet::providers$Esri.WorldImagery, group = "Luchtfoto") %>%
 #   leaflet::addLayersControl(baseGroups = c("Kaart", "Luchtfoto"),
 #                             options = leaflet::layersControlOptions(collapsed = FALSE), position = "topleft") %>%
-#   addPolylines(data = ws_grens, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
+#   addPolylines(data = ws_grens_wgs, opacity = 1, color = "grey", weight = 2, label = "waterschapsgrens") %>%
 #   addPolygons(weight = 4, color = ~pal(naam),
 #               fillOpacity = 0.8, opacity = 0.8,
 #               label = ~naam,

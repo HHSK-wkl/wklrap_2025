@@ -101,7 +101,7 @@ plot_submers <-
   geom_line(colour = blauw, linewidth = 1) +
   geom_point(colour = blauw) + 
   ggrepel::geom_text_repel(aes(label = paste0(round(perc), "%")), nudge_y = 8, direction = "y",
-                            color = blauw, segment.color = grijs, segment.linetype = "dotted",
+                            color = grijs_d, segment.color = grijs, segment.linetype = "dotted",
                             family = "Ruda Bold", size = 4,
                             data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
   facet_wrap(~gebied, scales = "free_y") +
@@ -113,7 +113,8 @@ plot_submers <-
        x = "",
        caption = "locaties met tenminste 5% begroeiing") +
   hhskthema() +
-  panel_theme_extra
+  panel_theme_extra +
+  theme(strip.text = element_text(size = 12, hjust = 0))
 
 #"#edf7f8" 95%
 #EDF5FF
@@ -138,7 +139,8 @@ plot_kroos <-
        x = "",
        caption = "locaties meer dan de helft bedekt met kroos") +
   hhskthema() +
-  panel_theme_extra
+  panel_theme_extra +
+  theme(strip.text = element_text(size = 12, hjust = 0))
 
 
 # Kaart met kreeften ------------------------------------------------------
@@ -209,18 +211,19 @@ plot_kreeften_aandeel_locs <-
   ggplot(aes(jaar, frac_aangetroffen)) +
   geom_line(linewidth = 1) +
   geom_point() +
-  ggrepel::geom_text_repel(aes(label = paste0(round(frac_aangetroffen * 100), "%")), nudge_y = -0.08, direction = "y",
-                           color = blauw, segment.color = grijs, segment.linetype = "dotted",
-                           family = "Ruda Bold", size = 4,
-                           data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
+  # ggrepel::geom_text_repel(aes(label = paste0(round(frac_aangetroffen * 100), "%")), nudge_y = -0.08, direction = "y",
+  #                          color = blauw, segment.color = grijs, segment.linetype = "dotted",
+  #                          family = "Ruda Bold", size = 4,
+  #                          data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
   scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.1)), labels = scales::percent_format()) +
   facet_wrap(~gebied, axes = "all") +
-  labs(title = "Toename van kreeften in Schieland",
+  labs(title = "Toename van plekken met kreeften in Schieland",
        subtitle = "Op welke deel van de locaties worden kreeften aangetroffen?",
        x = "",
        y = "% locaties met kreeften") +
   hhskthema() +
-  panel_theme_extra
+  panel_theme_extra +
+  theme(strip.text = element_text(size = 12, hjust = 0))
 
 plot_kreeften_aantallen <-
   kreeften_tot %>% 
@@ -231,7 +234,7 @@ plot_kreeften_aantallen <-
   geom_line(linewidth = 1) +
   geom_point() +
   ggrepel::geom_text_repel(aes(label = round(gem_n_kreeften)), nudge_y = -4, direction = "y",
-                           color = blauw, segment.color = grijs, , segment.linetype = "dotted", 
+                           color = grijs_d, segment.color = grijs, , segment.linetype = "dotted", 
                            family = "Ruda Bold", size = 4,
                             data = . %>% filter(jaar %in% c(min(jaar), max(jaar)))) +
   scale_y_continuous(limits = c(0, 1), expand = expansion(c(0, 0.1)), labels = scales::percent_format()) +
@@ -243,7 +246,8 @@ plot_kreeften_aantallen <-
        y = "Aantal",
        caption = "Getrimd gemiddelde van locaties waar kreeften zijn aangetroffen") +
   hhskthema() +
-  panel_theme_extra
+  panel_theme_extra +
+  theme(strip.text = element_text(size = 12, hjust = 0))
 
 
 

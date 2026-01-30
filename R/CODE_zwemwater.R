@@ -98,7 +98,8 @@ kaart_zwemlocaties <-
   HHSKwkl::basiskaart(type = "cartolight") %>%
   addMarkers(icon = ~zwem_icons[oordeel], label = ~paste(naam, "-", oordeel), popup = ~popup, options = markerOptions(riseOnHover = TRUE)) %>%
   addPolylines(data = ws_grens_wgs, color = "#616161", weight = 3, label = ~"waterschapsgrens") %>%
-  addControl(html = zwem_legend, position = "topright")
+  addControl(html = zwem_legend, position = "topright") %>% 
+  leaflet.extras::addFullscreenControl()
 
 ## ---- waarschuwingen-blauwalg ----
 
@@ -157,6 +158,7 @@ blauwalgenplot <-
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
     panel.grid.major.y = element_blank(),
+    strip.text = element_text(size = 12, hjust = 0),
     legend.position = "top")
   
     
