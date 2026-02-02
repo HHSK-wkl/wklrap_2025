@@ -46,7 +46,7 @@ n_parameters_fc <- fys_chem_sel %>% summarise(n = n_distinct(parnr)) %>% pull(n)
 groepen <- 
   parameters %>% 
   mutate(groep = case_when(
-    parnr %in% c(1:99) ~ "Algemene stoffen",
+    parnr %in% c(1:99) ~ "Algemene stoffen en metingen",
     parnr %in% c(100:199) ~ "Veldwaarnemingen",
     parnr %in% c(200:299) ~ "Metalen",
     parnr %in% c(300:499) ~ "Zwemwatermetingen",

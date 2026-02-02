@@ -97,7 +97,7 @@ Vanaf het eerste stroomgebiedsbeheerplan (SGBP) in 2009-2015 zijn er veel maatre
 #| label: fig-krw-verandering
 #| fig-height: 6
 #| out-width: "100%"
-#| fig-cap: "De gemiddelde verandering ten opzichte van de doelstelling per type water per biologische groep."
+#| fig-cap: "De gemiddelde verandering ten opzichte van de doelstelling per type water per biologische groep. De lengte van de peil geeft aan hoe groot de verandering is. De richting laat zien of het gaat om een vertbtering of achteruitgang."
 #| fig-alt: "Figuur met de verandering van de KRW-opgave sinds het eerste stroomgebiedsbeheerplan"
 #| lightbox:
 #|   group: krw
