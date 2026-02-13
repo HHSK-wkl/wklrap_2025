@@ -107,7 +107,9 @@ plot_mspaf_tijd
 
 ### Ontwikkeling normoverschrijdingen {.unnumbered}
 
-Op elke onderzochte locatie kan elk afzonderlijk bestrijdingsmiddel worden getoetst aan de norm. Dit leidt tot een groot aantal toetsingen (*aantal locaties x aantal stoffen*). Bij een gedeelte van deze toetsingen wordt een overschrijding van de norm geconstateerd. Het percentage van de toetsingen met een normoverschrijding geeft een indicatie of het aantal normoverschrijdingen verandert. In @fig-overschr-fractie-van-toetsingen is de ontwikkeling van het percentage normoverschrijdingen weergegeven per type landgebruik. Het percentage overschrijdingen neemt over het algemeen af. Wel zijn er in 2024 en 2025 meer overschrijdingen gemeten dan daarvoor. Dit komt niet door een verslechtering van de waterkwaliteit, maar door een verbetering van de het meetpakket. 
+Op elke onderzochte locatie kan elk afzonderlijk bestrijdingsmiddel worden getoetst aan de norm. Dit leidt tot een groot aantal toetsingen (*aantal locaties x aantal stoffen*). Bij een gedeelte van deze toetsingen wordt een overschrijding van de norm geconstateerd. Het percentage van de toetsingen met een normoverschrijding geeft een indicatie of het aantal normoverschrijdingen verandert. 
+
+In @fig-overschr-fractie-van-toetsingen is de ontwikkeling van het percentage normoverschrijdingen weergegeven per type landgebruik. Het percentage overschrijdingen neemt over het algemeen af. Wel zijn er in 2024 en 2025 meer overschrijdingen gemeten dan daarvoor. Dit komt niet door een verslechtering van de waterkwaliteit, maar door een verbetering van de het meetpakket. 
 
 ::: {.callout-note collapse="true"}
 
