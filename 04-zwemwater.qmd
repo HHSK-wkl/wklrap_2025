@@ -66,7 +66,7 @@ Poepbacteriën in het zwemwater kunnen ziektes veroorzaken. Daarom wordt de bact
 
 Blauwalgen maken gifstoffen aan. Als er veel blauwalgen zijn is dat een gezondheidsrisico voor zwemmers. De oorzaak van veel blauwalgen is meestal dat er teveel voedingsstoffen (fosfaat en stikstof) in het water zitten. Het waterschap heeft op veel plekken maatregelen uitgevoerd om fosfaat en stikstof te verminderen en zo de (zwem)waterkwaliteit te verbeteren.
 
-Als er veel blauwalgen op een zwemlocatie zijn, wordt daarvoor gewaarschuwd. Dat gebeurt met een waarschuwing of als er heel veel blauwalgen zijn met een negatief zwemadvies. Bij een negatief zwemadvies wordt iedereen afgeraden om te zwemmen.[^04-zwemwater-2] In @fig-grafiek-blauwalgen is te zien hoeveel dagen er een waarschuwing van kracht is geweest op de zwemlocaties. In 2025 was er gemiddeld per zwemlocatie [**`r aantal_dagen_blauwalg_gemiddeld`**]{.donkerblauw} dagen een waarschuwing van kracht. De Zevenhuizerplas valt op door de zeer goede zwemwaterkwaliteit. [**In de Zevenhuizerplas is al meer dan 10 jaar geen enkele waarschuwing vanwege blauwalgen geweest.**]{.donkerblauw}
+Als er veel blauwalgen op een zwemlocatie zijn, wordt daarvoor gewaarschuwd. Dat gebeurt met een waarschuwing of als er heel veel blauwalgen zijn met een negatief zwemadvies. Bij een negatief zwemadvies wordt iedereen afgeraden om te zwemmen.[^04-zwemwater-2] In @fig-grafiek-blauwalgen is te zien hoeveel dagen er een waarschuwing van kracht is geweest op de zwemlocaties. In 2025 was er gemiddeld per zwemlocatie [**`r aantal_dagen_blauwalg_gemiddeld`**]{.donkerblauw} dagen een waarschuwing van kracht. De Zevenhuizerplas valt op door de zeer goede zwemwaterkwaliteit. [**In de Zevenhuizerplas is al meer dan 10 jaar geen enkele waarschuwing vanwege blauwalgen geweest.**]{.donkerblauw} De Krimpenerhout, Willem-Alexanderbaan en de Bleiswijkse Zoom hadden in 2025 vrij lang te maken met een waarschuwing vanwege blauwalgen.
 
 [^04-zwemwater-2]: Voor een negatief zwemadvies moeten er ruim 6x meer blauwalgen aanwezig zijn dan voor een waarschuwing. Zie voor een verder toelichting op een waarschuwing en negatief zwemadvies: [Meldingen \| zwemwater.nl](https://www.zwemwater.nl/meldingen#waarschuwing){target="_blank"}
 
@@ -82,18 +82,13 @@ blauwalgenplot_totaal
 
 ```{r}
 #| label: fig-grafiek-blauwalgen
-#| fig-cap: "Aantal dagen per zwemlocatie met een waarschuwing of negatief zwemadvies vanwege blauwalg. Het getal geeft het totaal aantal dagen weer."
+#| fig-cap: "Aantal dagen per zwemlocatie met een waarschuwing of negatief zwemadvies vanwege blauwalg. Het getal geeft het totaal aantal dagen weer. De locatie Willem-Alexanderbaan is pas sinds 2023 een officiële zwemwaterlocatie. "
 #| fig-alt: "Aantal dagen per zwemlocatie met een waarschuwing of negatief zwemadvies vanwege blauwalg."
-#| fig-cap-location: margin
 #| out-width: "100%"
 #| fig-height: 9
 blauwalgenplot
 
 ```
-
-#### Maatregelen tegen blauwalgen {.unnumbered}
-
-Op verschillende zwemlocaties zijn er in de afgelopen jaren maatregelen uitgevoerd om de waterkwaliteit te verbeteren en de hoeveelheid blauwalgen te verminderen: de Bleiswijkse Zoom (2021), de Kralingse Plas (2021) en de Krimpenerhout (2019 en 2024). Toch worden hier nog blauwalgen aangetroffen. Dat wil niet zeggen dat de maatregelen geen effect hebben. De hoeveelheid blauwalgen is op deze zwemlocaties een stuk kleiner dan voor de maatregelen. Dat is ook terug te zien doordat er op deze locaties sinds de maatregelen bijna geen negatieve zwemadviezen meer worden gegeven.
 
 ### Jeukklachten {.unnumbered}
 
