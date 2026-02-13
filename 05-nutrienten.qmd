@@ -146,6 +146,8 @@ plot_glastuinbouw
 
 Vanwege de emissies van fosfaat, stikstof en ook bestrijdingsmiddelen (@sec-gbm) besteedt het waterschap extra aandacht aan het glastuinbouwgebied. In het programma *Emissieloze Kas* wordt samengewerkt met de glastuinbouwsector en andere overheden om emissies terug te dringen.
 
+#### Pilot nitraatmeter {-}
+
 In 2025 is een pilot uitgevoerd met een nitraatmeter ([-@fig-nitraatmeter]). Deze meter meet elke kwartier de nitraatconcentratie in het water. Nitraat is een goede indicator voor lozingen. Met de meter kunnen we voortdurend volgen of er aanwijzingen zijn voor een lozing. In 2025 hebben we meerdere malen gezien dat de concentratie in korte tijd sterk toenam ([-@fig-nitraatmeter-grafiek]). Op basis hiervan hebben toezichthouders diverse lozingen op kunnen sporen en snel kunnen stoppen. De nitraatmeter heeft zijn waarde bewezen. Daarom worden er in 2026 nog enkele nitraatmeters in het glastuinbouwgebied geplaatst.
 
 ::: {#fig-nitraatmeter layout-ncol="2"}
