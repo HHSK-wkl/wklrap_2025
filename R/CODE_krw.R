@@ -172,6 +172,21 @@ ekrs <-
   left_join(select(krw_data, wl_code, groep, type, doel)) %>% 
   arrange(wl_code, type)
 
+draw_key_line <- function(data, params, size) {
+  if (is.null(data$linetype)) {
+    data$linetype <- 0
+  }
+  grob <-
+    grid::segmentsGrob(
+      0.1, 0.5, 0.9, 0.5,
+      gp = ggplot2::gg_par(col = alpha(data$colour %||% data$fill %||% "black", data$alpha),
+                           fill = alpha(params$arrow.fill %||% data$colour %||% data$fill %||% "black", data$alpha),
+                           lwd = data$linewidth %||% 0.5,
+                           lty = data$linetype %||% 1,
+                           lineend = params$lineend %||% "butt"))
+  grob
+}
+
 krw_verandering <-
   ekrs %>% 
   mutate(type = fct_relevel(type, c("Algen", "Waterplanten", "Macrofauna", "Vis")),
@@ -188,10 +203,11 @@ krw_verandering <-
          test =  coalesce(SGBP_1, SGBP_2)) %>% 
   mutate(verandering2 = ifelse(verandering >= 0, "verbetering", "achteruitgang")) %>% 
   ggplot(aes(y = type, colour = verandering2)) +
-  geom_segment(aes(x = SGBP_1, xend = SGBP_3), linewidth = 1, arrow = arrow(angle = 30, length = unit(0.2, "cm"),
-                                                                            ends = "last", type = "closed")) +
+  geom_segment(aes(x = SGBP_1, xend = SGBP_3), linewidth = 1, 
+               arrow = arrow(angle = 30, length = unit(0.2, "cm"), ends = "last", type = "closed"),
+               key_glyph = draw_key_line) +
   facet_wrap(~groep, ncol = 2, axes = "all") +
-  scale_colour_manual(values = c(verbetering = blauw, achteruitgang = oranje), guide = guide_legend(title = "Soort verandering")) +
+  scale_colour_manual(values = c(verbetering = blauw, achteruitgang = oranje), guide = guide_legend(title = "Soort verandering", reverse = TRUE)) +
   scale_y_discrete(limits = rev) +
   scale_x_continuous(labels = scales::label_percent(), limits = c(0, 1), expand = c(0,0), ) +
   hhskthema() +
