@@ -103,20 +103,25 @@ In de figuur [-@fig-mspaf-tijd] is de toxiciteit per meetlocatie per jaar weerge
 plot_mspaf_tijd
 ```
 
-
 :::
-
 
 ### Ontwikkeling normoverschrijdingen {.unnumbered}
 
-Op elke onderzochte locatie kan elk afzonderlijk bestrijdingsmiddel worden getoetst aan de norm. Dit leidt tot een groot aantal toetsingen (*aantal locaties x aantal stoffen*). Bij een gedeelte van deze toetsingen wordt een overschrijding van de norm geconstateerd. Het percentage van de toetsingen met een normoverschrijding geeft een indicatie of het aantal normoverschrijdingen verandert. In @fig-overschr-fractie-van-toetsingen is de ontwikkeling van het percentage normoverschrijdingen weergegeven per type landgebruik. Het percentage overschrijdingen neemt over het algemeen af. wel zijn er in 2025 zijn er wel meer overschrijdingen gemeten dan in 2024.
+Op elke onderzochte locatie kan elk afzonderlijk bestrijdingsmiddel worden getoetst aan de norm. Dit leidt tot een groot aantal toetsingen (*aantal locaties x aantal stoffen*). Bij een gedeelte van deze toetsingen wordt een overschrijding van de norm geconstateerd. Het percentage van de toetsingen met een normoverschrijding geeft een indicatie of het aantal normoverschrijdingen verandert. In @fig-overschr-fractie-van-toetsingen is de ontwikkeling van het percentage normoverschrijdingen weergegeven per type landgebruik. Het percentage overschrijdingen neemt over het algemeen af. Wel zijn er in 2024 en 2025 meer overschrijdingen gemeten dan daarvoor. Dit komt niet door een verslechtering van de waterkwaliteit, maar door een verbetering van de het meetpakket. 
 
-::: aside
-*Nieuw meetpakket*\
-Een probleem voor het onderzoek naar bestrijdingsmiddelen is dat de stoffen al giftig zijn bij zeer lage concentraties. Deze lage concentraties kunnen niet altijd gemeten worden. In 2024 is in het glastuinbouwgebied gebruik gemaakt van een nieuw meetpakket waarmee gevoeliger wordt gemeten. Dit kan deels verklaren waarom er in 2025 meer normoverschrijdingen gemeten zijn dan in eerdere jaren.
+::: {.callout-note collapse="true"}
+
+### Veranderingen in het meetpakket
+
+Een probleem voor het onderzoek naar bestrijdingsmiddelen is dat de stoffen al giftig zijn bij zeer lage concentraties. Daarom is de norm voor deze stoffen ook heel laag. Maar deze lage concentraties kunnen niet altijd gemeten worden. Vanaf 2024 gebruiken we een extra meetpakket waarmee gevoeliger wordt gemeten. Hierdoor kunnen we beter bepalen of er normoverschrijdingen zijn.
+
+Met het nieuwe meetpakket kunnen we normoverschrijdingen beter vaststellen. Daardoor meten we ook meer normoverschrijdingen. Waarschijnlijk waren deze overschrijdingen er ook in eerdere jaren maar konden ze niet gemeten worden. 
+
+In figuur [-@fig-overschr-fractie-van-toetsingen-excl-laag] is weergegeven hoeveel normoverschrijdingen er zouden zijn zonder het nieuwe pakket. 
+
 :::
 
-::: column-body
+
 ```{r}
 #| label: fig-overschr-fractie-van-toetsingen
 #| fig-height: 5
@@ -127,5 +132,20 @@ Een probleem voor het onderzoek naar bestrijdingsmiddelen is dat de stoffen al g
 #|   group: gbm
 plot_overschr_freq
 ```
-:::
 
+::: {.callout-note collapse="true"}
+
+### Hoe zou het geweest zijn zonder het nieuwe pakket?
+
+```{r}
+#| label: fig-overschr-fractie-van-toetsingen-excl-laag
+#| fig-height: 5
+#| out-width: "100%"
+#| fig-cap: "Het percentage van alle toetsingen dat de norm zou overschrijden als we het nieuwe pakket niet zouden gebruiken."
+#| fig-alt: "Het percentage van alle toetsingen dat de norm zou overschrijden als we het nieuwe pakket niet zouden gebruiken."
+#| lightbox:
+#|   group: gbm
+plot_overschr_freq_excl_laag
+```
+
+:::
