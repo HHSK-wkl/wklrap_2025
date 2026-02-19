@@ -6,32 +6,27 @@ project:
    - "R/post_render_zwem_icons.R"
    # - "R/post_render_pdf.R"
 
-website: 
-  announcement: 
-    icon: info-circle
-    dismissable: true
-    content: "Dit is nog een conceptversie!"
-    type: warning
-    position: above-navbar
-    
+# website:
+#   announcement:
+#     icon: info-circle
+#     dismissable: true
+#     content: "Dit is nog een conceptversie!"
+#     type: warning
+#     position: above-navbar
+
   
 book:
-  title: "Rapportage waterkwaliteit 2025"
+  title: "Rapportage waterkwaliteit 2025 - HHSK"
   repo-url: "https://github.com/HHSK-wkl/wklrap_2025"
   sharing: [linkedin, twitter]
   downloads: [pdf]
   navbar:
     search: true
-    # left:
-    #   - text: Meer informatie
-    #     href: 99-meer_info.html
-      # - text: "Kreeftenrapportage"
-      #   href: https://www.schielandendekrimpenerwaard.nl/kaart/waterkwaliteit/waterkwaliteitsrapportages/kreeften_2025/
     # background: "#D2EBEE"
     logo: logo-hhsk-wit
     pinned: false
-  sidebar:
-    title: "Rapportage waterkwaliteit 2025"
+  # sidebar:
+  #   title: "Rapportage waterkwaliteit 2025"
   page-footer: 
     center: 
       "![](images/schonevoeten.png){width=50%}"
@@ -78,8 +73,6 @@ format:
         - cosmo
         - brand
         - css/styles_wklrap.scss
-    # fig-format: svg
-    # cap-location: margin
     reference-location: document
 
 lang: nl

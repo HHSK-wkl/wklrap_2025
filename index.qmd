@@ -56,6 +56,8 @@ Er is veel meer informatie over waterkwaliteit dan in deze rapportage opgenomen 
 
 Deze rapportage is digitaal en heeft diverse interactieve elementen. Door op de afbeeldingen te klikken kan worden ingezoomd en door de figuren worden gebladerd. De kaarten kunnen worden ingezoomd en op volledig scherm worden weergegeven. Door op de objecten op de kaart te klikken wordt meer informatie zichtbaar.
 
+Het is mogelijk om door de rapportage te bladeren via de inhoudsopgave linksboven en met de knoppen onderaan elke pagina.
+
 Deze rapportage is voor een belangrijk deel automatisch opgebouwd uit data en computercode. De data en code zijn beschikbaar via [Github - Waterkwaliteitsrapportage 2025](https://github.com/HHSK-wkl/wklrap_2025){.groen}.
 
 <br>
